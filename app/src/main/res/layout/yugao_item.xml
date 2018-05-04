@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/yugao_img_one"
+        android:layout_width="match_parent"
+        android:layout_height="220dp" />
+    <TextView
+        android:id="@+id/yugao_time"
+        android:text="开课时间 : 2018-04-14 14:00"
+        android:background="@android:drawable/alert_light_frame"
+        android:layout_marginTop="-38dp"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="地址 :"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="地址 :1111"
+            android:textSize="20sp"
+            android:id="@+id/yugao_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/yiyuyue"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已预约:"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:text="6/20"
+            android:textSize="15sp"
+            android:layout_toRightOf="@id/yiyuyue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="15sp"
+            android:id="@+id/yuegao_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="¥128.0"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="login_close_c">#666666</color>
+    <color name="d8_c">#d8d8d8</color>
+    <color name="login_phone_flag_c">#303030</color>
+    <color name="login_phone_tx_c">#333333</color>
+    <color name="gray">#A7A8AE</color>
+    <color name="login_line_c">#ededed</color>
+    <color name="white">#ffffff</color>
+    <color name="b3_c">#b3b3b3</color>
+    <color name="blue_arlt">#5491FF</color>
+    <color name="sort_normal">#f8f8f8</color>
+    <color name="green_arlt">#7ED321</color>
+    <color name="red_arlt">#F35633</color>
+    <color name="yellow_arlt">#FFD235</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="white_alpha">#75ffffff</color>
+
+    <color name="blue">#D83d566e</color>
+
+    <color name="blue_prograss">#b3c6f1</color>
+
+    <color name="black">#333333</color>
+
+    <color name="black_ligh">#3d566e</color>
+
+    <color name="blue_brilliant">#00a0e9</color>
+
+    <color name="blue_ligh">#803d566e</color>
+
+    <color name="red">#d9534f</color>
+
+    <color name="gray_fa">#f9f9f9</color>
+
+    <color name="gray_faa">#fafafa</color>
+
+    <color name="gray_f6">#f6f6f6</color>
+
+    <color name="gray_pg">#738292</color>
+
+    <color name="gray_prograss_bg">#e6e6e6</color>
+
+    <color name="mask">#88000000</color>
+
+    <color name="orange">#f97d03</color>
+
+    <color name="orange_arlt">#F35633</color>
+
+    <color name="orange_ligh">#ec8832</color>
+
+    <color name="orange_btn">#dfa034</color>
+
+    <color name="green">#51a351</color>
+
+    <color name="alpha_gray">#50000000</color>
+
+    <color name="gray_border">#d9d9d9</color>
+
+    <color name="detail_pop_line">#33000000</color>
+
+</resources>

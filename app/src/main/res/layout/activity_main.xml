@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="11"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/titleimage"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/title_logo" />
+
+        <ImageView
+            android:id="@+id/message"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@mipmap/home_master_shape" />
+
+        <ImageView
+            android:id="@+id/set"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="71dp"
+            android:layout_marginRight="71dp"
+            android:src="@mipmap/publish_valuable"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fragmentcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"></FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="5">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="5"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/mingshi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/teacher_select"
+                android:gravity="center"
+                android:text="名师" />
+            <RadioButton
+                android:id="@+id/work"
+                android:gravity="center"
+                android:text="作业"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/homework_select"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/valuable"
+                android:gravity="center"
+                android:text="宝典"
+                android:drawableTop="@drawable/baodian_select"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/notice"
+                android:gravity="center"
+                android:text="预告"
+                android:drawableTop="@drawable/yugao_select"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/myself"
+                android:gravity="center"
+                android:text="我的"
+                android:drawableTop="@drawable/my_select"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:button="@null"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+</LinearLayout>

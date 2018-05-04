@@ -1,0 +1,202 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="ts_352">352dp</dimen>
+
+    <dimen name="ts_346">346dp</dimen>
+
+    <dimen name="ts_336">336dp</dimen>
+
+    <dimen name="ts_306">306dp</dimen>
+
+    <dimen name="ts_280">280dp</dimen>
+
+    <dimen name="ts_260">260dp</dimen>
+
+    <dimen name="ts_250">250dp</dimen>
+
+    <dimen name="ts_236">236dp</dimen>
+
+    <dimen name="ts_210">210dp</dimen>
+
+    <dimen name="ts_202">202dp</dimen>
+
+    <dimen name="ts_200">200dp</dimen>
+
+    <dimen name="ts_198">198dp</dimen>
+
+    <dimen name="ts_189">189dp</dimen>
+
+    <dimen name="ts_180">180dp</dimen>
+
+    <dimen name="ts_172">172dp</dimen>
+
+    <dimen name="ts_170">170dp</dimen>
+
+    <dimen name="ts_162">162dp</dimen>
+
+    <dimen name="ts_160">160dp</dimen>
+
+    <dimen name="ts_152">152dp</dimen>
+
+    <dimen name="ts_150">150dp</dimen>
+
+    <dimen name="ts_171">171dp</dimen>
+
+    <dimen name="ts_145">145dp</dimen>
+
+    <dimen name="ts_140">140dp</dimen>
+
+    <dimen name="ts_132">132dp</dimen>
+
+    <dimen name="ts_130">130dp</dimen>
+
+    <dimen name="ts_116">116dp</dimen>
+
+    <dimen name="ts_108">108dp</dimen>
+
+    <dimen name="ts_106">106dp</dimen>
+
+    <dimen name="ts_101">101dp</dimen>
+
+    <dimen name="ts_100">100dp</dimen>
+
+    <dimen name="ts_96">96dp</dimen>
+
+    <dimen name="ts_94">94dp</dimen>
+
+    <dimen name="ts_92">92dp</dimen>
+
+    <dimen name="ts_90">90dp</dimen>
+
+    <dimen name="ts_88">88dp</dimen>
+
+    <dimen name="ts_84">84dp</dimen>
+
+    <dimen name="ts_82">82dp</dimen>
+
+    <dimen name="ts_80">80dp</dimen>
+
+    <dimen name="ts_78">78dp</dimen>
+
+    <dimen name="ts_77">77dp</dimen>
+
+    <dimen name="ts_76">76dp</dimen>
+
+    <dimen name="ts_75">75dp</dimen>
+
+    <dimen name="ts_74">74dp</dimen>
+
+    <dimen name="ts_72">72dp</dimen>
+
+    <dimen name="ts_70">70dp</dimen>
+
+    <dimen name="ts_69">69dp</dimen>
+
+    <dimen name="ts_68dp">68dp</dimen>
+
+    <dimen name="ts_67">67dp</dimen>
+
+    <dimen name="ts_65">65dp</dimen>
+
+    <dimen name="ts_60">60dp</dimen>
+
+    <dimen name="ts_59">59dp</dimen>
+
+    <dimen name="ts_58">58dp</dimen>
+
+    <dimen name="ts_56">56dp</dimen>
+
+    <dimen name="ts_54">54dp</dimen>
+
+    <dimen name="ts_52">52dp</dimen>
+
+    <dimen name="ts_50">50dp</dimen>
+
+    <dimen name="ts_47">47dp</dimen>
+
+    <dimen name="ts_48">48dp</dimen>
+
+    <dimen name="ts_46">46dp</dimen>
+
+    <dimen name="ts_45">45dp</dimen>
+
+    <dimen name="ts_44">44dp</dimen>
+
+    <dimen name="ts_42">42dp</dimen>
+
+    <dimen name="ts_40">40dp</dimen>
+
+    <dimen name="ts_39">39dp</dimen>
+
+    <dimen name="ts_38">38dp</dimen>
+
+    <dimen name="ts_36">36dp</dimen>
+
+    <dimen name="ts_35">35dp</dimen>
+
+    <dimen name="ts_34">34dp</dimen>
+
+    <dimen name="ts_33">33dp</dimen>
+
+    <dimen name="ts_32">32dp</dimen>
+
+    <dimen name="ts_30">30dp</dimen>
+
+    <dimen name="ts_28">28dp</dimen>
+
+    <dimen name="ts_27">27dp</dimen>
+
+    <dimen name="ts_26">26dp</dimen>
+
+    <dimen name="ts_25">25dp</dimen>
+
+    <dimen name="ts_24">24dp</dimen>
+
+    <dimen name="ts_22">22dp</dimen>
+
+    <dimen name="ts_20">20dp</dimen>
+
+    <dimen name="ts_19">19dp</dimen>
+
+    <dimen name="ts_18">18dp</dimen>
+
+    <dimen name="ts_17">17dp</dimen>
+
+    <dimen name="ts_16">16dp</dimen>
+
+    <dimen name="ts_15">15dp</dimen>
+
+    <dimen name="ts_14">14dp</dimen>
+
+    <dimen name="ts_13">13dp</dimen>
+
+    <dimen name="ts_12">12dp</dimen>
+
+    <dimen name="ts_11">11dp</dimen>
+
+    <dimen name="ts_10">10dp</dimen>
+
+    <dimen name="ts_9">9dp</dimen>
+
+    <dimen name="ts_8">8dp</dimen>
+
+    <dimen name="ts_7">7dp</dimen>
+
+    <dimen name="ts_6">6dp</dimen>
+
+    <dimen name="ts_5">5dp</dimen>
+
+    <dimen name="ts_4">4dp</dimen>
+
+    <dimen name="ts_3">3dp</dimen>
+
+    <dimen name="ts_2">2dp</dimen>
+
+    <dimen name="ts_1dp">1dp</dimen>
+
+    <dimen name="ts_1">1px</dimen>
+
+</resources>
