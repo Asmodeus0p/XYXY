@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.model.utils.BitmapHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
@@ -92,42 +93,33 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
             viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_listitem_studentimg);
             viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_listitem_studentname);
             viewHolder.time = convertView.findViewById(R.id.home_masterwork_listitem_time);
-            @ViewInject(R.id.home_masterwork_list_item_reply_cb)
-            @ViewInject(R.id.home_masterwork_list_item_praise_group)
-            @ViewInject(R.id.home_masterwork_list_item_praise_cb)
-            @ViewInject(R.id.home_masterwork_list_item_reward_group)
-            @ViewInject(R.id.home_masterwork_listview_item_peep)
-            @ViewInject(R.id.home_masterwork_list_item_reward_cb)
-            @ViewInject(R.id.home_masterwork_listitem_audio_gorpu)
-            @ViewInject(R.id.home_masterwork_listitem_audio_time)
-            @ViewInject(R.id.home_masterwork_listitem_video_gorpu)
-            @ViewInject(R.id.home_masterwork_listitem_video_time)
-            @ViewInject(R.id.home_masterwork_listitem_teacher_group)
-            @ViewInject(R.id.home_masterwork_listview_item_peep_price)
-            @ViewInject(R.id.home_masterwork_listitem_teacher_group_line)
-            @ViewInject(R.id.home_masterwork_listitem_introimg_group)
-            @ViewInject(R.id.home_masterwork_listitem_audioimg)
-                    viewHolder.from = convertView.findViewById(R.id.home_masterwork_listitem_from);
+
+             viewHolder.from = convertView.findViewById(R.id.home_masterwork_listitem_from);
             viewHolder.content = convertView.findViewById(R.id.home_masterwork_listitem_content);
             viewHolder.contentintro = convertView.findViewById(R.id.home_masterwork_listitem_contentintro);
             viewHolder.introimg = convertView.findViewById(R.id.home_masterwork_listitem_introimg);
             viewHolder.worktype = convertView.findViewById(R.id.home_masterwork_listitem_worktype);
             viewHolder.teacherimg = convertView.findViewById(R.id.home_masterwork_listitem_teacherimg);
             viewHolder.teachername = convertView.findViewById(R.id.home_masterwork_listitem_teachername);
-            viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_listitem_teacherintro);
-            viewHolder.time = convertView.findViewById(R.id.home_masterwork_listitem_teacherlevel);
-            viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_list_item_share);
-            viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_list_item_reply_group);
-            viewHolder.time = convertView.findViewById(R.id.home_masterwork_list_item_reply_cb);
-            viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_list_item_praise_group);
-            viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_listitem_studentname);
-            viewHolder.time = convertView.findViewById(R.id.home_masterwork_listitem_time);
-            viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_listitem_studentimg);
-            viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_listitem_studentname);
-            viewHolder.time = convertView.findViewById(R.id.home_masterwork_listitem_time);
-            iewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_listitem_studentimg);
-            viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_listitem_studentname);
-            viewHolder.time = convertView.findViewById(R.id.home_masterwork_listitem_time);
+            viewHolder.teacherintro = convertView.findViewById(R.id.home_masterwork_listitem_teacherintro);
+            viewHolder.teacherlevel = convertView.findViewById(R.id.home_masterwork_listitem_teacherlevel);
+            viewHolder.share = convertView.findViewById(R.id.home_masterwork_list_item_share);
+            viewHolder.reply_group = convertView.findViewById(R.id.home_masterwork_list_item_reply_group);
+            viewHolder.reply_cb = convertView.findViewById(R.id.home_masterwork_list_item_reply_cb);
+            viewHolder.praise_group= convertView.findViewById(R.id.home_masterwork_list_item_praise_group);
+            viewHolder.praise_cb = convertView.findViewById(R.id.home_masterwork_list_item_praise_cb);
+            viewHolder.reward_group = convertView.findViewById(R.id.home_masterwork_list_item_reward_group);
+            viewHolder.home_masterwork_listview_item_peep = convertView.findViewById(R.id.home_masterwork_listview_item_peep);
+            viewHolder.reward_cb = convertView.findViewById(R.id.home_masterwork_list_item_reward_cb);
+            viewHolder.audio_group = convertView.findViewById(R.id.home_masterwork_listitem_audio_gorpu);
+            viewHolder.audio_time = convertView.findViewById(R.id.home_masterwork_listitem_audio_time);
+            viewHolder.video_group = convertView.findViewById(R.id.home_masterwork_listitem_video_gorpu);
+            viewHolder.video_time = convertView.findViewById(R.id.home_masterwork_listitem_video_time);
+            viewHolder.home_masterwork_listitem_teacher_group = convertView.findViewById(R.id.home_masterwork_listitem_teacher_group);
+            viewHolder.home_masterwork_listview_item_peep_price = convertView.findViewById(R.id.home_masterwork_listview_item_peep_price);
+            viewHolder.home_masterwork_listitem_teacher_group_line = convertView.findViewById(R.id.home_masterwork_listitem_teacher_group_line);
+            viewHolder.introimg_group = convertView.findViewById(R.id.home_masterwork_listitem_introimg_group);
+            viewHolder.audioimg = convertView.findViewById(R.id.home_masterwork_listitem_audioimg);
             convertView.setTag(viewHolder);
 
         } else {

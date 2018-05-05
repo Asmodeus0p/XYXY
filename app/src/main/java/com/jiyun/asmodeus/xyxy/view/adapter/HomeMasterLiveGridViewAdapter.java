@@ -90,7 +90,7 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
 
         SplitStringColorUtils.setImgLevel(viewHolder.usertype, liveCoursesBeen.get(position).getUserType());
 
-        viewHolder.time.setText(HttpHelp.getDateToString(liveCoursesBeen.get(position).getStartDate()));
+//        viewHolder.time.setText(HttpHelp.getDateToString(liveCoursesBeen.get(position).getStartDate()));
 
         return convertView;
     }

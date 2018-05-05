@@ -8,11 +8,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.contract.Teachercontract;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.presenter.TeacherPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveGridViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveListViewAdapter;
+import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeRecommendMasterAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
 import com.jiyun.asmodeus.xyxy.view.ui.MyGridView;
@@ -82,7 +84,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         presenterImp = new TeacherPresenterImp(this);
         presenterImp.laodTeacherDatas(0);
         systemAds = new ArrayList<>();
-        imgs = new ArrayList<>();
+
 
 
     }
@@ -113,13 +115,13 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         //推荐名师
         if (homeBean.getData().getUsers() != null && homeBean.getData().getUsers().size() > 0) {
             usersbean.clear();
-            usersbean.addAll(value.getData().getUsers());
+            usersbean.addAll(homeBean.getData().getUsers());
             usersAdapter.notifyDataSetChanged();
         }
         //直播课程
         if (homeBean.getData().getLiveCourses() != null && homeBean.getData().getLiveCourses().size() > 0) {
             liveCoursesBeen.clear();
-            liveCoursesBeen.addAll(value.getData().getLiveCourses());
+            liveCoursesBeen.addAll(homeBean.getData().getLiveCourses());
             liveCoursesAdapter.notifyDataSetChanged();
         }
         //推荐作业
@@ -133,8 +135,8 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         if(systemAds==null) {
             return;
         }
-        advViewpager.setAdapter(HomeMasterFragment.this);
-        advViewpager.setData(systemAds,new ArrayList<String>());
+//        advViewpager.setAdapter(MingShiFragment.this);
+//        advViewpager.setData(systemAds,new ArrayList<String>());
 
     }
 }
