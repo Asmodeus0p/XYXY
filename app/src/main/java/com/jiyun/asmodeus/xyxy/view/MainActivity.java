@@ -1,4 +1,4 @@
-package com.jiyun.asmodeus.xyxy;
+package com.jiyun.asmodeus.xyxy.view;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 
+import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.MingShiFragment;
 import com.jiyun.asmodeus.xyxy.view.fragment.MyselfFragment;

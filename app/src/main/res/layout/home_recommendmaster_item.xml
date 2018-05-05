@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingRight="@dimen/ts_8"
+    android:paddingLeft="@dimen/ts_8"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="@dimen/ts_140"
+        android:layout_marginBottom="@dimen/ts_3"
+        android:layout_marginRight="@dimen/ts_3"
+        android:layout_height="@dimen/ts_88" >
+
+        <ImageView
+            android:id="@+id/home_recommendmaster_item_img"
+            android:layout_width="@dimen/ts_140"
+            android:scaleType="centerCrop"
+            android:layout_height="@dimen/ts_88" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#33777777"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="bottom|left"
+                android:layout_marginLeft="@dimen/ts_5"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="@dimen/ts_5"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/home_recommendmaster_item_name"
+                        android:textSize="@dimen/ts_16"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/home_recommendmaster_item_usertype"
+                        android:layout_width="@dimen/ts_22"
+                        android:layout_marginLeft="@dimen/ts_4"
+                        android:layout_height="@dimen/ts_22" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/ts_3"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/home_recommendmaster_item_intro"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/ts_12"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

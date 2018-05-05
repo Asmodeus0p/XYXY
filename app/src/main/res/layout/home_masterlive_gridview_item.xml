@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingRight="@dimen/ts_8"
+    android:paddingLeft="@dimen/ts_8"
+    android:gravity="center"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="@dimen/ts_162"
+        android:orientation="vertical"
+        android:layout_height="@dimen/ts_145">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="@dimen/ts_162"
+                    android:layout_height="@dimen/ts_92" >
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/home_masterlive_griditem_coverImg"
+                    android:layout_width="@dimen/ts_162"
+                    app:riv_corner_radius="4dp"
+                    android:scaleType="centerCrop"
+                    android:layout_height="@dimen/ts_92" />
+                    <TextView
+                        android:id="@+id/home_masterlive_griditem_type"
+                        android:layout_width="@dimen/ts_35"
+                        android:background="@mipmap/label"
+                        android:textSize="@dimen/ts_11"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_height="@dimen/ts_18" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/ts_5"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/home_masterlive_griditem_name"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/ts_14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:id="@+id/home_masterlive_griditem_usertype"
+                            android:layout_width="@dimen/ts_22"
+                            android:layout_height="@dimen/ts_22" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/home_masterlive_griditem_major"
+                        android:layout_width="wrap_content"
+
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/ts_8"
+                        android:paddingRight="@dimen/ts_8"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:textSize="@dimen/ts_10"
+                        android:layout_height="@dimen/ts_16" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/home_masterlive_griditem_typetitle"
+                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/ts_12"
+                        android:textColor="#999999"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/home_masterlive_griditem_time"
+                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/ts_12"
+                        android:textColor="#999999"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

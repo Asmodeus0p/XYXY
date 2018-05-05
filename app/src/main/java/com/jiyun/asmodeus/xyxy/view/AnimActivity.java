@@ -1,4 +1,4 @@
-package com.jiyun.asmodeus.xyxy;
+package com.jiyun.asmodeus.xyxy.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+
+import com.jiyun.asmodeus.xyxy.R;
 
 public class AnimActivity extends AppCompatActivity  {
 

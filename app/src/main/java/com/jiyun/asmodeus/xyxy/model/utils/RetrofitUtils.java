@@ -66,9 +66,6 @@ public class RetrofitUtils {
         return retrofitUtils;
     }
 
-
-
-
     public static String getDateToString(long time) {
         Date d = new Date(time);
         return new SimpleDateFormat("MM-dd HH:mm").format(d);
