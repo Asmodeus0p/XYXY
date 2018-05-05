@@ -127,12 +127,12 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
 //        //直播课程
 
-//
+
 //        liveCoursesBeen.addAll(homeBean.getData().getLiveCourses());
 //        liveCoursesAdapter= new HomeMasterLiveGridViewAdapter(getContext(),liveCoursesBeen);
 //        home_master_live_gridview.setAdapter(liveCoursesAdapter);
 //        liveCoursesAdapter.notifyDataSetChanged();
-//
+
 //        //推荐作业
 //
 //        homewoksBeen.clear();
