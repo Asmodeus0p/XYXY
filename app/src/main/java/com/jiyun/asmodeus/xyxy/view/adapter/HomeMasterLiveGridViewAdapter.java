@@ -1,7 +1,7 @@
 package com.jiyun.asmodeus.xyxy.view.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.ViewUtils;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.jiyun.asmodeus.xyxy.App;
 
+import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -81,7 +82,7 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
 
         if (!TextUtils.isEmpty(liveCoursesBeen.get(position).getMajorIds())) {
 
-            SplitStringColorUtils.addForeColorSpan(context, liveCoursesBeen.get(position).getMajorIds().split(","), viewHolder.major);
+//            SplitStringColorUtils.addForeColorSpan(context, liveCoursesBeen.get(position).getMajorIds().split(","), viewHolder.major);
         } else {
             viewHolder.major.setVisibility(View.GONE);
         }

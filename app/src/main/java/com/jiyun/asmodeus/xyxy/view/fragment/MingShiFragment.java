@@ -2,7 +2,9 @@ package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,21 +36,21 @@ import io.reactivex.disposables.CompositeDisposable;
 public class MingShiFragment extends BaseFragment implements Teachercontract.TeacherView {
     private CompositeDisposable compositeDisposable;
 
-    private List<HomeBean.DataBean.SystemAdsBean> systemAds;
+    private List<HomeBean.DataBean.SystemAdsBean> systemAds =new ArrayList<>();
 
-    private List<HomeBean.DataBean.LivesBean> livesbean;
+    private List<HomeBean.DataBean.LivesBean> livesbean =new ArrayList<>();
 
     private HomeMasterLiveListViewAdapter liveAdapter;
 
-    private List<HomeBean.DataBean.UsersBean> usersbean;
+    private List<HomeBean.DataBean.UsersBean> usersbean =new ArrayList<>();
 
     private HomeRecommendMasterAdapter usersAdapter;
 
-    private List<HomeBean.DataBean.LiveCoursesBean> liveCoursesBeen;
+    private List<HomeBean.DataBean.LiveCoursesBean> liveCoursesBeen =new ArrayList<>();
 
     private HomeMasterLiveGridViewAdapter liveCoursesAdapter;
 
-    private List<HomeBean.DataBean.HomewoksBean> homewoksBeen;
+    private List<HomeBean.DataBean.HomewoksBean> homewoksBeen =new ArrayList<>();
 
     private HomeMasterWorkListViewAdapter homewoksAdapter;
     private TeacherPresenterImp presenterImp;
@@ -68,12 +70,6 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
     private RelativeLayout home_master_fragment_chatvaluable;
     private MyScrollView home_master_fragment_scrollview;
     private SmartRefreshLayout home_master_fragment_swipe;
-
-    public MingShiFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_ming_shi;
@@ -83,10 +79,22 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
     protected void init() {
         presenterImp = new TeacherPresenterImp(this);
         presenterImp.laodTeacherDatas(0);
-        systemAds = new ArrayList<>();
-
-
-
+        home_master_adv_viewpager = getActivity().findViewById(R.id.home_master_adv_viewpager);
+        home_master_find_group = getActivity().findViewById(R.id.home_master_find_group);
+        home_master_look_group = getActivity().findViewById(R.id.home_master_look_group);
+        home_master_work_group = getActivity().findViewById(R.id.home_master_work_group);
+        home_master_chat_group = getActivity().findViewById(R.id.home_master_chat_group);
+        home_master_learn_group = getActivity().findViewById(R.id.home_master_learn_group);
+        home_master_live_listview = getActivity().findViewById(R.id.home_master_live_listview);
+        homne_master_recommend_more = getActivity().findViewById(R.id.homne_master_recommend_more);
+        homne_master_recommend_recyclerview = getActivity().findViewById(R.id.homne_master_recommend_recyclerview);
+        home_master_live_more = getActivity().findViewById(R.id.home_master_live_more);
+        home_master_fragment_workmore = getActivity().findViewById(R.id.home_master_fragment_workmore);
+        home_master_live_gridview = getActivity().findViewById(R.id.home_master_live_gridview);
+        home_master_work_listview = getActivity().findViewById(R.id.home_master_work_listview);
+        home_master_fragment_chatvaluable = getActivity().findViewById(R.id.home_master_fragment_chatvaluable);
+        home_master_fragment_scrollview = getActivity().findViewById(R.id.home_master_fragment_scrollview);
+        home_master_fragment_swipe = getActivity().findViewById(R.id.home_master_fragment_swipe);
     }
 
     @Override
@@ -96,47 +104,40 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
     @Override
     public void laodTeacherDatas(HomeBean homeBean) {
-        if (homeBean == null || homeBean.getData() == null) {
-            return;
-        }
+
         //广告栏
-        if (systemAds.size() <= 0) {
-            if (homeBean.getData() != null && homeBean.getData().getSystemAds() != null) {
-                systemAds.addAll(homeBean.getData().getSystemAds());
-            }
-            loadAds();
+        systemAds.addAll(homeBean.getData().getSystemAds());
+        ArrayList<String> urls = new ArrayList<>();
+        for (HomeBean.DataBean.SystemAdsBean systemAd : systemAds) {
+            urls.add(systemAd.getMobileImgUrl());
         }
-        //直播列表
-        if (homeBean.getData().getLives() != null && homeBean.getData().getLives().size() > 0) {
-            livesbean.clear();
-            livesbean.addAll(homeBean.getData().getLives());
-            liveAdapter.notifyDataSetChanged();
-        }
+        home_master_adv_viewpager.setImagesUrl(urls);
+
+
         //推荐名师
-        if (homeBean.getData().getUsers() != null && homeBean.getData().getUsers().size() > 0) {
-            usersbean.clear();
-            usersbean.addAll(homeBean.getData().getUsers());
-            usersAdapter.notifyDataSetChanged();
-        }
-        //直播课程
-        if (homeBean.getData().getLiveCourses() != null && homeBean.getData().getLiveCourses().size() > 0) {
-            liveCoursesBeen.clear();
-            liveCoursesBeen.addAll(homeBean.getData().getLiveCourses());
-            liveCoursesAdapter.notifyDataSetChanged();
-        }
-        //推荐作业
-        if (homeBean.getData().getHomewoks() != null && homeBean.getData().getHomewoks().size() > 0) {
-            homewoksBeen.clear();
-            homewoksBeen.addAll(homeBean.getData().getHomewoks());
-            homewoksAdapter.notifyDataSetChanged();
-        }
-    }
-    private void loadAds(){
-        if(systemAds==null) {
-            return;
-        }
-//        advViewpager.setAdapter(MingShiFragment.this);
-//        advViewpager.setData(systemAds,new ArrayList<String>());
+
+        usersAdapter = new HomeRecommendMasterAdapter(usersbean);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        homne_master_recommend_recyclerview.setLayoutManager(linearLayoutManager);
+        usersbean.addAll(homeBean.getData().getUsers());
+        usersAdapter.notifyDataSetChanged();
+        homne_master_recommend_recyclerview.setAdapter(usersAdapter);
+
+
+//        //直播课程
+
+
+        liveCoursesBeen.addAll(homeBean.getData().getLiveCourses());
+        liveCoursesAdapter= new HomeMasterLiveGridViewAdapter(getContext(),liveCoursesBeen);
+        liveCoursesAdapter.notifyDataSetChanged();
+//
+//        //推荐作业
+//
+//        homewoksBeen.clear();
+//        homewoksBeen.addAll(homeBean.getData().getHomewoks());
+//        homewoksAdapter.notifyDataSetChanged();
 
     }
+
 }

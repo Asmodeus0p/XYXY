@@ -175,7 +175,7 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
 
         if (!TextUtils.isEmpty(homewoksBeen.get(position).getMajorIds())) {
 
-            SplitStringColorUtils.addForeColorSpan(context, homewoksBeen.get(position).getMajorIds().split(","), viewHolder.worktype);
+//            SplitStringColorUtils.addForeColorSpan(context, homewoksBeen.get(position).getMajorIds().split(","), viewHolder.worktype);
         }
 
         //是否有老师点评
