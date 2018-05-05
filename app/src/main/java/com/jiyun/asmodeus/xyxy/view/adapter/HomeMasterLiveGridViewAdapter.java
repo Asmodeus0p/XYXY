@@ -62,13 +62,13 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = layoutInflater.inflate(R.layout.home_masterlive_gridview_item, null);
-            convertView.findViewById(R.id.home_masterlive_griditem_coverImg);
-
-            convertView.findViewById(R.id.home_masterlive_griditem_name);
-            convertView.findViewById(R.id.home_masterlive_griditem_major);
-            convertView.findViewById(R.id.home_masterlive_griditem_usertype);
-            convertView.findViewById(R.id.home_masterlive_griditem_time);
-            convertView.findViewById(R.id.home_masterlive_griditem_typetitle);
+            viewHolder.coverImg = convertView.findViewById(R.id.home_masterlive_griditem_coverImg);
+            viewHolder.type = convertView.findViewById(R.id.home_masterlive_griditem_type);
+            viewHolder.name = convertView.findViewById(R.id.home_masterlive_griditem_name);
+            viewHolder.major = convertView.findViewById(R.id.home_masterlive_griditem_major);
+            viewHolder.usertype = convertView.findViewById(R.id.home_masterlive_griditem_usertype);
+            viewHolder.time = convertView.findViewById(R.id.home_masterlive_griditem_time);
+            viewHolder.typeTitle = convertView.findViewById(R.id.home_masterlive_griditem_typetitle);
             convertView.setTag(viewHolder);
 
         } else {
@@ -77,7 +77,6 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
 
         Glide.with(App.context).load(liveCoursesBeen.get(position).getCoverImg()).into(viewHolder.coverImg);
         viewHolder.type.setText(liveCoursesBeen.get(position).getType());
-
         viewHolder.name.setText(liveCoursesBeen.get(position).getRealname());
 
         if (!TextUtils.isEmpty(liveCoursesBeen.get(position).getMajorIds())) {
@@ -90,8 +89,8 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
         viewHolder.typeTitle.setText(String.format("%s开播: ", liveCoursesBeen.get(position).getType()));
 
         SplitStringColorUtils.setImgLevel(viewHolder.usertype, liveCoursesBeen.get(position).getUserType());
-
-//        viewHolder.time.setText(HttpHelp.getDateToString(liveCoursesBeen.get(position).getStartDate()));
+        long startDate = liveCoursesBeen.get(position).getStartDate();
+        viewHolder.time.setText(startDate+"");
 
         return convertView;
     }
