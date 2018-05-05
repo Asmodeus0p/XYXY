@@ -119,7 +119,7 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
             viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_list_item_share);
             viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_list_item_reply_group);
             viewHolder.time = convertView.findViewById(R.id.home_masterwork_list_item_reply_cb);
-            viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_listitem_studentimg);
+            viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_list_item_praise_group);
             viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_listitem_studentname);
             viewHolder.time = convertView.findViewById(R.id.home_masterwork_listitem_time);
             viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_listitem_studentimg);
