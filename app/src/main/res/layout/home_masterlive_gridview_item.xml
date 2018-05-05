@@ -104,6 +104,7 @@
                         android:id="@+id/home_masterlive_griditem_time"
                         android:layout_width="wrap_content"
                         android:textSize="@dimen/ts_12"
+                        android:lines="1"
                         android:textColor="#999999"
                         android:layout_height="wrap_content" />
 

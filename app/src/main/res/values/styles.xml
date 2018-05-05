@@ -12,4 +12,188 @@
         <item name="android:textColor">#A7A8AE</item>
         <item name="android:layout_marginTop">@dimen/ts_6</item>
     </style>
+
+
+    <style name="login_top_tv">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">@dimen/ts_16</item>
+        <item name="android:textColor">@color/login_close_c</item>
+    </style>
+
+    <style name="login_logout_input">
+        <item name="android:layout_centerVertical" >true</item>
+
+        <item name="android:background">@null</item>
+
+        <item name="android:textColor">@color/login_phone_tx_c</item>
+
+        <item name="android:textSize">@dimen/ts_16</item>
+
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="android:singleLine">true</item>
+
+    </style>
+
+    <style name="login_line_style">
+
+        <item name="android:background">@color/login_line_c</item>
+
+    </style>
+
+    <style name="liblogin_tv_style">
+        <item name="android:textSize">@dimen/ts_12</item>
+        <item name="android:textColor">@color/b3_c</item>
+    </style>
+
+
+    <style name="cancle_bg_style">
+
+        <item name="android:drawableLeft">@mipmap/register_return</item>
+
+        <item name="android:gravity">center</item>
+
+        <item name="android:layout_centerVertical">true</item>
+
+        <item name="android:paddingLeft">@dimen/ts_15</item>
+
+        <item name="android:paddingRight">@dimen/ts_15</item>
+    </style>
+
+
+    <style name="register_getcode_style">
+        <item name="android:layout_centerVertical" >true</item>
+
+        <item name="android:background">@null</item>
+
+        <item name="android:textSize">@dimen/ts_14</item>
+
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="android:singleLine">true</item>
+
+    </style>
+
+    <style name="line_between_style">
+        <item name="android:background">@color/gray</item>
+    </style>
+
+
+
+
+
+    <style name="home_myself_lable_tv_style">
+
+        <item name="android:textSize">@dimen/ts_16</item>
+
+        <item name="android:textColor">#5491FF</item>
+
+    </style>
+
+
+    <style name="home_myself_lableflag_tv_style">
+
+        <item name="android:textSize">@dimen/ts_14</item>
+
+        <item name="android:layout_marginTop">@dimen/ts_4</item>
+
+        <item name="android:textColor">#999999</item>
+
+    </style>
+
+    <style name="home_myselft_optional_tv_style">
+        <item name="android:layout_marginTop">@dimen/ts_5</item>
+        <item name="android:textSize">@dimen/ts_12</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="home_myself_list_tv_style">
+
+        <item name="android:textSize">@dimen/ts_15</item>
+
+        <item name="android:textColor">#666666</item>
+
+    </style>
+
+    <style name="search_title_tv_style">
+
+        <item name="android:textSize">@dimen/ts_16</item>
+
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="search_title_sorttv_style">
+
+        <item name="android:textSize">@dimen/ts_16</item>
+
+        <item name="android:textColor">#EC3E28</item>
+    </style>
+
+    <style name="search_title_moretv_style">
+
+        <item name="android:textSize">@dimen/ts_12</item>
+
+        <item name="android:textColor">#A7A8AE</item>
+
+        <item name="android:layout_marginRight">@dimen/ts_25</item>
+
+    </style>
+
+
+
+    <style name="home_work_sorbar_enabled_false_style">
+
+        <item name="android:textColor">@color/black</item>
+
+        <item name="android:textSize">@dimen/ts_16</item>
+
+    </style>
+    <style name="home_work_sorbar_enabled_true_style">
+
+        <item name="android:textColor">@color/login_close_c</item>
+
+        <item name="android:textSize">@dimen/ts_14</item>
+
+    </style>
+
+
+
+
+
+    <style name="listui_title_style">
+
+        <item name="android:layout_centerInParent">true</item>
+
+        <item name="android:textSize">@dimen/ts_18</item>
+
+        <item name="android:textColor">@color/blue_arlt</item>
+    </style>
+
+    <style name="BannerDefaultStyle">
+        <!-- 自定义属性在styles.xml中不需要命名空间,直接用属性名就可以了 -->
+        <!-- 开启自动轮播 -->
+        <item name="banner_pointAutoPlayAble">true</item>
+        <!-- 自动轮播的时间间隔 -->
+        <item name="banner_pointAutoPlayInterval">3000</item>
+        <!-- 指示点容器背景 -->
+        <item name="banner_pointContainerBackground">#44aaaaaa</item>
+        <!-- 指示点背景 -->
+        <item name="banner_pointDrawable">@drawable/bga_banner_selector_point_hollow</item>
+        <!-- 指示点容器左右内间距 -->
+        <item name="banner_pointContainerLeftRightPadding">10dp</item>
+        <!-- 指示点上下外间距 -->
+        <item name="banner_pointTopBottomMargin">6dp</item>
+        <!-- 指示点左右外间距 -->
+        <item name="banner_pointLeftRightMargin">3dp</item>
+        <!-- 指示器的位置 -->
+        <item name="banner_indicatorGravity">bottom|center_horizontal</item>
+        <!-- 页码切换过程的时间长度 -->
+        <item name="banner_pageChangeDuration">800</item>
+        <!-- 提示文案的文字大小 -->
+        <item name="banner_tipTextSize">0sp</item>
+        <!-- 提示文案的文字颜色 -->
+        <item name="banner_tipTextColor">@color/transparent</item>
+        <!-- 加载网络数据时覆盖在BGABanner最上层的占位图 -->
+        <!--<item name="banner_placeholderDrawable">@drawable/banner_placeholderDrawable</item>-->
+    </style>
 </resources>

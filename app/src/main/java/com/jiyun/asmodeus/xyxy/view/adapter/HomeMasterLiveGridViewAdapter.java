@@ -19,6 +19,8 @@ import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -89,8 +91,11 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
         viewHolder.typeTitle.setText(String.format("%s开播: ", liveCoursesBeen.get(position).getType()));
 
         SplitStringColorUtils.setImgLevel(viewHolder.usertype, liveCoursesBeen.get(position).getUserType());
+        SimpleDateFormat sdf= new SimpleDateFormat("MM/dd/yyyy HH:mm");
         long startDate = liveCoursesBeen.get(position).getStartDate();
-        viewHolder.time.setText(startDate+"");
+        Date dt = new Date(startDate * 1000);
+        String sDateTime = sdf.format(dt);
+        viewHolder.time.setText(sDateTime);
 
         return convertView;
     }
