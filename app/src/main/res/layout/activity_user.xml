@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:id="@+id/complete_userinfo_aty_layout"
+    android:layout_height="match_parent">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/ts_26"
+        android:layout_gravity="center_vertical"
+        android:layout_height="@dimen/ts_44">
+
+        <TextView
+            android:id="@+id/complete_userinfo_aty_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/cancle_bg_style" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="完善信息"
+            android:textSize="@dimen/ts_16"
+            android:layout_centerInParent="true"
+            android:textColor="#2C272D"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/complete_userinfo_aty_jump"
+            android:layout_width="@dimen/ts_32"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            style="@style/login_top_tv"
+            android:visibility="gone"
+            android:layout_marginRight="@dimen/ts_12"
+            android:text="跳过"/>
+    </RelativeLayout>
+
+
+    <com.jiyun.asmodeus.xyxy.view.ui.MyScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/ts_35"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/ts_90"
+                    android:layout_centerInParent="true"
+                    android:layout_height="@dimen/ts_90">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/complete_userinfo_aty_imgbtn"
+                        android:layout_width="@dimen/ts_88"
+                        app:riv_oval="true"
+                        android:src="@mipmap/user_head_portrait"
+                        android:layout_height="@dimen/ts_88" />
+                    <ImageView
+                        android:id="@+id/complete_userinfo_aty_selectimgbtn"
+                        android:layout_width="@dimen/ts_32"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/ic_camera"
+                        android:layout_height="@dimen/ts_32" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/ts_56"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/complete_userinfo_aty_name_et"
+                                android:layout_width="match_parent"
+                                style="@style/login_logout_input"
+                                android:maxLength="16"
+                                android:hint="请输入昵称"
+                                android:layout_height="wrap_content" />
+
+                            <ImageView
+                                android:id="@+id/complete_userinfo_aty_name_et_clear"
+                                android:layout_width="@dimen/ts_22"
+                                android:src="@mipmap/input_close"
+                                android:layout_alignParentRight="true"
+                                android:layout_height="@dimen/ts_22" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="@dimen/ts_280"
+                        style="@style/login_line_style"
+                        android:layout_marginTop="@dimen/ts_20"
+                        android:layout_height="@dimen/ts_1" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/ts_30"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox
+                                android:id="@+id/complete_userinfo_aty_cbman"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="8dp"
+                                android:button="@drawable/complete_userinfo_check_man"
+                                android:text="我是男神"
+                                android:textColor="@drawable/complete_userinfo_check_man_tv"
+                                />
+
+                            <CheckBox
+                                android:id="@+id/complete_userinfo_aty_cbwoman"
+                                android:layout_marginLeft="@dimen/ts_50"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="8dp"
+                                android:button="@drawable/complete_userinfo_check_woman"
+                                android:textColor="@drawable/complete_userinfo_check_woman_tv"
+                                android:text="我是女神"
+                                />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/ts_20"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="@dimen/ts_130"
+                            style="@style/login_line_style"
+                            android:layout_height="@dimen/ts_1" />
+
+                        <TextView
+                            android:layout_width="@dimen/ts_130"
+                            style="@style/login_line_style"
+                            android:layout_marginLeft="@dimen/ts_20"
+                            android:layout_height="@dimen/ts_1" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ts_30"
+                        >
+
+                        <EditText
+                            android:id="@+id/complete_userinfo_aty_pass_et"
+                            android:layout_width="match_parent"
+                            android:minWidth="@dimen/ts_90"
+                            style="@style/login_logout_input"
+                            android:hint="请输入密码"
+                            android:password="true"
+                            android:maxLength="16"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:id="@+id/complete_userinfo_aty_pass_et_clear"
+                            android:layout_width="@dimen/ts_22"
+                            android:src="@mipmap/input_close"
+                            android:layout_alignParentRight="true"
+                            android:layout_height="@dimen/ts_22" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="@dimen/ts_280"
+                        style="@style/login_line_style"
+                        android:layout_marginTop="@dimen/ts_20"
+                        android:layout_height="@dimen/ts_1" />
+
+                    <Button
+                        android:id="@+id/complete_userinfo_aty_surebtn"
+                        android:layout_width="@dimen/ts_280"
+                        android:text="完成"
+                        android:enabled="false"
+                        android:textSize="@dimen/ts_16"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/ts_68dp"
+                        android:background="@drawable/login_btn_enable_bg"
+                        android:layout_height="@dimen/ts_48" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </com.jiyun.asmodeus.xyxy.view.ui.MyScrollView>
+</LinearLayout>

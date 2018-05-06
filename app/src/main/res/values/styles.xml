@@ -13,5 +13,85 @@
         <item name="android:layout_marginTop">@dimen/ts_6</item>
     </style>
 
+    <style name="cancle_bg_style">
+
+        <item name="android:drawableLeft">@mipmap/register_return</item>
+
+        <item name="android:gravity">center</item>
+
+        <item name="android:layout_centerVertical">true</item>
+
+        <item name="android:paddingLeft">@dimen/ts_15</item>
+
+        <item name="android:paddingRight">@dimen/ts_15</item>
+    </style>
+    <style name="liblogin_tv_style">
+        <item name="android:textSize">@dimen/ts_12</item>
+        <item name="android:textColor">@color/b3_c</item>
+    </style>
+    <style name="login_logout_input">
+        <item name="android:layout_centerVertical" >true</item>
+
+        <item name="android:background">@null</item>
+
+        <item name="android:textColor">@color/login_phone_tx_c</item>
+
+        <item name="android:textSize">@dimen/ts_16</item>
+
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="android:singleLine">true</item>
+
+    </style>
+    <style name="login_line_style">
+
+        <item name="android:background">@color/login_line_c</item>
+
+    </style>
+    <style name="register_getcode_style">
+        <item name="android:layout_centerVertical" >true</item>
+
+        <item name="android:background">@null</item>
+
+        <item name="android:textSize">@dimen/ts_14</item>
+
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="android:singleLine">true</item>
+
+    </style>
+    <style name="login_top_tv">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">@dimen/ts_16</item>
+        <item name="android:textColor">@color/login_close_c</item>
+    </style>
+    <style name="home_myself_lable_tv_style">
+
+        <item name="android:textSize">@dimen/ts_16</item>
+
+        <item name="android:textColor">#5491FF</item>
+
+    </style>
+    <style name="home_myself_lableflag_tv_style">
+
+        <item name="android:textSize">@dimen/ts_14</item>
+
+        <item name="android:layout_marginTop">@dimen/ts_4</item>
+
+        <item name="android:textColor">#999999</item>
+
+    </style>
+    <style name="home_myselft_optional_tv_style">
+        <item name="android:layout_marginTop">@dimen/ts_5</item>
+        <item name="android:textSize">@dimen/ts_12</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="home_myself_list_tv_style">
+
+        <item name="android:textSize">@dimen/ts_15</item>
+
+        <item name="android:textColor">#666666</item>
+
+    </style>
 
 </resources>
