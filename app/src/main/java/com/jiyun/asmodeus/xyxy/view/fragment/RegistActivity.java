@@ -154,6 +154,7 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.register_aty_getcode_reset:
                 registPresneterImp.loadPhoneCode(phone_str);
                 break;
+                //11212
         }
     }
     @Override
