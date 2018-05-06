@@ -91,10 +91,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.myself:
                 setContentView(MyselfFragment.class);
-                set.setVisibility(View.VISIBLE);
-                set.setImageResource(R.mipmap.set);
-                titleimage.setVisibility(View.GONE);
-                tab.setBackgroundResource(R.mipmap.myself_head_bg1);
+               tab.setVisibility(View.GONE);
                 break;
             case R.id.set:
 
