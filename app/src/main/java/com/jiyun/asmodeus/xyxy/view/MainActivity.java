@@ -68,12 +68,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 setContentView(MingShiFragment.class);
                 set.setVisibility(View.GONE);
                 titleimage.setVisibility(View.VISIBLE);
+                message.setVisibility(View.VISIBLE);
                 tab.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 break;
             case R.id.work:
                 setContentView(WorkFragment.class);
                 set.setVisibility(View.GONE);
                 titleimage.setVisibility(View.VISIBLE);
+                message.setVisibility(View.GONE);
                 tab.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 break;
             case R.id.valuable:
@@ -81,17 +83,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 set.setImageResource(R.mipmap.publish_valuable);
                 set.setVisibility(View.VISIBLE);
                 titleimage.setVisibility(View.VISIBLE);
+                message.setVisibility(View.VISIBLE);
                 tab.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 break;
             case R.id.notice:
                 setContentView(NoticeFragment.class);
                 set.setVisibility(View.GONE);
                 titleimage.setVisibility(View.VISIBLE);
+                message.setVisibility(View.VISIBLE);
                 tab.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 break;
             case R.id.myself:
                 setContentView(MyselfFragment.class);
-               tab.setVisibility(View.GONE);
+
+                message.setVisibility(View.VISIBLE);
+                titleimage.setVisibility(View.GONE);
+                tab.setBackgroundResource(R.mipmap.myself_head_bg1);
                 break;
             case R.id.set:
 
