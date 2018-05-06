@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 setContentView(WorkFragment.class);
                 set.setVisibility(View.GONE);
                 titleimage.setVisibility(View.VISIBLE);
-                message.setVisibility(View.GONE);
+                message.setVisibility(View.VISIBLE);
                 tab.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 break;
             case R.id.valuable:
