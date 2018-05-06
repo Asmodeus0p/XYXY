@@ -4,6 +4,7 @@ package com.jiyun.asmodeus.xyxy.model.utils;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.model.biz.AppTokenService;
+import com.jiyun.asmodeus.xyxy.model.biz.HomeworkService;
 import com.jiyun.asmodeus.xyxy.model.biz.NoticeService;
 import com.jiyun.asmodeus.xyxy.model.biz.PhoneCodeService;
 import com.jiyun.asmodeus.xyxy.model.biz.RegistService;
@@ -83,5 +84,8 @@ public class RetrofitUtils {
     }
     public RegistService getRegistServiec(){
         return retrofit.create(RegistService.class);
+    }
+    public HomeworkService getWorkService(){
+        return retrofit.create(HomeworkService.class);
     }
 }
