@@ -33,7 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         String fragmentName = fragmentClass.getSimpleName();
 
         BaseFragment fragment = (BaseFragment) fragmentManager.findFragmentByTag(fragmentName);
-        try {
+        try {//sd
             if(fragment == null) {
                 fragment = fragmentClass.newInstance(); // new Fragment()
               transaction.add(R.id.fragmentcontainer, fragment, fragmentName);
