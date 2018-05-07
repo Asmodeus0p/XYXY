@@ -31,4 +31,17 @@ public class PhoneCodePresenterImp implements PhoneCodeContract.phonePresenter {
                 });
 
     }
+
+    @Override
+    public void findPassPhoneCode(String moble) {
+        model.findPassPhoneCode(moble)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<RegistBean>() {
+                    @Override
+                    public void accept(RegistBean registBean) throws Exception {
+                        view.loadPhoneDatas(registBean);
+                    }
+                });
+    }
 }

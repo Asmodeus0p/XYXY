@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/ts_26"
+        android:layout_height="@dimen/ts_44">
+
+        <TextView
+            android:id="@+id/retrievepass_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/cancle_bg_style" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="找回密码"
+            android:textSize="@dimen/ts_16"
+            android:layout_centerInParent="true"
+            android:textColor="#2C272D"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+    <com.jiyun.asmodeus.xyxy.view.ui.MyScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/ts_18"
+                    android:text="验证手机号，快速找回密码"
+                    android:textColor="@color/login_phone_flag_c"
+                    android:layout_marginTop="@dimen/ts_42"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/ts_56"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="@dimen/ts_32"
+                        android:textSize="@dimen/ts_16"
+                        android:text="+86"
+                        android:visibility="gone"
+                        android:textColor="@color/login_phone_flag_c"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="@dimen/ts_1"
+                        android:background="@color/d8_c"
+                        android:layout_marginLeft="@dimen/ts_10"
+                        android:visibility="gone"
+                        android:layout_height="@dimen/ts_16" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/retrievepass_aty_phone_et"
+                            android:layout_width="match_parent"
+                            style="@style/login_logout_input"
+                            android:maxLength="11"
+                            android:hint="@string/login_phont_hint_tv"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:id="@+id/retrievepass_aty_phone_et_clear"
+                            android:layout_width="@dimen/ts_22"
+                            android:visibility="invisible"
+                            android:src="@mipmap/input_close"
+                            android:layout_alignParentRight="true"
+                            android:layout_height="@dimen/ts_22" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="@dimen/ts_280"
+                    style="@style/login_line_style"
+                    android:layout_marginTop="@dimen/ts_20"
+                    android:layout_height="@dimen/ts_1" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ts_30"
+                    android:background="@color/white"
+                    >
+
+
+                    <EditText
+                        android:id="@+id/retrievepass_aty_getcode_et"
+                        android:layout_width="wrap_content"
+                        android:minWidth="@dimen/ts_90"
+                        android:maxLength="6"
+                        style="@style/login_logout_input"
+                        android:hint="@string/register_code_tv"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/retrievepass_aty_getcode_reset"
+                        android:layout_width="105dp"
+                        android:layout_centerVertical="true"
+                        style="@style/register_getcode_style"
+                        android:gravity="center"
+                        android:text="获取验证码"
+                        android:textColor="#5491FF"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/retrievepass_aty_getcode_reset_clear"
+                        android:layout_toLeftOf="@id/retrievepass_aty_getcode_reset"
+                        android:layout_width="@dimen/ts_22"
+                        android:visibility="invisible"
+                        android:src="@mipmap/input_close"
+                        android:layout_marginRight="@dimen/ts_3"
+                        android:layout_height="@dimen/ts_22" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="@dimen/ts_280"
+                    style="@style/login_line_style"
+                    android:layout_marginTop="@dimen/ts_20"
+                    android:layout_height="@dimen/ts_1" />
+
+                <Button
+                    android:id="@+id/retrievepass_aty_loginbtn"
+                    android:layout_width="@dimen/ts_280"
+                    android:text="下一步"
+                    android:textSize="@dimen/ts_16"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/ts_68dp"
+                    android:background="@drawable/login_btn_enable_bg"
+                    android:layout_height="@dimen/ts_48" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.jiyun.asmodeus.xyxy.view.ui.MyScrollView>
+
+
+</LinearLayout>

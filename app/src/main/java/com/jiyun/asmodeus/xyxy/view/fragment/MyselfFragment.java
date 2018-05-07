@@ -1,6 +1,7 @@
 package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,7 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.jiyun.asmodeus.xyxy.R;
+import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
 import com.jiyun.asmodeus.xyxy.view.ui.CImageView;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -72,67 +75,109 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
     }
 
 
+
     @Override
     protected void init() {
+        home_myselft_fragment_message = (ImageView) getView().findViewById(R.id.home_myselft_fragment_message);
+        home_myselft_fragment_message_newimg = (ImageView) getView().findViewById(R.id.home_myselft_fragment_message_newimg);
+        home_myself_message = (RelativeLayout) getView().findViewById(R.id.home_myself_message);
+        home_myselft_fragment_setting = (ImageView) getView().findViewById(R.id.home_myselft_fragment_setting);
+        home_myselft_notlogin_img = (CImageView) getView().findViewById(R.id.home_myselft_notlogin_img);
+        home_myselft_fragment_nologin_head = (RelativeLayout) getView().findViewById(R.id.home_myselft_fragment_nologin_head);
+        home_myself_fragment_userimg = (RoundedImageView) getView().findViewById(R.id.home_myself_fragment_userimg);
+        home_myself_fragment_username = (TextView) getView().findViewById(R.id.home_myself_fragment_username);
+        home_myself_fragment_userinfo_group = (LinearLayout) getView().findViewById(R.id.home_myself_fragment_userinfo_group);
+        home_myselft_fragment_livebtn = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_livebtn);
+        home_myselft_fragment_login_head = (RelativeLayout) getView().findViewById(R.id.home_myselft_fragment_login_head);
+        home_myselft_register_btn = (Button) getView().findViewById(R.id.home_myselft_register_btn);
+        home_myselft_login_btn = (Button) getView().findViewById(R.id.home_myselft_login_btn);
+        home_myselft_fragment_nologin_body = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_nologin_body);
+        home_myselft_fragment_homewokCount_tv = (TextView) getView().findViewById(R.id.home_myselft_fragment_homewokCount_tv);
+        home_myselft_fragment_homewokCount_status = (TextView) getView().findViewById(R.id.home_myselft_fragment_homewokCount_status);
+        home_myselft_fragment_homewokCount_group = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_homewokCount_group);
+        home_myselft_fragment_artcircleCount_tv = (TextView) getView().findViewById(R.id.home_myselft_fragment_artcircleCount_tv);
+        home_myselft_fragment_tiezi_group = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_tiezi_group);
+        home_myselft_fragment_attentionCount_tv = (TextView) getView().findViewById(R.id.home_myselft_fragment_attentionCount_tv);
+        home_myselft_fragment_guanzhu_group = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_guanzhu_group);
+        home_myselft_fragment_fansCount_tv = (TextView) getView().findViewById(R.id.home_myselft_fragment_fansCount_tv);
+        home_myselft_fragment_fensi_group = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_fensi_group);
+        home_myselft_fragment_teacher_daizhibo = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_daizhibo);
+        home_myselft_fragment_teacher_daizuoye = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_daizuoye);
+        home_myselft_fragment_teacher_daifudao = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_daifudao);
+        home_myselft_fragment_teacher_jiaoxue = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_jiaoxue);
+        home_myselft_fragment_teacher_toolline = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_toolline);
+        home_myselft_fragment_student_fukuan = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_fukuan);
+        home_myselft_fragment_student_shiyong = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_shiyong);
+        home_myselft_fragment_student_tuiguo = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_tuiguo);
+        home_myselft_fragment_student_dingdan = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_dingdan);
+        home_myselft_fragment_student_toolline = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_toolline);
+        home_myself_fragment_jindou_tv = (TextView) getView().findViewById(R.id.home_myself_fragment_jindou_tv);
+        home_myself_fragment_jindou_group = (RelativeLayout) getView().findViewById(R.id.home_myself_fragment_jindou_group);
+        home_myselft_fragment_havegift_group = (RelativeLayout) getView().findViewById(R.id.home_myselft_fragment_havegift_group);
+        home_myselft_fragment_favorites = (RelativeLayout) getView().findViewById(R.id.home_myselft_fragment_favorites);
+        home_myself_fragment_selectmajor = (RelativeLayout) getView().findViewById(R.id.home_myself_fragment_selectmajor);
+        home_myself_fragment_isauth_tv = (TextView) getView().findViewById(R.id.home_myself_fragment_isauth_tv);
+        home_myselft_fragment_approve = (RelativeLayout) getView().findViewById(R.id.home_myselft_fragment_approve);
+        home_myselft_fragment_login_body = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_login_body);
+
+        home_myselft_register_btn.setOnClickListener(this);
+        home_myselft_login_btn.setOnClickListener(this);
+      //  userStatus();
 
     }
 
     @Override
     protected void loadDatas() {
 
+
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.home_myselft_login_btn:
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivityForResult(intent,10);
+            break;
+            case R.id.home_myselft_register_btn:
+            startActivity(new Intent(getActivity(),RegistActivity.class));
+            break;
+        }
 
     }
+//    private void userStatus(){
+//
+//        if(SharedPreferencesUtils.isLogin(getContext())){
+//            登录
+//            home_myselft_fragment_nologin_body.setVisibility(View.GONE);
+//            home_myselft_fragment_login_head.setVisibility(View.VISIBLE);
+//            home_myselft_fragment_nologin_head.setVisibility(View.GONE);
+//            home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
+//        }else{
+//           未登录
+//            home_myselft_fragment_login_head.setVisibility(View.GONE);
+//            home_myselft_fragment_nologin_head.setVisibility(View.VISIBLE);
+//            home_myselft_fragment_login_body.setVisibility(View.GONE);
+//            home_myselft_fragment_nologin_body.setVisibility(View.VISIBLE);
+//        }
+//
+//    }
 
-
-    private void initView(View view) {
-        home_myselft_fragment_message = (ImageView) view.findViewById(R.id.home_myselft_fragment_message);
-        home_myselft_fragment_message_newimg = (ImageView) view.findViewById(R.id.home_myselft_fragment_message_newimg);
-        home_myself_message = (RelativeLayout) view.findViewById(R.id.home_myself_message);
-        home_myselft_fragment_setting = (ImageView) view.findViewById(R.id.home_myselft_fragment_setting);
-        home_myselft_notlogin_img = (CImageView) view.findViewById(R.id.home_myselft_notlogin_img);
-        home_myselft_fragment_nologin_head = (RelativeLayout) view.findViewById(R.id.home_myselft_fragment_nologin_head);
-        home_myself_fragment_userimg = (RoundedImageView) view.findViewById(R.id.home_myself_fragment_userimg);
-        home_myself_fragment_username = (TextView) view.findViewById(R.id.home_myself_fragment_username);
-        home_myself_fragment_userinfo_group = (LinearLayout) view.findViewById(R.id.home_myself_fragment_userinfo_group);
-        home_myselft_fragment_livebtn = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_livebtn);
-        home_myselft_fragment_login_head = (RelativeLayout) view.findViewById(R.id.home_myselft_fragment_login_head);
-        home_myselft_register_btn = (Button) view.findViewById(R.id.home_myselft_register_btn);
-        home_myselft_login_btn = (Button) view.findViewById(R.id.home_myselft_login_btn);
-        home_myselft_fragment_nologin_body = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_nologin_body);
-        home_myselft_fragment_homewokCount_tv = (TextView) view.findViewById(R.id.home_myselft_fragment_homewokCount_tv);
-        home_myselft_fragment_homewokCount_status = (TextView) view.findViewById(R.id.home_myselft_fragment_homewokCount_status);
-        home_myselft_fragment_homewokCount_group = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_homewokCount_group);
-        home_myselft_fragment_artcircleCount_tv = (TextView) view.findViewById(R.id.home_myselft_fragment_artcircleCount_tv);
-        home_myselft_fragment_tiezi_group = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_tiezi_group);
-        home_myselft_fragment_attentionCount_tv = (TextView) view.findViewById(R.id.home_myselft_fragment_attentionCount_tv);
-        home_myselft_fragment_guanzhu_group = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_guanzhu_group);
-        home_myselft_fragment_fansCount_tv = (TextView) view.findViewById(R.id.home_myselft_fragment_fansCount_tv);
-        home_myselft_fragment_fensi_group = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_fensi_group);
-        home_myselft_fragment_teacher_daizhibo = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_teacher_daizhibo);
-        home_myselft_fragment_teacher_daizuoye = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_teacher_daizuoye);
-        home_myselft_fragment_teacher_daifudao = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_teacher_daifudao);
-        home_myselft_fragment_teacher_jiaoxue = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_teacher_jiaoxue);
-        home_myselft_fragment_teacher_toolline = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_teacher_toolline);
-        home_myselft_fragment_student_fukuan = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_student_fukuan);
-        home_myselft_fragment_student_shiyong = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_student_shiyong);
-        home_myselft_fragment_student_tuiguo = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_student_tuiguo);
-        home_myselft_fragment_student_dingdan = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_student_dingdan);
-        home_myselft_fragment_student_toolline = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_student_toolline);
-        home_myself_fragment_jindou_tv = (TextView) view.findViewById(R.id.home_myself_fragment_jindou_tv);
-        home_myself_fragment_jindou_group = (RelativeLayout) view.findViewById(R.id.home_myself_fragment_jindou_group);
-        home_myselft_fragment_havegift_group = (RelativeLayout) view.findViewById(R.id.home_myselft_fragment_havegift_group);
-        home_myselft_fragment_favorites = (RelativeLayout) view.findViewById(R.id.home_myselft_fragment_favorites);
-        home_myself_fragment_selectmajor = (RelativeLayout) view.findViewById(R.id.home_myself_fragment_selectmajor);
-        home_myself_fragment_isauth_tv = (TextView) view.findViewById(R.id.home_myself_fragment_isauth_tv);
-        home_myselft_fragment_approve = (RelativeLayout) view.findViewById(R.id.home_myselft_fragment_approve);
-        home_myselft_fragment_login_body = (LinearLayout) view.findViewById(R.id.home_myselft_fragment_login_body);
-
-        home_myselft_register_btn.setOnClickListener(this);
-        home_myselft_login_btn.setOnClickListener(this);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==10&&resultCode==10){
+            String nickname = data.getStringExtra("nickname");
+            String photo = data.getStringExtra("photo");
+            if (nickname!=null){
+                home_myself_fragment_username.setText(nickname);
+                Glide.with(getContext()).load(photo).into(home_myself_fragment_userimg);
+                home_myselft_fragment_login_head.setVisibility(View.VISIBLE);
+                home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
+                home_myselft_fragment_nologin_body.setVisibility(View.GONE);
+                home_myselft_fragment_nologin_head.setVisibility(View.GONE);
+                home_myselft_fragment_student_toolline.setVisibility(View.VISIBLE);
+            }
+        }
     }
 }

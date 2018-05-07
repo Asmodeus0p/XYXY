@@ -1,10 +1,17 @@
 package com.jiyun.asmodeus.xyxy.model.utils;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.model.biz.AppTokenService;
+import com.jiyun.asmodeus.xyxy.model.biz.FindPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.HomeworkService;
+import com.jiyun.asmodeus.xyxy.model.biz.IPhoneLoginService;
+import com.jiyun.asmodeus.xyxy.model.biz.IResetPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.NoticeService;
 import com.jiyun.asmodeus.xyxy.model.biz.PhoneCodeService;
 import com.jiyun.asmodeus.xyxy.model.biz.RegistService;
@@ -88,4 +95,14 @@ public class RetrofitUtils {
     public HomeworkService getWorkService(){
         return retrofit.create(HomeworkService.class);
     }
-}
+    public IPhoneLoginService getIPhoneLoginService(){
+        return retrofit.create(IPhoneLoginService.class);
+    }
+    public FindPassService getFindPassService(){
+        return retrofit.create(FindPassService.class);
+    }
+    public IResetPassService getIResetPassService(){
+        return retrofit.create(IResetPassService.class);
+    }
+    }
+
