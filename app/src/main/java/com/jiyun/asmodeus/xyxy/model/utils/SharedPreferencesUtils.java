@@ -2,6 +2,7 @@ package com.jiyun.asmodeus.xyxy.model.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 
 public class SharedPreferencesUtils {
@@ -64,6 +65,27 @@ public class SharedPreferencesUtils {
         editor.remove(key);
         editor.commit();
     }
+    public static void saveId(Context context,String id){
+        if(context==null){
+            return ;
+        }
 
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(Constant.CookieSP, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(Constant.UserId, id);
+        editor.commit();
+
+    }
+    public static boolean isLogin(Context context){
+
+        if(context==null){
+            return false ;
+        }
+
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(Constant.CookieSP, Context.MODE_PRIVATE);
+
+        //TODO测试id
+        return !TextUtils.isEmpty(sharedPreferences.getString(Constant.UserId, ""));
+    }
 }
 

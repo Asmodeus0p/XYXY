@@ -12,4 +12,10 @@ public interface PhoneCodeService {
     @FormUrlEncoded
     @POST("/v1/m/user/authcode")
     Observable<RegistBean> getPhoneCode(@Field("mobile") String mobile);
+
+    @FormUrlEncoded
+    @POST("/v1/m/user/authcode")
+    Observable<RegistBean> findPassPhoneCode(@Field("mobile") String mobile);
+
+
 }
