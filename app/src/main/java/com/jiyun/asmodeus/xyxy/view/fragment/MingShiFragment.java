@@ -2,6 +2,8 @@ package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,14 +12,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.contract.Teachercontract;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.presenter.TeacherPresenterImp;
+import com.jiyun.asmodeus.xyxy.view.MainActivity;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveGridViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeRecommendMasterAdapter;
+import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
 import com.jiyun.asmodeus.xyxy.view.ui.MyGridView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyListView;
@@ -33,24 +38,24 @@ import io.reactivex.disposables.CompositeDisposable;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MingShiFragment extends BaseFragment implements Teachercontract.TeacherView {
+public class MingShiFragment extends BaseFragment implements Teachercontract.TeacherView, View.OnClickListener {
     private CompositeDisposable compositeDisposable;
 
-    private List<HomeBean.DataBean.SystemAdsBean> systemAds =new ArrayList<>();
+    private List<HomeBean.DataBean.SystemAdsBean> systemAds = new ArrayList<>();
 
-    private List<HomeBean.DataBean.LivesBean> livesbean =new ArrayList<>();
+    private List<HomeBean.DataBean.LivesBean> livesbean = new ArrayList<>();
 
     private HomeMasterLiveListViewAdapter liveAdapter;
 
-    private List<HomeBean.DataBean.UsersBean> usersbean =new ArrayList<>();
+    private List<HomeBean.DataBean.UsersBean> usersbean = new ArrayList<>();
 
     private HomeRecommendMasterAdapter usersAdapter;
 
-    private List<HomeBean.DataBean.LiveCoursesBean> liveCoursesBeen =new ArrayList<>();
+    private List<HomeBean.DataBean.LiveCoursesBean> liveCoursesBeen = new ArrayList<>();
 
     private HomeMasterLiveGridViewAdapter liveCoursesAdapter;
 
-    private List<HomeBean.DataBean.HomewoksBean> homewoksBeen =new ArrayList<>();
+    private List<HomeBean.DataBean.HomewoksBean> homewoksBeen = new ArrayList<>();
 
     private HomeMasterWorkListViewAdapter homewoksAdapter;
     private TeacherPresenterImp presenterImp;
@@ -70,6 +75,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
     private RelativeLayout home_master_fragment_chatvaluable;
     private MyScrollView home_master_fragment_scrollview;
     private SmartRefreshLayout home_master_fragment_swipe;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_ming_shi;
@@ -95,6 +101,11 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         home_master_fragment_chatvaluable = getActivity().findViewById(R.id.home_master_fragment_chatvaluable);
         home_master_fragment_scrollview = getActivity().findViewById(R.id.home_master_fragment_scrollview);
         home_master_fragment_swipe = getActivity().findViewById(R.id.home_master_fragment_swipe);
+        home_master_find_group.setOnClickListener(this);
+        home_master_look_group.setOnClickListener(this);
+        home_master_work_group.setOnClickListener(this);
+        home_master_chat_group.setOnClickListener(this);
+        home_master_learn_group.setOnClickListener(this);
     }
 
     @Override
@@ -129,7 +140,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
 
         liveCoursesBeen.addAll(homeBean.getData().getLiveCourses());
-        liveCoursesAdapter= new HomeMasterLiveGridViewAdapter(getContext(),liveCoursesBeen);
+        liveCoursesAdapter = new HomeMasterLiveGridViewAdapter(getContext(), liveCoursesBeen);
         home_master_live_gridview.setAdapter(liveCoursesAdapter);
         liveCoursesAdapter.notifyDataSetChanged();
 
@@ -143,4 +154,27 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.home_master_find_group:
+
+                break;
+            case R.id.home_master_look_group:
+
+                break;
+            case R.id.home_master_work_group:
+                ((MainActivity) getActivity()).getWork().setChecked(true);
+                ((MainActivity) getActivity()).setContentView(WorkFragment.class);
+                break;
+            case R.id.home_master_chat_group:
+                ((MainActivity) getActivity()).getValuable().setChecked(true);
+                ((MainActivity) getActivity()).setContentView(ValuableFragment.class);
+                break;
+            case R.id.home_master_learn_group:
+                ((MainActivity) getActivity()).getNotice().setChecked(true);
+                ((MainActivity) getActivity()).setContentView(NoticeFragment.class);
+                break;
+        }
+    }
 }

@@ -1,7 +1,7 @@
 package com.jiyun.asmodeus.xyxy.view.adapter;
 
-import android.content.Context;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jiyun.asmodeus.xyxy.App;
-
 import com.jiyun.asmodeus.xyxy.R;
+
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.makeramen.roundedimageview.RoundedImageView;

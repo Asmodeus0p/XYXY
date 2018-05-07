@@ -2,7 +2,12 @@ package com.jiyun.asmodeus.xyxy.model.entity;
 
 import java.util.List;
 
+/**
+ * Created by vicoltree on 17/11/3.
+ */
+
 public class HomeBean {
+
 
     /**
      * code : 0

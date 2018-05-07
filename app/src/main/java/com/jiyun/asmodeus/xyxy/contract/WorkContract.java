@@ -3,7 +3,9 @@ import com.jiyun.asmodeus.xyxy.model.entity.WorkBean;
 
 public interface WorkContract {
     interface WorkPresenter{
-        void laodWorkDatas();
+        void GetWorkZhiNeng();
+        void GetWorkTouTing();
+        void GetWorkDiamPing();
     }
     interface WorkView{
         void laodWorkZhiNeng(WorkBean workBean);

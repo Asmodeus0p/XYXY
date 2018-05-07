@@ -258,7 +258,7 @@ public class WorkBean {
             private int isPeep;
             private String content;
             private int studentId;
-            private Object duration;
+            private String duration;
             private String path;
             private int peepPrice;
             private String tPhoto;
@@ -345,11 +345,11 @@ public class WorkBean {
                 this.studentId = studentId;
             }
 
-            public Object getDuration() {
+            public String getDuration() {
                 return duration;
             }
 
-            public void setDuration(Object duration) {
+            public void setDuration(String duration) {
                 this.duration = duration;
             }
 

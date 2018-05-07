@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
+import com.jiyun.asmodeus.xyxy.view.fragment.WorkFragment;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initData();
 
     protected abstract void initView();
-    protected BaseFragment setContentView(Class<? extends BaseFragment> fragmentClass) {
+    public BaseFragment setContentView(Class<? extends BaseFragment> fragmentClass) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         String fragmentName = fragmentClass.getSimpleName();
@@ -62,4 +63,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         App.context = null;
     }
+
+
 }

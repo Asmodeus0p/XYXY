@@ -22,6 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 public class WorkPresenterImp implements WorkContract.WorkPresenter {
     private HomeworkService model;
     private WorkContract.WorkView view;
+    String appToken = (String) SharedPreferencesUtils.getParam(App.context, "xyxy_apptoken", "String");
 
     public WorkPresenterImp(WorkContract.WorkView view) {
         this.view = view;
@@ -29,11 +30,11 @@ public class WorkPresenterImp implements WorkContract.WorkPresenter {
     }
 
     @Override
-    public void laodWorkDatas() {
+    public void GetWorkZhiNeng() {
         Map<String, String> params = new HashMap<>();
         Map<String, String> headrs = new HashMap<>();
-        String appToken = (String) SharedPreferencesUtils.getParam(App.context, "xyxy_apptoken", "String");
-        params.put("sortord", "0");
+
+        params.put("sortord", 0 + "");
         headrs.put("apptoken", appToken);
         model.loadWorkPage(params, headrs)
                 .subscribeOn(Schedulers.newThread())
@@ -41,18 +42,22 @@ public class WorkPresenterImp implements WorkContract.WorkPresenter {
                 .subscribe(new Consumer<WorkBean>() {
                     @Override
                     public void accept(WorkBean workBean) throws Exception {
+
                         if (workBean.getCode() == 0) {
-                            Log.e("11111",workBean.getMessage());
                             view.laodWorkZhiNeng(workBean);
                         }
                     }
                 });
+    }
+
+    @Override
+    public void GetWorkTouTing() {
 
         Map<String, String> params1 = new HashMap<>();
         Map<String, String> headrs1 = new HashMap<>();
 
-        params.put("sortord", "1");
-        headrs.put("apptoken", appToken);
+        params1.put("sortord", 1+"");
+        headrs1.put("apptoken", appToken);
         model.loadWorkPage(params1, headrs1)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -60,16 +65,19 @@ public class WorkPresenterImp implements WorkContract.WorkPresenter {
                     @Override
                     public void accept(WorkBean workBean) throws Exception {
                         if (workBean.getCode() == 0) {
-                            Log.e("2222",workBean.getMessage());
                             view.laodWorkTouTing(workBean);
                         }
                     }
                 });
+    }
+
+    @Override
+    public void GetWorkDiamPing() {
         Map<String, String> params2 = new HashMap<>();
         Map<String, String> headrs2 = new HashMap<>();
 
-        params.put("sortord", "2");
-        headrs.put("apptoken", appToken);
+        params2.put("sortord", 2+"");
+        headrs2.put("apptoken", appToken);
         model.loadWorkPage(params2, headrs2)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -77,7 +85,6 @@ public class WorkPresenterImp implements WorkContract.WorkPresenter {
                     @Override
                     public void accept(WorkBean workBean) throws Exception {
                         if (workBean.getCode() == 0) {
-                            Log.e("3333",workBean.getMessage());
                             view.laodWorkDianPing(workBean);
                         }
                     }

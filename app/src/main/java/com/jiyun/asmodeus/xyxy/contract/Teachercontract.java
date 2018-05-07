@@ -1,7 +1,7 @@
 package com.jiyun.asmodeus.xyxy.contract;
 
-import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 
+import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 
 public interface Teachercontract {
 

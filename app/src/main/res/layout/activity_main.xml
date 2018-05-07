@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/maina"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -54,12 +55,14 @@
         android:layout_weight="9"></FrameLayout>
 
     <LinearLayout
+        android:id="@+id/lin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:weightSum="5">
 
         <RadioGroup
+            android:id="@+id/radiogroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:weightSum="5"
