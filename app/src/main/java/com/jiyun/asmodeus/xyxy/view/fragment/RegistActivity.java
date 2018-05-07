@@ -139,7 +139,7 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.register_aty_loginbtn:
                 if(TextUtils.isEmpty(phone_str)||TextUtils.isEmpty(getcode_str)){
-
+                    Toast.makeText(this, "账号或验证码不能为空", Toast.LENGTH_SHORT).show();
                     return ;
 
                 }

@@ -77,14 +77,14 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         complete_userinfo_aty_layout = (LinearLayout) findViewById(R.id.complete_userinfo_aty_layout);
 
         complete_userinfo_aty_surebtn.setOnClickListener(this);
-
+        complete_userinfo_aty_selectimgbtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.complete_userinfo_aty_surebtn:
-
+                    startActivity(new Intent(this,MyselfFragment.class));
                 break;
             case R.id.complete_userinfo_aty_selectimgbtn:
                 if (ContextCompat.checkSelfPermission(UserActivity.this,
@@ -144,7 +144,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     private void choosePhoto(){
         Intent intentToPickPic = new Intent(Intent.ACTION_PICK, null);
         // 如果限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型" 所有类型则写 "image/*"
-        intentToPickPic.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/jpeg");
+        intentToPickPic.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
         startActivityForResult(intentToPickPic, UserActivity.GALLERY_REQUEST_CODE);
     }
 }

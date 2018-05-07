@@ -5,7 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.fragment.NoticeFragment">
+    <LinearLayout
+        android:id="@+id/yugao_shaixuan"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:textColor="#609af7"
+            android:id="@+id/time_chose"
+            android:visibility="visible"
+            android:text="时间筛选"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/yugaoRecy"
         android:layout_width="match_parent"

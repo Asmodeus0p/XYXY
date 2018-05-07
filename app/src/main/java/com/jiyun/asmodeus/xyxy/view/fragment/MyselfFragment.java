@@ -2,11 +2,8 @@ package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,8 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jiyun.asmodeus.xyxy.R;
-import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.FensActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.GuanZhuActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.TieZiActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.CImageView;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -122,6 +121,11 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
 
         home_myselft_register_btn.setOnClickListener(this);
         home_myselft_login_btn.setOnClickListener(this);
+        home_myselft_fragment_tiezi_group.setOnClickListener(this);
+        home_myselft_fragment_guanzhu_group.setOnClickListener(this);
+        home_myselft_fragment_fansCount_tv.setOnClickListener(this);
+        home_myselft_fragment_student_fukuan.setOnClickListener(this);
+        home_myselft_fragment_fensi_group.setOnClickListener(this);
       //  userStatus();
 
     }
@@ -142,6 +146,20 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
             case R.id.home_myselft_register_btn:
             startActivity(new Intent(getActivity(),RegistActivity.class));
             break;
+            case R.id.home_myselft_fragment_tiezi_group:
+                startActivity(new Intent(getActivity(),TieZiActivity.class));
+                break;
+            case R.id.home_myselft_fragment_guanzhu_group:
+                startActivity(new Intent(getActivity(),GuanZhuActivity.class));
+                break;
+            case R.id.home_myselft_fragment_fensi_group:
+                startActivity(new Intent(getActivity(), FensActivity.class));
+                break;
+            case R.id.home_myselft_fragment_student_fukuan:
+              //  startActivity(new Intent(getActivity(),FuKuanActivity.class));
+                break;
+
+
         }
 
     }
