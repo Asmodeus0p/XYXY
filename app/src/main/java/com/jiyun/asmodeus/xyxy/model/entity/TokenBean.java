@@ -1,8 +1,5 @@
 package com.jiyun.asmodeus.xyxy.model.entity;
 
-/**
- * Created by asus on 2018/5/3.
- */
 
 public class TokenBean {
 

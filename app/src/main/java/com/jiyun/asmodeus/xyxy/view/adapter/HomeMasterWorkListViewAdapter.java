@@ -30,9 +30,6 @@ import java.util.List;
 import static com.jiyun.asmodeus.xyxy.model.utils.Constant.PUSH_VIDEO;
 
 
-/**
- * Created by vicoltree on 17/10/28.
- */
 
 public class HomeMasterWorkListViewAdapter extends BaseAdapter {
 

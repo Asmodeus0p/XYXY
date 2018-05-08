@@ -1,8 +1,5 @@
 package com.jiyun.asmodeus.xyxy.model.entity;
 
-/**
- * Created by vicoltree on 17/11/12.
- */
 
 public class LoginRegsterSucessBean {
 

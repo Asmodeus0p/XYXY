@@ -11,9 +11,7 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by vicoltree on 17/10/26.
- */
+
 
 public class AddCookiesInterceptor implements Interceptor {
 

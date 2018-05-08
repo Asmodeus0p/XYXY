@@ -3,8 +3,6 @@ package com.jiyun.asmodeus.xyxy.view.fragment;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -19,12 +17,12 @@ import com.jiyun.asmodeus.xyxy.contract.Teachercontract;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.presenter.TeacherPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.MainActivity;
-import com.jiyun.asmodeus.xyxy.view.MasterFindActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.MasterDetailActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.MasterFindActivity;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveGridViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeRecommendMasterAdapter;
-import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
 import com.jiyun.asmodeus.xyxy.view.ui.MyGridView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyListView;
@@ -136,6 +134,19 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         usersbean.addAll(homeBean.getData().getUsers());
         usersAdapter.notifyDataSetChanged();
         homne_master_recommend_recyclerview.setAdapter(usersAdapter);
+        usersAdapter.setmOnItemClickListener(new HomeRecommendMasterAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                if(usersbean.isEmpty()){
+                    return ;
+                }
+                int id = usersbean.get(position).getId();
+                Intent intent = new Intent(getContext(), MasterDetailActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+
+            }
+        });
 
 
 //        //直播课程
@@ -163,7 +174,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
                 startActivity(new Intent(App.context, MasterFindActivity.class));
                 break;
             case R.id.home_master_look_group:
-                startActivity(new Intent());
+
                 break;
             case R.id.home_master_work_group:
                 ((MainActivity) getActivity()).getWork().setChecked(true);

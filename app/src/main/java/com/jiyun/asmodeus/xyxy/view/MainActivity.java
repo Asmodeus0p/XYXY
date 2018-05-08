@@ -45,17 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        App.context = this;
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        App.context= null;
-    }
 
     public RadioButton getMingshi() {
         return mingshi;

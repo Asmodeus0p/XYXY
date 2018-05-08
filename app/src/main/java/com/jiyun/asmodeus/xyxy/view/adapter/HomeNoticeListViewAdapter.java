@@ -17,9 +17,7 @@ import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
 import java.util.List;
 
 
-/**
- * Created by vicoltree on 17/10/28.
- */
+
 
 public class HomeNoticeListViewAdapter extends BaseAdapter {
 

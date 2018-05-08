@@ -1,4 +1,4 @@
-package com.jiyun.asmodeus.xyxy.view;
+package com.jiyun.asmodeus.xyxy.view.fragment.homeactivity;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -12,17 +12,7 @@ import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
 
 public class MasterFindActivity extends BaseActivity {
-    @Override
-    protected void onStart() {
-        super.onStart();
-        App.context = this;
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        App.context = this;
-    }
 
     //大师
     private static final int LEVEL1 = 2;

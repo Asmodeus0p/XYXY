@@ -1,9 +1,6 @@
 package com.jiyun.asmodeus.xyxy.model.utils;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
@@ -28,9 +25,7 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by 需要努力的人 on 2018/4/4.
- */
+
 
 public class RetrofitUtils {
 
@@ -62,7 +57,7 @@ public class RetrofitUtils {
 
                         String headerApptoken=EncryptUtil.encrypt(time + desApptoken).replaceAll("\\n","").toUpperCase();
 
-                        SharedPreferencesUtils.setParam((MainActivity)(App.context),"xyxy_apptoken",headerApptoken+"."+time);
+                        SharedPreferencesUtils.setParam(App.context,"xyxy_apptoken",headerApptoken+"."+time);
                     }
                 });
     }

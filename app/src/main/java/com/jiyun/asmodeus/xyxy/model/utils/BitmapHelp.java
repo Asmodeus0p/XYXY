@@ -8,9 +8,7 @@ import android.widget.RelativeLayout;
 
 import com.lidroid.xutils.BitmapUtils;
 
-/**
- * Created by vicoltree on 15/9/8.
- */
+
 public class BitmapHelp {
 
     private BitmapHelp() {

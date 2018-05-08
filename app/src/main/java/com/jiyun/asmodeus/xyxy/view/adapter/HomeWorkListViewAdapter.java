@@ -29,9 +29,6 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import java.util.List;
 
 
-/**
- * Created by vicoltree on 17/10/28.
- */
 
 public class HomeWorkListViewAdapter extends BaseAdapter {
 

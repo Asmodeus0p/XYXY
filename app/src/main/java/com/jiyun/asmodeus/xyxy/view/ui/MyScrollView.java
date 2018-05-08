@@ -7,9 +7,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
 
-/**
- * Created by vicoltree on 16/1/13.
- */
 public class MyScrollView extends ScrollView {
     public MyScrollView(Context context) {
         super(context);

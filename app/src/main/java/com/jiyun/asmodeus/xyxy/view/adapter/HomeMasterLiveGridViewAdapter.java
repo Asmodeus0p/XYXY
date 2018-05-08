@@ -23,9 +23,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by vicoltree on 17/10/28.
- */
 
 public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
 
