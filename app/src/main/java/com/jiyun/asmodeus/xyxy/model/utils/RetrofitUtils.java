@@ -17,6 +17,7 @@ import com.jiyun.asmodeus.xyxy.model.biz.PhoneCodeService;
 import com.jiyun.asmodeus.xyxy.model.biz.RegistService;
 import com.jiyun.asmodeus.xyxy.model.biz.TeacherService;
 import com.jiyun.asmodeus.xyxy.model.entity.TokenBean;
+import com.jiyun.asmodeus.xyxy.view.MainActivity;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -61,7 +62,7 @@ public class RetrofitUtils {
 
                         String headerApptoken=EncryptUtil.encrypt(time + desApptoken).replaceAll("\\n","").toUpperCase();
 
-                        SharedPreferencesUtils.setParam(App.context,"xyxy_apptoken",headerApptoken+"."+time);
+                        SharedPreferencesUtils.setParam((MainActivity)(App.context),"xyxy_apptoken",headerApptoken+"."+time);
                     }
                 });
     }

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.MasterFindActivity">
+
+    <RelativeLayout
+        android:id="@+id/masterlist_title_group"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ts_44"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/ts_26">
+
+        <TextView
+            android:id="@+id/masterlist_title_cancle"
+            style="@style/cancle_bg_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+        <TextView
+            style="@style/listui_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="名师" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/ts_22"
+                    android:layout_height="@dimen/ts_22"
+                    android:layout_marginRight="@dimen/ts_12"
+                    android:background="@mipmap/home_master_search"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/login_line_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ts_1"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ts_36"
+        android:background="#f8f8f8"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/master_list_level3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/master_list_level3_tv"
+                style="@style/home_work_sorbar_enabled_true_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="大师" />
+
+            <TextView
+                android:id="@+id/master_list_level3_line"
+                android:layout_width="@dimen/ts_20"
+                android:layout_height="@dimen/ts_3"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#FFD235"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/master_list_level2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/master_list_level2_tv"
+                style="@style/home_work_sorbar_enabled_true_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="名师" />
+
+            <TextView
+                android:id="@+id/master_list_level2_line"
+                android:layout_width="@dimen/ts_20"
+                android:layout_height="@dimen/ts_3"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#FFD235"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/master_list_level1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/master_list_level1_tv"
+                style="@style/home_work_sorbar_enabled_true_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="达人" />
+
+            <TextView
+                android:id="@+id/master_list_level1_line"
+                android:layout_width="@dimen/ts_20"
+                android:layout_height="@dimen/ts_3"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/home_work_fragment_sortline_bg"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/login_line_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ts_1"
+        android:layout_alignParentBottom="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/masterlist_recyclerview"
+        android:layout_width="46dp"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/transparent"
+        android:fadingEdge="none"
+        android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/masterlist_recyclerview_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ts_145"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/ts_80"
+                android:layout_height="@dimen/ts_77"
+                android:src="@mipmap/empty_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ts_10"
+                android:text="暂无内容"
+                android:textColor="@color/black"
+                android:textSize="@dimen/ts_14" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/masterlist_recyclerview_fault"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ts_145"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/ts_80"
+                android:layout_height="@dimen/ts_77"
+                android:src="@mipmap/netwok_fault" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ts_14"
+                android:text="网络不给力"
+                android:textColor="@color/black"
+                android:textSize="@dimen/ts_12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ts_8"
+                android:text="请检查网络链接后，点击重试"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/ts_12" />
+
+
+            <Button
+                android:id="@+id/masterlist_recyclerview_fault_btn"
+                android:layout_width="@dimen/ts_82"
+                android:layout_height="@dimen/ts_32"
+                android:layout_marginTop="@dimen/ts_8"
+                android:background="@drawable/button_blue_bg_active"
+                android:gravity="center"
+                android:text="重试"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_14" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

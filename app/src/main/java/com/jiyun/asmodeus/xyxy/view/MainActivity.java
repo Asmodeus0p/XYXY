@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
+import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
@@ -42,6 +43,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        App.context = this;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        App.context= null;
     }
 
     public RadioButton getMingshi() {

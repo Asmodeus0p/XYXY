@@ -12,7 +12,21 @@
         <item name="android:textColor">#A7A8AE</item>
         <item name="android:layout_marginTop">@dimen/ts_6</item>
     </style>
+    <style name="home_work_sorbar_enabled_true_style">
 
+        <item name="android:textColor">@color/login_close_c</item>
+
+        <item name="android:textSize">@dimen/ts_14</item>
+
+    </style>
+    <style name="listui_title_style">
+
+        <item name="android:layout_centerInParent">true</item>
+
+        <item name="android:textSize">@dimen/ts_18</item>
+
+        <item name="android:textColor">@color/blue_arlt</item>
+    </style>
     <style name="cancle_bg_style">
 
         <item name="android:drawableLeft">@mipmap/register_return</item>
