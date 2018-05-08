@@ -30,7 +30,8 @@
         <activity android:name=".view.fragment.FindPassActivity" />
         <activity android:name=".view.fragment.ResetPassActivity" />
         <activity android:name=".view.fragment.homeactivity.MasterFindActivity" />
-        <activity android:name=".view.fragment.homeactivity.MasterDetailActivity"></activity>
+        <activity android:name=".view.fragment.homeactivity.MasterDetailActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterLiveDetailActivity"></activity>
     </application>
 
 </manifest>

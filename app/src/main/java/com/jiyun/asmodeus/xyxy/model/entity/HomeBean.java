@@ -6,7 +6,6 @@ import java.util.List;
 
 public class HomeBean {
 
-
     /**
      * code : 0
      * message : 成功

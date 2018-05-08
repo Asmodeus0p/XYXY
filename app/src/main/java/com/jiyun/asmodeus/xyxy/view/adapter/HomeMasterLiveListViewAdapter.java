@@ -16,7 +16,6 @@ import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import java.util.List;
 
 
-
 public class HomeMasterLiveListViewAdapter extends BaseAdapter {
 
 

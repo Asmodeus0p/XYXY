@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeRecommendMasterAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
+import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.MasterLiveDetailActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.MyGridView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyListView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyScrollView;
@@ -141,7 +143,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
                     return ;
                 }
                 int id = usersbean.get(position).getId();
-                Intent intent = new Intent(getContext(), MasterDetailActivity.class);
+                Intent intent = new Intent(getContext(), MasterLiveDetailActivity.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
 
@@ -156,7 +158,14 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         liveCoursesAdapter = new HomeMasterLiveGridViewAdapter(getContext(), liveCoursesBeen);
         home_master_live_gridview.setAdapter(liveCoursesAdapter);
         liveCoursesAdapter.notifyDataSetChanged();
-
+        home_master_live_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), MasterLiveDetailActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
         //推荐作业
 
 //sadf
@@ -171,7 +180,8 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.home_master_find_group:
-                startActivity(new Intent(App.context, MasterFindActivity.class));
+                startActivity(new Intent(getContext(), MasterFindActivity.class));
+
                 break;
             case R.id.home_master_look_group:
 

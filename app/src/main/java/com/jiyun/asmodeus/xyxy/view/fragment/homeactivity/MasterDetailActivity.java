@@ -1,7 +1,9 @@
 package com.jiyun.asmodeus.xyxy.view.fragment.homeactivity;
 
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -9,13 +11,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.entity.MasterDetailBean;
 import com.jiyun.asmodeus.xyxy.model.entity.MasterDetialWokLineBean;
+import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
-import com.jiyun.asmodeus.xyxy.model.utils.Urls;
+import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.jiyun.asmodeus.xyxy.view.adapter.MasterDetailCourseAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.MasterDetailLiveAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.MasterDetailSortAdapter;
@@ -34,12 +37,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-
 public class MasterDetailActivity extends BaseActivity implements View.OnClickListener {
-
+    private static final int ZHIBO = 0;
+    private static final int ZUOYE = 1;
+    private static final int FUDAO = 2;
+    private static final int TIEZI = 3;
+    private static final int GUANZHU = 4;
+    private static final int FENSI = 5;
     private MasterDetailSortAdapter adapter;
     private MasterDetailLiveAdapter liveAdapter;
-
+    private String name;
     private MasterDetailCourseAdapter courseAdapter;
 
     private List<MasterDetialWokLineBean> recyclerList = new ArrayList<>();
@@ -63,7 +70,7 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
     private ImageView masterdetail_cancle;
     private ImageView masterdetail_aty_share;
     private String[] flag = {"课程", "作业", "辅导", "帖子", "关注", "粉丝"};
-
+    private boolean isAttention = false;
 
     @Override
     protected int getLayoutId() {
@@ -72,64 +79,80 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void initData() {
-        getData();
+
         for (int i = 0; i < flag.length; i++) {
             MasterDetialWokLineBean model = new MasterDetialWokLineBean();
             model.setName(flag[i]);
             recyclerList.add(model);
         }
-
+        getData();
     }
 
     @Override
     protected void initView() {
         masterdetail_coachbtn = (RelativeLayout) findViewById(R.id.masterdetail_coachbtn);
-//        masterdetail_coachbtn.setOnClickListener(this);
+        masterdetail_coachbtn.setOnClickListener(this);
         masterdetail_img = (ImageView) findViewById(R.id.masterdetail_img);
-//        masterdetail_img.setOnClickListener(this);
         masterdetail_logtime = (TextView) findViewById(R.id.masterdetail_logtime);
-//        masterdetail_logtime.setOnClickListener(this);
         masterdetail_replynum = (CheckBox) findViewById(R.id.masterdetail_replynum);
-//        masterdetail_replynum.setOnClickListener(this);
+        masterdetail_replynum.setOnClickListener(this);
         masterdetail_teacherimg = (RoundedImageView) findViewById(R.id.masterdetail_teacherimg);
-//        masterdetail_teacherimg.setOnClickListener(this);
         masterdetail_teachername = (TextView) findViewById(R.id.masterdetail_teachername);
-//        masterdetail_teachername.setOnClickListener(this);
         masterdetail_teachertype = (ImageView) findViewById(R.id.masterdetail_teachertype);
-//        masterdetail_teachertype.setOnClickListener(this);
         masterdetail_teacherintro = (TextView) findViewById(R.id.masterdetail_teacherintro);
-//        masterdetail_teacherintro.setOnClickListener(this);
         masterdetail_teacher_Attention = (TextView) findViewById(R.id.masterdetail_teacher_Attention);
-//        masterdetail_teacher_Attention.setOnClickListener(this);
+        masterdetail_teacher_Attention.setOnClickListener(this);
         masterdetail_recyclerview = (RecyclerView) findViewById(R.id.masterdetail_recyclerview);
         masterdetail_live_listview = (MyListView) findViewById(R.id.masterdetail_live_listview);
-//        masterdetail_live_listview.setOnClickListener(this);
         masterdetail_courses_listview = (MyListView) findViewById(R.id.masterdetail_courses_listview);
-//        masterdetail_courses_listview.setOnClickListener(this);
         masterdetail_teacherdetail_tv = (TextView) findViewById(R.id.masterdetail_teacherdetail_tv);
-//        masterdetail_teacherdetail_tv.setOnClickListener(this);
         masterdetail_cancle = (ImageView) findViewById(R.id.masterdetail_cancle);
-//        masterdetail_cancle.setOnClickListener(this);
+        masterdetail_cancle.setOnClickListener(this);
         masterdetail_aty_share = (ImageView) findViewById(R.id.masterdetail_aty_share);
-//        masterdetail_aty_share.setOnClickListener(this);
+        masterdetail_aty_share.setOnClickListener(this);
         adapter = new MasterDetailSortAdapter(this, R.layout.masterdetail_sortlist_item, recyclerList);
         liveAdapter = new MasterDetailLiveAdapter(this, liveCoursesBeen);
         courseAdapter = new MasterDetailCourseAdapter(this, coursesBeen);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        masterdetail_recyclerview.setLayoutManager(linearLayoutManager);
         masterdetail_recyclerview.setAdapter(adapter);
+        masterdetail_live_listview.setAdapter(liveAdapter);
+        masterdetail_courses_listview.setAdapter(courseAdapter);
+        liveAdapter.notifyDataSetChanged();
+        courseAdapter.notifyDataSetChanged();
 
     }
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.masterdetail_cancle:
+                finish();
+                break;
+            case R.id.masterdetail_replynum:
 
+                break;
+            case R.id.masterdetail_teacher_Attention:
+
+                break;
+            case R.id.masterdetail_coachbtn:
+
+                break;
+            case R.id.masterdetail_aty_share:
+
+                break;
+
+
+        }
     }
 
     public void getData() {
         OkHttpClient client = new OkHttpClient.Builder().build();
         int id = getIntent().getIntExtra("id", 0);
-        Log.e("1234",id+"");
+        Log.e("1234", id + "");
         String appToken = (String) SharedPreferencesUtils.getParam(this, "xyxy_apptoken", "String");
-        Log.e("1234",appToken);
+        Log.e("1234", appToken);
         FormBody userId = new FormBody.Builder().add("userId", id + "").build();
         Request build = new Request.Builder().url("https://www.univstar.com/v1/m/user/homepage").post(userId).addHeader("apptoken", appToken).build();
         client.newCall(build).enqueue(new Callback() {
@@ -141,19 +164,67 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
-                Log.e("1234",string);
+                Log.e("1234", string);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
                         MasterDetailBean detailBean = new Gson().fromJson(string, MasterDetailBean.class);
                         liveCoursesBeen.addAll(detailBean.getData().getLiveCourses());
                         coursesBeen.addAll(detailBean.getData().getCourses());
+                        MasterDetailBean.DataBean data = detailBean.getData();
+                        if (data.getUser() != null) {
+                            Glide.with(MasterDetailActivity.this).load(data.getUser().getImages()).into(masterdetail_img);
+                            if (!TextUtils.isEmpty(data.getUser().getSkilled())) {
+                                masterdetail_logtime.setText(data.getUser().getSkilled().replace(",", " "));
+                            }
 
-                        masterdetail_live_listview.setAdapter(liveAdapter);
-                        masterdetail_courses_listview.setAdapter(courseAdapter);
+
+                            Glide.with(MasterDetailActivity.this).load(data.getUser().getPhoto()).into(masterdetail_teacherimg);
+                            name = data.getUser().getRealname();
+                            masterdetail_teachername.setText(data.getUser().getRealname());
+
+                            SplitStringColorUtils.setImgLevel(masterdetail_teachertype, data.getUser().getUserType());
+
+                            masterdetail_teacherintro.setText(data.getUser().getIntro());
+
+                            masterdetail_teacherdetail_tv.setText(data.getUser().getDetails());
+                        }
+
+                        masterdetail_replynum.setText(data.getPraise().getPraiseCount() + "");
+
+                        if (data.getPraise().getIsPraise() == Constant.NOTFAVORITE) {
+                            masterdetail_replynum.setChecked(false);
+                        } else {
+                            masterdetail_replynum.setChecked(true);
+                        }
+
+                        recyclerList.get(ZHIBO).setNum(data.getLiveCount() + "");
+                        recyclerList.get(ZUOYE).setNum(data.getHomewokPublishCount() + "");
+                        recyclerList.get(FUDAO).setNum(data.getCoachingCount() + "");
+                        recyclerList.get(TIEZI).setNum(data.getPostsCount() + "");
+                        recyclerList.get(GUANZHU).setNum(data.getAttentionCount() + "");
+                        recyclerList.get(FENSI).setNum(data.getFansCount() + "");
+                        adapter.notifyDataSetChanged();
+
+                        liveCoursesBeen.addAll(data.getLiveCourses());
                         liveAdapter.notifyDataSetChanged();
+
+                        coursesBeen.addAll(data.getCourses());
                         courseAdapter.notifyDataSetChanged();
+
+                        if (data.getIsAttention() == Constant.Attention) {
+                            masterdetail_teacher_Attention.setText("关注");
+                            masterdetail_teacher_Attention.setActivated(true);
+                            isAttention = false;
+                        } else if (data.getIsAttention() == Constant.Attention_yiguanzhu) {
+                            masterdetail_teacher_Attention.setText("已关注");
+                            masterdetail_teacher_Attention.setActivated(false);
+                            isAttention = true;
+                        } else if (data.getIsAttention() == Constant.Attention_xianghu) {
+                            masterdetail_teacher_Attention.setText("相互关注");
+                            masterdetail_teacher_Attention.setActivated(false);
+                            isAttention = true;
+                        }
 
                     }
                 });
