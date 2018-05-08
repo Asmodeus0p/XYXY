@@ -126,6 +126,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         home_myselft_fragment_fansCount_tv.setOnClickListener(this);
         home_myselft_fragment_student_fukuan.setOnClickListener(this);
         home_myselft_fragment_fensi_group.setOnClickListener(this);
+        home_myself_fragment_userinfo_group.setOnClickListener(this);
       //  userStatus();
 
     }
@@ -158,7 +159,8 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
             case R.id.home_myselft_fragment_student_fukuan:
               //  startActivity(new Intent(getActivity(),FuKuanActivity.class));
                 break;
-
+            case R.id.home_myself_fragment_userinfo_group:
+                startActivity(new Intent(getActivity(),UserActivity.class));
 
         }
 
