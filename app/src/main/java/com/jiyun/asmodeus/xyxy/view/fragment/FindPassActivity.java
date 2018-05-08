@@ -48,7 +48,7 @@ public class FindPassActivity extends AppCompatActivity implements View.OnClickL
         retrievepass_aty_loginbtn = (Button) findViewById(R.id.retrievepass_aty_loginbtn);
 
         retrievepass_aty_loginbtn.setOnClickListener(this);
-
+        retrievepass_cancle.setOnClickListener(this);
         retrievepass_aty_getcode_reset.setOnClickListener(this);
     }
 
@@ -66,6 +66,10 @@ public class FindPassActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.retrievepass_aty_getcode_reset:
                 phoneCodePresenterImp.loadPhoneCode(phoneNum);
+                break;
+            case R.id.retrievepass_cancle:
+                finish();
+                break;
         }
     }
 
