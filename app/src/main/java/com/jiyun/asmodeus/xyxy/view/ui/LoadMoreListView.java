@@ -13,9 +13,7 @@ import android.widget.ScrollView;
 import com.jiyun.asmodeus.xyxy.R;
 
 
-/**
- * 上拉加载
- */
+
 
 public class LoadMoreListView extends ListView implements NestedScrollView.OnScrollChangeListener {
 

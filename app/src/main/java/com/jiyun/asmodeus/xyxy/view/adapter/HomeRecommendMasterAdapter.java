@@ -17,9 +17,6 @@ import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import java.util.List;
 
 
-/**
- * Created by vicoltree on 17/10/26.
- */
 
 public class HomeRecommendMasterAdapter extends RecyclerView.Adapter<HomeRecommendMasterAdapter.ViewHolder> implements View.OnClickListener {
 

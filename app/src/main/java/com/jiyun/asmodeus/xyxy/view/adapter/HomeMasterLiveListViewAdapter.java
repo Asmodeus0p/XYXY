@@ -15,9 +15,7 @@ import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 
 import java.util.List;
 
-/**
- * Created by vicoltree on 17/10/28.
- */
+
 
 public class HomeMasterLiveListViewAdapter extends BaseAdapter {
 

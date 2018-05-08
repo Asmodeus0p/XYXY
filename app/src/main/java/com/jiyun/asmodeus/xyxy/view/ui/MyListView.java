@@ -4,9 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
-/**
- * 在Viewpager里无法正常显示问题
- */
 
 public class MyListView extends ListView {
 

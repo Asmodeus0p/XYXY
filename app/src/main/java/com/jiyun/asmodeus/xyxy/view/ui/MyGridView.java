@@ -4,9 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
 
-/**
- * 在Viewpager里无法正常显示问题
- */
+
 public class MyGridView extends GridView {
 
 	public MyGridView(Context context, AttributeSet attrs, int defStyle) {
