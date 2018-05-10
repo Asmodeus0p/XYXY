@@ -186,7 +186,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
                 break;
             case R.id.home_master_look_group:
-                startActivity(new Intent(getActivity(), LivingListActivity.class);
+                startActivity(new Intent(getActivity(), LivingListActivity.class));
                 break;
             case R.id.home_master_work_group:
                 ((MainActivity) getActivity()).getWork().setChecked(true);
