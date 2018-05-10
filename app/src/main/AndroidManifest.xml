@@ -31,7 +31,16 @@
         <activity android:name=".view.fragment.ResetPassActivity" />
         <activity android:name=".view.fragment.homeactivity.MasterFindActivity" />
         <activity android:name=".view.fragment.homeactivity.MasterDetailActivity" />
-        <activity android:name=".view.fragment.homeactivity.MasterLiveDetailActivity"></activity>
+        <activity android:name=".view.fragment.myselfactivity.StudentDingdanActivity" />
+        <activity android:name=".view.fragment.myselfactivity.VoucherCenterActivity" />
+        <activity android:name=".view.fragment.myselfactivity.GuanZhuActivity" />
+        <activity android:name=".view.fragment.myselfactivity.TieZiActivity" />
+        <activity android:name=".view.fragment.myselfactivity.FensActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterLiveDetailActivity" />
+        <activity android:name=".view.fragment.myselfactivity.GiftActivity" />
+        <activity android:name=".view.fragment.myselfactivity.SettingActivity" />
+        <activity android:name=".view.fragment.myselfactivity.MessageActivity" />
+        <activity android:name=".view.fragment.myselfactivity.ChangePhoneNumActivity"></activity>
     </application>
 
 </manifest>

@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/myselfFragment">
 
 
 
@@ -253,6 +254,7 @@
                 android:layout_height="match_parent">
 
               <TextView
+                  android:text="0"
                   android:id="@+id/home_myselft_fragment_homewokCount_tv"
                   android:layout_width="wrap_content"
                   style="@style/home_myself_lable_tv_style"
@@ -261,6 +263,7 @@
               <TextView
                   android:id="@+id/home_myselft_fragment_homewokCount_status"
                   android:layout_width="wrap_content"
+                  android:text="作品"
                   style="@style/home_myself_lableflag_tv_style"
                   android:layout_height="wrap_content" />
             </LinearLayout>
@@ -275,6 +278,7 @@
                 android:layout_height="match_parent">
 
               <TextView
+                  android:text="0"
                   android:id="@+id/home_myselft_fragment_artcircleCount_tv"
                   android:layout_width="wrap_content"
                   style="@style/home_myself_lable_tv_style"
@@ -297,6 +301,7 @@
                 android:layout_height="match_parent">
 
               <TextView
+                  android:text="0"
                   android:id="@+id/home_myselft_fragment_attentionCount_tv"
                   android:layout_width="wrap_content"
                   style="@style/home_myself_lable_tv_style"
@@ -319,6 +324,7 @@
                 android:layout_height="match_parent">
 
               <TextView
+                  android:text="0"
                   android:id="@+id/home_myselft_fragment_fansCount_tv"
                   android:layout_width="wrap_content"
                   style="@style/home_myself_lable_tv_style"

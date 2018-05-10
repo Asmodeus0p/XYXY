@@ -5,6 +5,7 @@ package com.jiyun.asmodeus.xyxy.model.utils;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.model.biz.AppTokenService;
+import com.jiyun.asmodeus.xyxy.model.biz.CenterService;
 import com.jiyun.asmodeus.xyxy.model.biz.FindPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.HomeworkService;
 import com.jiyun.asmodeus.xyxy.model.biz.IPhoneLoginService;
@@ -99,6 +100,9 @@ public class RetrofitUtils {
     }
     public IResetPassService getIResetPassService(){
         return retrofit.create(IResetPassService.class);
+    }
+    public CenterService getcenterService(){
+        return retrofit.create(CenterService.class);
     }
     }
 

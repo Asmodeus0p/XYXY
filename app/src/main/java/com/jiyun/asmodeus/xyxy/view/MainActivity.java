@@ -1,5 +1,6 @@
 package com.jiyun.asmodeus.xyxy.view;
 
+import android.content.Intent;
 import android.graphics.Color;
 
 import android.view.View;
@@ -19,8 +20,11 @@ import com.jiyun.asmodeus.xyxy.view.fragment.MyselfFragment;
 import com.jiyun.asmodeus.xyxy.view.fragment.NoticeFragment;
 import com.jiyun.asmodeus.xyxy.view.fragment.ValuableFragment;
 import com.jiyun.asmodeus.xyxy.view.fragment.WorkFragment;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.MessageActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.SettingActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.StudentDingdanActivity;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private LinearLayout maina;
     private RadioButton mingshi;
@@ -138,10 +142,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 lin.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, 0, 1.0f));
                 break;
             case R.id.set:
-
+                //    startActivity(new Intent(MainActivity.this,SettingActivity.class));
                 break;
             case R.id.message:
-
+               // startActivity(new Intent(MainActivity.this,MessageActivity.class));
                 break;
         }
     }
@@ -153,6 +157,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         fragmentcontainer.setLayoutParams(new LinearLayout.LayoutParams(FrameLayout.LayoutParams.FILL_PARENT, 0, 9.0f));
         lin.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, 0, 1.0f));
     }
+
 
 
 }
