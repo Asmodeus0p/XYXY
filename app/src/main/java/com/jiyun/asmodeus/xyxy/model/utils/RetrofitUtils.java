@@ -9,6 +9,7 @@ import com.jiyun.asmodeus.xyxy.model.biz.FindPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.HomeworkService;
 import com.jiyun.asmodeus.xyxy.model.biz.IPhoneLoginService;
 import com.jiyun.asmodeus.xyxy.model.biz.IResetPassService;
+import com.jiyun.asmodeus.xyxy.model.biz.MessageListService;
 import com.jiyun.asmodeus.xyxy.model.biz.NoticeService;
 import com.jiyun.asmodeus.xyxy.model.biz.PhoneCodeService;
 import com.jiyun.asmodeus.xyxy.model.biz.RegistService;
@@ -34,6 +35,8 @@ public class RetrofitUtils {
 
     private final Retrofit retrofit;
 
+
+    public static final int Sucess_code = 0;
     private RetrofitUtils() {
        retrofit= new Retrofit.Builder()
                 .baseUrl(Constant.Root_url)
@@ -105,9 +108,12 @@ public class RetrofitUtils {
     }
     public ValuableService getValuableService(){
         return retrofit.create(ValuableService.class);
+    }
     public CenterService getcenterService(){
         return retrofit.create(CenterService.class);
     }
+    public MessageListService getMessageListService(){
+        return retrofit.create(MessageListService.class);
     }
 }
 

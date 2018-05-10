@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
@@ -23,6 +24,8 @@ import com.jiyun.asmodeus.xyxy.view.fragment.WorkFragment;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.MessageActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.SettingActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.StudentDingdanActivity;
+
+import java.util.Date;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -39,6 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RelativeLayout tab;
     private FrameLayout fragmentcontainer;
     private LinearLayout lin;
+    private long lastPressTime = 0;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -92,6 +96,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         message.setOnClickListener(this);
         setContentView(MingShiFragment.class);
 
+    }
+
+    public void onBackPressed(){
+        if (new Date().getTime() - lastPressTime < 1000) {
+            finish();//结束程序
+        } else {
+            lastPressTime = new Date().getTime();//重置lastPressTime
+            Toast.makeText(this, "再按一次返回键退出", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
