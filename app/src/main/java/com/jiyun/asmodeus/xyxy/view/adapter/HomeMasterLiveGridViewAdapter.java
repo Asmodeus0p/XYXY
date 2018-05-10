@@ -55,7 +55,7 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+       this.context= parent.getContext();
         final ViewHolder viewHolder;
 
         if (convertView == null) {
@@ -74,19 +74,16 @@ public class HomeMasterLiveGridViewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        Glide.with(App.context).load(liveCoursesBeen.get(position).getCoverImg()).into(viewHolder.coverImg);
+        Glide.with(context).load(liveCoursesBeen.get(position).getCoverImg()).into(viewHolder.coverImg);
         viewHolder.type.setText(liveCoursesBeen.get(position).getType());
         viewHolder.name.setText(liveCoursesBeen.get(position).getRealname());
 
         if (!TextUtils.isEmpty(liveCoursesBeen.get(position).getMajorIds())) {
 
-//            SplitStringColorUtils.addForeColorSpan(context, liveCoursesBeen.get(position).getMajorIds().split(","), viewHolder.major);
         } else {
             viewHolder.major.setVisibility(View.GONE);
         }
-
         viewHolder.typeTitle.setText(String.format("%s开播: ", liveCoursesBeen.get(position).getType()));
-
         SplitStringColorUtils.setImgLevel(viewHolder.usertype, liveCoursesBeen.get(position).getUserType());
         SimpleDateFormat sdf= new SimpleDateFormat("MM/dd/yyyy HH:mm");
         long startDate = liveCoursesBeen.get(position).getStartDate();
