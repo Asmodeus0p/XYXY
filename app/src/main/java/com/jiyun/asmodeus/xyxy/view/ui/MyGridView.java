@@ -28,5 +28,6 @@ public class MyGridView extends GridView {
 		super.onMeasure(widthMeasureSpec, expandSpec);
 
 
+
 }
 }

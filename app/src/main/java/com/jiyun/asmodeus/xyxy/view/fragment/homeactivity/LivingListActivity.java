@@ -128,6 +128,7 @@ public class LivingListActivity extends BaseActivity implements View.OnClickList
                             livinglist_aty_recyclerview_empty.setVisibility(View.GONE);
                         }
                     }
+                    //asdfghj
                 });
 
             }
