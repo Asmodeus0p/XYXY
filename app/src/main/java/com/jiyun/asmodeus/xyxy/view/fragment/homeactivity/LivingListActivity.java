@@ -111,11 +111,9 @@ public class LivingListActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
-//                Log.e("==", string);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.e("1234",string);
                         LivingListBean livingListBean = new Gson().fromJson(string, LivingListBean.class);
                         datalist.addAll(livingListBean.getData().getList());
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(LivingListActivity.this);
