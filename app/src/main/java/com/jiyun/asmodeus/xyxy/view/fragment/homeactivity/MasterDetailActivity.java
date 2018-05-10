@@ -164,7 +164,7 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
-                Log.e("1234", string);
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
