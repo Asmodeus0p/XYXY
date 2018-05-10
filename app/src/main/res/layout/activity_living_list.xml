@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.homeactivity.LivingListActivity">
+    <RelativeLayout
+        android:id="@+id/livinglist_aty_title_group"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/ts_26"
+        android:layout_alignParentTop="true"
+        android:layout_height="@dimen/ts_44">
+
+        <TextView
+            android:id="@+id/livinglist_aty_title_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/cancle_bg_style" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="直播课程"
+            style="@style/listui_title_style"
+            android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="@dimen/ts_22"
+                    android:layout_marginRight="@dimen/ts_12"
+                    android:background="@mipmap/home_master_search"
+                    android:layout_height="@dimen/ts_22" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            style="@style/login_line_style"
+            android:layout_alignParentBottom="true"
+            android:layout_height="@dimen/ts_1" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#f8f8f8"
+        android:layout_height="@dimen/ts_36">
+
+        <RelativeLayout
+            android:id="@+id/livinglist_aty_level1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/livinglist_aty_level1_tv"
+                android:layout_width="wrap_content"
+                android:text="课程"
+                android:layout_centerInParent="true"
+                style="@style/home_work_sorbar_enabled_true_style"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/livinglist_aty_level1_line"
+                android:layout_width="@dimen/ts_20"
+                android:background="@drawable/home_work_fragment_sortline_bg"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="@dimen/ts_3" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/livinglist_aty_level2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/livinglist_aty_level2_tv"
+                android:layout_width="wrap_content"
+                android:text="直播live"
+                android:layout_centerInParent="true"
+                style="@style/home_work_sorbar_enabled_true_style"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/livinglist_aty_level2_line"
+                android:layout_width="@dimen/ts_20"
+                android:background="#FFD235"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="@dimen/ts_3" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        style="@style/login_line_style"
+        android:layout_alignParentBottom="true"
+        android:layout_height="@dimen/ts_1" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/livinglist_aty_recyclerview"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:visibility="visible"
+        android:cacheColorHint="@color/transparent"
+        android:fadingEdge="none"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/livinglist_aty_recyclerview_empty"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/ts_145"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/ts_80"
+                android:src="@mipmap/empty_content"
+                android:layout_height="@dimen/ts_77" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="暂无内容"
+                android:layout_marginTop="@dimen/ts_10"
+                android:textSize="@dimen/ts_14"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/livinglist_aty_recyclerview_fault"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/ts_145"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/ts_80"
+                android:src="@mipmap/netwok_fault"
+                android:layout_height="@dimen/ts_77" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="网络不给力"
+                android:layout_marginTop="@dimen/ts_14"
+                android:textSize="@dimen/ts_12"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="请检查网络链接后，点击重试"
+                android:layout_marginTop="@dimen/ts_8"
+                android:textSize="@dimen/ts_12"
+                android:textColor="@color/gray"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:id="@+id/livinglist_aty_recyclerview_fault_btn"
+                android:layout_width="@dimen/ts_82"
+                android:background="@drawable/button_blue_bg_active"
+                android:layout_marginTop="@dimen/ts_12"
+                android:text="重试"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_14"
+                android:gravity="center"
+                android:layout_height="@dimen/ts_32" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

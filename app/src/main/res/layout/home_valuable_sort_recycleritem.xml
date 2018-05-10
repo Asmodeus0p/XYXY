@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:background="#f8f8f8"
+    android:layout_height="@dimen/ts_36">
+
+        <RelativeLayout
+            android:id="@+id/home_work_fragment_capacity_group"
+            android:layout_width="@dimen/ts_90"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/home_valuable_sort_recycleritem_tv"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                style="@style/home_work_sorbar_enabled_true_style"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/home_valuable_sort_recycleritem_line"
+                android:layout_width="@dimen/ts_20"
+                android:background="#FFD235"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="@dimen/ts_3" />
+
+        </RelativeLayout>
+
+</LinearLayout>
