@@ -18,6 +18,7 @@ import com.jiyun.asmodeus.xyxy.contract.Teachercontract;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.presenter.TeacherPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.MainActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.LivingListActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.MasterDetailActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.MasterFindActivity;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterLiveGridViewAdapter;
@@ -185,7 +186,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
                 break;
             case R.id.home_master_look_group:
-
+                startActivity(new Intent(getActivity(), LivingListActivity.class));
                 break;
             case R.id.home_master_work_group:
                 ((MainActivity) getActivity()).getWork().setChecked(true);

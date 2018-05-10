@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.jiyun.asmodeus.xyxy">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -41,6 +42,9 @@
         <activity android:name=".view.fragment.myselfactivity.SettingActivity" />
         <activity android:name=".view.fragment.myselfactivity.MessageActivity" />
         <activity android:name=".view.fragment.myselfactivity.ChangePhoneNumActivity"></activity>
+        <activity android:name=".view.fragment.homeactivity.MasterLiveDetailActivity"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name=".view.fragment.homeactivity.LivingListActivity"></activity>
     </application>
 
 </manifest>
