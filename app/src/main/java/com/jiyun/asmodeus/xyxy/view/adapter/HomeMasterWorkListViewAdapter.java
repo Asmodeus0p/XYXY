@@ -16,10 +16,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.model.utils.BitmapHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
+import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -90,7 +92,6 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
             viewHolder.studentimg = convertView.findViewById(R.id.home_masterwork_listitem_studentimg);
             viewHolder.studentname = convertView.findViewById(R.id.home_masterwork_listitem_studentname);
             viewHolder.time = convertView.findViewById(R.id.home_masterwork_listitem_time);
-
              viewHolder.from = convertView.findViewById(R.id.home_masterwork_listitem_from);
             viewHolder.content = convertView.findViewById(R.id.home_masterwork_listitem_content);
             viewHolder.contentintro = convertView.findViewById(R.id.home_masterwork_listitem_contentintro);
@@ -172,7 +173,7 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
 
         if (!TextUtils.isEmpty(homewoksBeen.get(position).getMajorIds())) {
 
-//            SplitStringColorUtils.addForeColorSpan(context, homewoksBeen.get(position).getMajorIds().split(","), viewHolder.worktype);
+
         }
 
         //是否有老师点评
@@ -229,8 +230,12 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
 
         } else {
             //点赞
+            if (SharedPreferencesUtils.isLogin(App.context)) {
+                viewHolder.praise_cb.setChecked(true);
+            }else{
 
-            viewHolder.praise_cb.setChecked(true);
+            }
+
         }
 
         if (homewoksBeen.get(position).getGiftNum() != 0) {

@@ -118,18 +118,12 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
     @Override
     public void laodTeacherDatas(HomeBean homeBean) {
-
-        //广告栏
         systemAds.addAll(homeBean.getData().getSystemAds());
         ArrayList<String> urls = new ArrayList<>();
         for (HomeBean.DataBean.SystemAdsBean systemAd : systemAds) {
             urls.add(systemAd.getMobileImgUrl());
         }
         home_master_adv_viewpager.setImagesUrl(urls);
-
-
-        //推荐名师
-
         usersAdapter = new HomeRecommendMasterAdapter(usersbean);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -151,10 +145,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
             }
         });
 
-
 //        //直播课程
-
-
         liveCoursesBeen.addAll(homeBean.getData().getLiveCourses());
         liveCoursesAdapter = new HomeMasterLiveGridViewAdapter(getContext(), liveCoursesBeen);
         home_master_live_gridview.setAdapter(liveCoursesAdapter);

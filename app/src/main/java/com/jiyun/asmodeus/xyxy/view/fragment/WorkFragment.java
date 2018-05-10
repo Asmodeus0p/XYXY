@@ -1,6 +1,7 @@
 package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
+import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -22,9 +23,11 @@ import com.jiyun.asmodeus.xyxy.contract.WorkContract;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
 import com.jiyun.asmodeus.xyxy.model.entity.WorkBean;
 
+import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.presenter.WorkPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
+import com.jiyun.asmodeus.xyxy.view.fragment.workactivity.PublishSelectWokListActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.LoadMoreListView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
@@ -101,7 +104,7 @@ public class WorkFragment extends BaseFragment implements WorkContract.WorkView,
         home_work_fragment_capacity_group.setOnClickListener(this);
         home_work_fragment_listen_group.setOnClickListener(this);
         home_work_fragment_comment_group.setOnClickListener(this);
-
+        home_work_fragment_publishwok_group.setOnClickListener(this);
 
     }
 
@@ -151,6 +154,14 @@ public class WorkFragment extends BaseFragment implements WorkContract.WorkView,
                 home_work_fragment_comment_line.setVisibility(View.VISIBLE);
                 adapter = new HomeWorkListViewAdapter(App.context,homewoksBeen2);
                 home_work_fragment_listview.setAdapter(adapter);
+                break;
+            case R.id.home_work_fragment_publishwok_group:
+                if (SharedPreferencesUtils.isLogin(getActivity())) {
+                    startActivity(new Intent(getActivity(), PublishSelectWokListActivity.class));
+                }else{
+                    startActivity(new Intent(getActivity(),LoginActivity.class));
+                }
+
                 break;
         }
     }
