@@ -62,6 +62,12 @@ public class NoticeFragment extends BaseFragment implements NoticeContract.Notic
         adapter=new NoticeAdapter(list);
         time_chose.setOnClickListener(this);
         mRecy.setAdapter(adapter);
+        adapter.setOnAdapterClick(new NoticeAdapter.OnItemListener() {
+            @Override
+            public void setOnClick(View v, int postion) {
+
+            }
+        });
     }
 
     @Override

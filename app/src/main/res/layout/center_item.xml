@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ts_54">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/sp_12"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/ts_20"
+                android:src="@mipmap/jindou"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/ts_6"
+                android:layout_height="@dimen/ts_20" />
+
+            <TextView
+                android:text="11111"
+                android:id="@+id/recharge_center_listitem_amount"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/ts_14"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="123"
+            android:id="@+id/recharge_center_listitem_price"
+            android:layout_width="60dp"
+            android:background="@drawable/select_type_blue_bg_active"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/sp_12"
+            android:gravity="center"
+            android:textSize="@dimen/ts_14"
+            android:textColor="@color/blue_arlt"
+            android:layout_height="28dp" />
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        style="@style/login_line_style"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/sp_12"
+        android:layout_height="1dp" />
+</LinearLayout>

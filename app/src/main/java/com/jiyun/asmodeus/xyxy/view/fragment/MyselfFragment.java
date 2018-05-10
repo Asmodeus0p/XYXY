@@ -1,8 +1,14 @@
 package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,10 +18,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jiyun.asmodeus.xyxy.R;
+import com.jiyun.asmodeus.xyxy.model.utils.Constant;
+import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.FensActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.GiftActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.GuanZhuActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.MessageActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.SettingActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.StudentDingdanActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.TieZiActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.VoucherCenterActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.CImageView;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -66,7 +79,8 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
     private TextView home_myself_fragment_isauth_tv;
     private RelativeLayout home_myselft_fragment_approve;
     private LinearLayout home_myselft_fragment_login_body;
-
+    private String nickname;
+    private String photo;
 
     @Override
     protected int getLayoutId() {
@@ -77,6 +91,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     protected void init() {
+
         home_myselft_fragment_message = (ImageView) getView().findViewById(R.id.home_myselft_fragment_message);
         home_myselft_fragment_message_newimg = (ImageView) getView().findViewById(R.id.home_myselft_fragment_message_newimg);
         home_myself_message = (RelativeLayout) getView().findViewById(R.id.home_myself_message);
@@ -127,8 +142,14 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         home_myselft_fragment_student_fukuan.setOnClickListener(this);
         home_myselft_fragment_fensi_group.setOnClickListener(this);
         home_myself_fragment_userinfo_group.setOnClickListener(this);
-      //  userStatus();
+        home_myselft_fragment_student_dingdan.setOnClickListener(this);
+        home_myself_fragment_jindou_group.setOnClickListener(this);
+        home_myselft_fragment_havegift_group.setOnClickListener(this);
+        home_myselft_fragment_setting.setOnClickListener(this);
+        home_myselft_fragment_message.setOnClickListener(this);
+        //userStatus();
 
+        checkLogin();
     }
 
     @Override
@@ -157,47 +178,101 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 startActivity(new Intent(getActivity(), FensActivity.class));
                 break;
             case R.id.home_myselft_fragment_student_fukuan:
-              //  startActivity(new Intent(getActivity(),FuKuanActivity.class));
+
                 break;
             case R.id.home_myself_fragment_userinfo_group:
-                startActivity(new Intent(getActivity(),UserActivity.class));
+               // startActivity(new Intent(getActivity(),UserActivity.class));
+                break;
+            case R.id.home_myselft_fragment_student_dingdan:
+                startActivity(new Intent(getActivity(),StudentDingdanActivity.class));
+                break;
+            case R.id.home_myself_fragment_jindou_group:
+                String userMobile = SharedPreferencesUtils.getUserMobile(getContext());
+                Intent jindouIntent = new Intent(getActivity(), VoucherCenterActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("mobile",userMobile);
+                    jindouIntent.putExtras(bundle);
+                    startActivity(jindouIntent);
+                break;
+            case R.id.home_myselft_fragment_havegift_group:
+                startActivity(new Intent(getActivity(), GiftActivity.class));
+                break;
+            case R.id.home_myselft_fragment_setting:
+                if (SharedPreferencesUtils.isLogin(getActivity())){
+                String userMobile1 = SharedPreferencesUtils.getUserMobile(getContext());
+                Intent bing = new Intent(getActivity(), SettingActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("bingPhoneNum",userMobile1);
+                bing.putExtras(bundle1);
+                startActivity(bing);
+                }else {
+                    checkLogin();
+                }
+                break;
+            case R.id.home_myselft_fragment_message:
+                if (SharedPreferencesUtils.isLogin(getActivity())){
+                    startActivity(new Intent(getActivity(), MessageActivity.class));
+                }else {
+                    checkLogin();
+                }
+
+                break;
+
+
 
         }
 
     }
-//    private void userStatus(){
-//
-//        if(SharedPreferencesUtils.isLogin(getContext())){
-//            登录
-//            home_myselft_fragment_nologin_body.setVisibility(View.GONE);
-//            home_myselft_fragment_login_head.setVisibility(View.VISIBLE);
-//            home_myselft_fragment_nologin_head.setVisibility(View.GONE);
-//            home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
-//        }else{
-//           未登录
-//            home_myselft_fragment_login_head.setVisibility(View.GONE);
-//            home_myselft_fragment_nologin_head.setVisibility(View.VISIBLE);
-//            home_myselft_fragment_login_body.setVisibility(View.GONE);
-//            home_myselft_fragment_nologin_body.setVisibility(View.VISIBLE);
-//        }
-//
-//    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==10&&resultCode==10){
-            String nickname = data.getStringExtra("nickname");
-            String photo = data.getStringExtra("photo");
-            if (nickname!=null){
-                home_myself_fragment_username.setText(nickname);
-                Glide.with(getContext()).load(photo).into(home_myself_fragment_userimg);
+            nickname= data.getStringExtra("nickname");
+            photo = data.getStringExtra("photo");
+            home_myself_fragment_username.setText(nickname);
+            Glide.with(getContext()).load(photo).into(home_myself_fragment_userimg);
                 home_myselft_fragment_login_head.setVisibility(View.VISIBLE);
                 home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
                 home_myselft_fragment_nologin_body.setVisibility(View.GONE);
                 home_myselft_fragment_nologin_head.setVisibility(View.GONE);
                 home_myselft_fragment_student_toolline.setVisibility(View.VISIBLE);
-            }
+
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        checkLogin();
+
+
+    }
+
+    private void checkLogin() {
+        //userStatus();
+        boolean login = SharedPreferencesUtils.isLogin(getContext());
+
+        if (login==false){
+            //未登录
+            home_myselft_fragment_login_head.setVisibility(View.GONE);
+            home_myselft_fragment_nologin_head.setVisibility(View.VISIBLE);
+            home_myselft_fragment_login_body.setVisibility(View.GONE);
+            home_myselft_fragment_nologin_body.setVisibility(View.VISIBLE);
+        }else {
+            //登录
+            home_myselft_fragment_nologin_body.setVisibility(View.GONE);
+            home_myselft_fragment_login_head.setVisibility(View.VISIBLE);
+            home_myselft_fragment_nologin_head.setVisibility(View.GONE);
+            home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
+            home_myselft_fragment_student_toolline.setVisibility(View.VISIBLE);
+            String name = SharedPreferencesUtils.getUserInfo(getContext());
+            home_myself_fragment_username.setText(name);
+            String url = SharedPreferencesUtils.getUserInfoUrl(getContext());
+            Glide.with(getContext()).load(url).into(home_myself_fragment_userimg);
+        }
+    }
+
+
 }
