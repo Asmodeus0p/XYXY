@@ -143,7 +143,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
                     return ;
                 }
                 int id = usersbean.get(position).getId();
-                Intent intent = new Intent(getContext(), MasterLiveDetailActivity.class);
+                Intent intent = new Intent(getContext(), MasterDetailActivity.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
 
@@ -162,7 +162,8 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), MasterLiveDetailActivity.class);
-                intent.putExtra("id", id);
+                int id1 = liveCoursesBeen.get(position).getId();
+                intent.putExtra("ids", id1);
                 startActivity(intent);
             }
         });

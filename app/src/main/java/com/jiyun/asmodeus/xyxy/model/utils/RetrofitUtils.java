@@ -1,7 +1,6 @@
 package com.jiyun.asmodeus.xyxy.model.utils;
 
 
-
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.model.biz.AppTokenService;
@@ -13,6 +12,7 @@ import com.jiyun.asmodeus.xyxy.model.biz.NoticeService;
 import com.jiyun.asmodeus.xyxy.model.biz.PhoneCodeService;
 import com.jiyun.asmodeus.xyxy.model.biz.RegistService;
 import com.jiyun.asmodeus.xyxy.model.biz.TeacherService;
+import com.jiyun.asmodeus.xyxy.model.biz.ValuableService;
 import com.jiyun.asmodeus.xyxy.model.entity.TokenBean;
 import com.jiyun.asmodeus.xyxy.view.MainActivity;
 
@@ -26,14 +26,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-
 public class RetrofitUtils {
 
     private static RetrofitUtils retrofitUtils;
 
     private final Retrofit retrofit;
+
     private RetrofitUtils() {
-       retrofit= new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(Constant.Root_url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -45,7 +45,7 @@ public class RetrofitUtils {
                 .subscribe(new Consumer<TokenBean>() {
                     @Override
                     public void accept(TokenBean value) throws Exception {
-                        if(value==null||value.getData()==null){
+                        if (value == null || value.getData() == null) {
                             return;
                         }
 
@@ -53,14 +53,15 @@ public class RetrofitUtils {
 
                         long time = System.currentTimeMillis();
 
-                        String desApptoken= EncryptUtil.decrypt(apptoken);
+                        String desApptoken = EncryptUtil.decrypt(apptoken);
 
-                        String headerApptoken=EncryptUtil.encrypt(time + desApptoken).replaceAll("\\n","").toUpperCase();
+                        String headerApptoken = EncryptUtil.encrypt(time + desApptoken).replaceAll("\\n", "").toUpperCase();
 
-                        SharedPreferencesUtils.setParam(App.context,"xyxy_apptoken",headerApptoken+"."+time);
+                        SharedPreferencesUtils.setParam(App.context, "xyxy_apptoken", headerApptoken + "." + time);
                     }
                 });
     }
+
     public static RetrofitUtils getInstance() {
         if (retrofitUtils == null) {
             synchronized (RetrofitUtils.class) {
@@ -76,29 +77,40 @@ public class RetrofitUtils {
         Date d = new Date(time);
         return new SimpleDateFormat("MM-dd HH:mm").format(d);
     }
-    public TeacherService getTeacher(){
+
+    public TeacherService getTeacher() {
         return retrofit.create(TeacherService.class);
     }
-    public NoticeService getNoticeService(){
+
+    public NoticeService getNoticeService() {
         return retrofit.create(NoticeService.class);
     }
-    public PhoneCodeService getPhoneServiec(){
+
+    public PhoneCodeService getPhoneServiec() {
         return retrofit.create(PhoneCodeService.class);
     }
-    public RegistService getRegistServiec(){
+
+    public RegistService getRegistServiec() {
         return retrofit.create(RegistService.class);
     }
-    public HomeworkService getWorkService(){
+
+    public HomeworkService getWorkService() {
         return retrofit.create(HomeworkService.class);
     }
-    public IPhoneLoginService getIPhoneLoginService(){
+
+    public IPhoneLoginService getIPhoneLoginService() {
         return retrofit.create(IPhoneLoginService.class);
     }
-    public FindPassService getFindPassService(){
+
+    public FindPassService getFindPassService() {
         return retrofit.create(FindPassService.class);
     }
-    public IResetPassService getIResetPassService(){
+
+    public IResetPassService getIResetPassService() {
         return retrofit.create(IResetPassService.class);
     }
+    public ValuableService getValuableService(){
+        return retrofit.create(ValuableService.class);
     }
+}
 

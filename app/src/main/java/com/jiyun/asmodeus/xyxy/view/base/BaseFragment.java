@@ -37,4 +37,9 @@ public abstract class BaseFragment extends Fragment {
     protected void onShow(){};
 
     protected abstract void loadDatas();
+    protected void emptyList(View emptyhintView , View loadMoreList){
+        emptyhintView.setVisibility(View.VISIBLE);
+        loadMoreList.setVisibility(View.GONE);
+    }
+
 }
