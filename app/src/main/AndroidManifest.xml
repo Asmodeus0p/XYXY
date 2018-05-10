@@ -41,10 +41,12 @@
         <activity android:name=".view.fragment.myselfactivity.GiftActivity" />
         <activity android:name=".view.fragment.myselfactivity.SettingActivity" />
         <activity android:name=".view.fragment.myselfactivity.MessageActivity" />
-        <activity android:name=".view.fragment.myselfactivity.ChangePhoneNumActivity"></activity>
-        <activity android:name=".view.fragment.homeactivity.MasterLiveDetailActivity"
+        <activity android:name=".view.fragment.myselfactivity.ChangePhoneNumActivity" />
+        <activity
+            android:name=".view.fragment.homeactivity.MasterLiveDetailActivity"
             tools:ignore="DuplicateActivity" />
-        <activity android:name=".view.fragment.homeactivity.LivingListActivity"></activity>
+        <activity android:name=".view.fragment.homeactivity.LivingListActivity" />
+        <activity android:name=".view.fragment.workactivity.PublishSelectWokListActivity"></activity>
     </application>
 
 </manifest>

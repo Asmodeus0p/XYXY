@@ -1,0 +1,1941 @@
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/contract/ValiableContract.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/contract/ValiableContract.java	(date 1525846979266)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/contract/ValiableContract.java	(date 1525846979266)
+@@ -0,0 +1,17 @@
++package com.jiyun.asmodeus.xyxy.contract;
++
++
++import com.jiyun.asmodeus.xyxy.model.entity.HomeValuanleBean;
++
++public interface ValiableContract {
++    interface ValiablePresenter{
++        void GetWorkZhiNeng();
++        void GetWorkZanShu();
++        void GetWorkZuiXin();
++    }
++    interface ValiableView{
++        void laodWorkZhiNeng(HomeValuanleBean workBean);
++        void laodWorkZanShu(HomeValuanleBean workBean);
++        void laodWorkZuiXin(HomeValuanleBean workBean);
++    }
++}
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/model/biz/ValuableService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/model/biz/ValuableService.java	(date 1525838417065)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/model/biz/ValuableService.java	(date 1525838417065)
+@@ -0,0 +1,19 @@
++package com.jiyun.asmodeus.xyxy.model.biz;
++
++import com.jiyun.asmodeus.xyxy.model.entity.HomeValuanleBean;
++import com.jiyun.asmodeus.xyxy.model.utils.Urls;
++
++import java.util.Map;
++
++import io.reactivex.Observable;
++import retrofit2.http.FieldMap;
++import retrofit2.http.FormUrlEncoded;
++import retrofit2.http.HeaderMap;
++import retrofit2.http.POST;
++
++public interface ValuableService {
++    @FormUrlEncoded
++    @POST(Urls.VALUABLEURL)
++    Observable<HomeValuanleBean> loadWorkPage(@FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
++}
++
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/model/entity/HomeValuanleBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/model/entity/HomeValuanleBean.java	(date 1525833731936)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/model/entity/HomeValuanleBean.java	(date 1525833731936)
+@@ -0,0 +1,689 @@
++package com.jiyun.asmodeus.xyxy.model.entity;
++
++import java.util.List;
++
++
++
++public class HomeValuanleBean {
++
++
++    /**
++     * code : 0
++     * message : 成功
++     * data : {"courses":{"pageNum":1,"pageSize":20,"size":12,"startRow":1,"endRow":12,"total":12,"pages":1,"list":[{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5,3,4","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":13,"contentType":"新闻动态","createDate":1510983963000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":12,"contentType":"书籍推荐","createDate":1510983959000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":11,"contentType":"艺考答疑","createDate":1510983956000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":10,"contentType":"微信组群","createDate":1510983950000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":9,"contentType":"招生简章","createDate":1510983938000,"isFavorite":0},{"coverImg":null,"photo":null,"praiseNum":0,"title":"海军绿","userId":63,"content":"这是我拍摄的一部视频舞蹈，灵感来自于我每天挤地铁的日常，在摇摆的地铁上像不到问一样的摇来摇去。","favoriteNum":0,"duration":1510818825000,"majorIds":"2,1","commentNum":0,"path":"1798a05100b98256a7bd9d63dd14e854.jpg","worksType":"图片","nickname":null,"isPraise":0,"userType":null,"id":8,"contentType":"经验分享","createDate":1510818778000,"isFavorite":0},{"coverImg":null,"photo":null,"praiseNum":0,"title":"哈伦海军绿","userId":63,"content":"这是我拍摄的一部视频舞蹈，灵感来自于我每天挤地铁的日常，在摇摆的地铁上像不到问一样的摇来摇去。","favoriteNum":0,"duration":1510818949000,"majorIds":"1,2","commentNum":0,"path":"1798a05100b98256a7bd9d63dd14e854.jpg","worksType":"图片","nickname":null,"isPraise":0,"userType":null,"id":7,"contentType":"艺考答疑","createDate":1510817367000,"isFavorite":0},{"coverImg":"http://pic101.huitu.com/res/20171030/799232_20171030171425959080_1.jpg","photo":null,"praiseNum":0,"title":"我的艺考生涯","userId":1,"content":"艺考生的未来","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":4,"contentType":"经验分享","createDate":1509718045000,"isFavorite":0},{"coverImg":"http://pic131.nipic.com/file/20170526/22060368_225408266032_2.jpg","photo":null,"praiseNum":0,"title":"动听的歌喉","userId":1,"content":"我来了一首天籁之音","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":2,"contentType":"招生简章","createDate":1509717304000,"isFavorite":0},{"coverImg":"http://pic96.huitu.com/res/20170517/894913_20170517121230961020_1.jpg","photo":null,"praiseNum":0,"title":"一段美丽的舞蹈","userId":1,"content":"用心神创作","favoriteNum":0,"duration":null,"majorIds":"1","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":1,"contentType":"经验分享","createDate":1509716988000,"isFavorite":0},{"coverImg":"http://pic144.nipic.com/file/20171031/22060368_105750239032_2.jpg","photo":null,"praiseNum":0,"title":"扭秧歌","userId":1,"content":"东北二人转","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":3,"contentType":"艺考答疑","createDate":1509595183000,"isFavorite":0},{"coverImg":"http://pic95.nipic.com/file/20160407/9154248_200500187726_2.jpg","photo":null,"praiseNum":0,"title":"独奏","userId":2,"content":null,"favoriteNum":0,"duration":null,"majorIds":"3","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":5,"contentType":"经验分享","createDate":1509502800000,"isFavorite":0}],"prePage":0,"nextPage":0,"isFirstPage":true,"isLastPage":true,"hasPreviousPage":false,"hasNextPage":false,"navigatePages":8,"navigatepageNums":[1],"navigateFirstPage":1,"navigateLastPage":1,"firstPage":1,"lastPage":1},"artcircleCategories":[{"id":1,"page":1,"rows":20,"name":"经验分享","sortord":1},{"id":2,"page":1,"rows":20,"name":"招生简章","sortord":2},{"id":3,"page":1,"rows":20,"name":"微信组群","sortord":3},{"id":4,"page":1,"rows":20,"name":"艺考答疑","sortord":4},{"id":5,"page":1,"rows":20,"name":"书籍推荐","sortord":5},{"id":6,"page":1,"rows":20,"name":"新闻动态","sortord":6}],"systemAds":[{"id":18,"page":1,"rows":20,"title":"艺考论","type":"2","pcImgUrl":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloNSB-AcEMPAA45ufoMOho206.jpg","pcUrl":null,"mobileImgUrl":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloNSCCABssnAAUXvvtCsVI829.jpg","mobileUrl":null,"sortNo":null,"status":0}]}
++     */
++
++    private int code;
++    private String message;
++    private DataBean data;
++
++    public int getCode() {
++        return code;
++    }
++
++    public void setCode(int code) {
++        this.code = code;
++    }
++
++    public String getMessage() {
++        return message;
++    }
++
++    public void setMessage(String message) {
++        this.message = message;
++    }
++
++    public DataBean getData() {
++        return data;
++    }
++
++    public void setData(DataBean data) {
++        this.data = data;
++    }
++
++    public static class DataBean {
++        /**
++         * courses : {"pageNum":1,"pageSize":20,"size":12,"startRow":1,"endRow":12,"total":12,"pages":1,"list":[{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5,3,4","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":13,"contentType":"新闻动态","createDate":1510983963000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":12,"contentType":"书籍推荐","createDate":1510983959000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":11,"contentType":"艺考答疑","createDate":1510983956000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":10,"contentType":"微信组群","createDate":1510983950000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":9,"contentType":"招生简章","createDate":1510983938000,"isFavorite":0},{"coverImg":null,"photo":null,"praiseNum":0,"title":"海军绿","userId":63,"content":"这是我拍摄的一部视频舞蹈，灵感来自于我每天挤地铁的日常，在摇摆的地铁上像不到问一样的摇来摇去。","favoriteNum":0,"duration":1510818825000,"majorIds":"2,1","commentNum":0,"path":"1798a05100b98256a7bd9d63dd14e854.jpg","worksType":"图片","nickname":null,"isPraise":0,"userType":null,"id":8,"contentType":"经验分享","createDate":1510818778000,"isFavorite":0},{"coverImg":null,"photo":null,"praiseNum":0,"title":"哈伦海军绿","userId":63,"content":"这是我拍摄的一部视频舞蹈，灵感来自于我每天挤地铁的日常，在摇摆的地铁上像不到问一样的摇来摇去。","favoriteNum":0,"duration":1510818949000,"majorIds":"1,2","commentNum":0,"path":"1798a05100b98256a7bd9d63dd14e854.jpg","worksType":"图片","nickname":null,"isPraise":0,"userType":null,"id":7,"contentType":"艺考答疑","createDate":1510817367000,"isFavorite":0},{"coverImg":"http://pic101.huitu.com/res/20171030/799232_20171030171425959080_1.jpg","photo":null,"praiseNum":0,"title":"我的艺考生涯","userId":1,"content":"艺考生的未来","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":4,"contentType":"经验分享","createDate":1509718045000,"isFavorite":0},{"coverImg":"http://pic131.nipic.com/file/20170526/22060368_225408266032_2.jpg","photo":null,"praiseNum":0,"title":"动听的歌喉","userId":1,"content":"我来了一首天籁之音","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":2,"contentType":"招生简章","createDate":1509717304000,"isFavorite":0},{"coverImg":"http://pic96.huitu.com/res/20170517/894913_20170517121230961020_1.jpg","photo":null,"praiseNum":0,"title":"一段美丽的舞蹈","userId":1,"content":"用心神创作","favoriteNum":0,"duration":null,"majorIds":"1","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":1,"contentType":"经验分享","createDate":1509716988000,"isFavorite":0},{"coverImg":"http://pic144.nipic.com/file/20171031/22060368_105750239032_2.jpg","photo":null,"praiseNum":0,"title":"扭秧歌","userId":1,"content":"东北二人转","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":3,"contentType":"艺考答疑","createDate":1509595183000,"isFavorite":0},{"coverImg":"http://pic95.nipic.com/file/20160407/9154248_200500187726_2.jpg","photo":null,"praiseNum":0,"title":"独奏","userId":2,"content":null,"favoriteNum":0,"duration":null,"majorIds":"3","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":5,"contentType":"经验分享","createDate":1509502800000,"isFavorite":0}],"prePage":0,"nextPage":0,"isFirstPage":true,"isLastPage":true,"hasPreviousPage":false,"hasNextPage":false,"navigatePages":8,"navigatepageNums":[1],"navigateFirstPage":1,"navigateLastPage":1,"firstPage":1,"lastPage":1}
++         * artcircleCategories : [{"id":1,"page":1,"rows":20,"name":"经验分享","sortord":1},{"id":2,"page":1,"rows":20,"name":"招生简章","sortord":2},{"id":3,"page":1,"rows":20,"name":"微信组群","sortord":3},{"id":4,"page":1,"rows":20,"name":"艺考答疑","sortord":4},{"id":5,"page":1,"rows":20,"name":"书籍推荐","sortord":5},{"id":6,"page":1,"rows":20,"name":"新闻动态","sortord":6}]
++         * systemAds : [{"id":18,"page":1,"rows":20,"title":"艺考论","type":"2","pcImgUrl":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloNSB-AcEMPAA45ufoMOho206.jpg","pcUrl":null,"mobileImgUrl":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloNSCCABssnAAUXvvtCsVI829.jpg","mobileUrl":null,"sortNo":null,"status":0}]
++         */
++
++        private ArtcircleList artcircleList;
++        private List<ArtcircleCategoriesBean> artcircleCategories;
++        private List<SystemAdsBean> systemAds;
++
++        public ArtcircleList getArtcircleList() {
++            return artcircleList;
++        }
++
++        public void setArtcircleList(ArtcircleList courses) {
++            this.artcircleList = courses;
++        }
++
++        public List<ArtcircleCategoriesBean> getArtcircleCategories() {
++            return artcircleCategories;
++        }
++
++        public void setArtcircleCategories(List<ArtcircleCategoriesBean> artcircleCategories) {
++            this.artcircleCategories = artcircleCategories;
++        }
++
++        public List<SystemAdsBean> getSystemAds() {
++            return systemAds;
++        }
++
++        public void setSystemAds(List<SystemAdsBean> systemAds) {
++            this.systemAds = systemAds;
++        }
++
++        public static class ArtcircleList {
++            /**
++             * pageNum : 1
++             * pageSize : 20
++             * size : 12
++             * startRow : 1
++             * endRow : 12
++             * total : 12
++             * pages : 1
++             * list : [{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5,3,4","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":13,"contentType":"新闻动态","createDate":1510983963000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":12,"contentType":"书籍推荐","createDate":1510983959000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":11,"contentType":"艺考答疑","createDate":1510983956000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿绿绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":10,"contentType":"微信组群","createDate":1510983950000,"isFavorite":0},{"coverImg":null,"photo":"http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg","praiseNum":0,"title":"海军绿","userId":73,"content":"绿绿的海军少年现在沙滩上，眺望着天际。","favoriteNum":0,"duration":null,"majorIds":"2,5","commentNum":0,"path":"FsQLRVF0GgYYGETxx3PJhMbSecVG","worksType":"视频","nickname":"xyxy","isPraise":0,"userType":1,"id":9,"contentType":"招生简章","createDate":1510983938000,"isFavorite":0},{"coverImg":null,"photo":null,"praiseNum":0,"title":"海军绿","userId":63,"content":"这是我拍摄的一部视频舞蹈，灵感来自于我每天挤地铁的日常，在摇摆的地铁上像不到问一样的摇来摇去。","favoriteNum":0,"duration":1510818825000,"majorIds":"2,1","commentNum":0,"path":"1798a05100b98256a7bd9d63dd14e854.jpg","worksType":"图片","nickname":null,"isPraise":0,"userType":null,"id":8,"contentType":"经验分享","createDate":1510818778000,"isFavorite":0},{"coverImg":null,"photo":null,"praiseNum":0,"title":"哈伦海军绿","userId":63,"content":"这是我拍摄的一部视频舞蹈，灵感来自于我每天挤地铁的日常，在摇摆的地铁上像不到问一样的摇来摇去。","favoriteNum":0,"duration":1510818949000,"majorIds":"1,2","commentNum":0,"path":"1798a05100b98256a7bd9d63dd14e854.jpg","worksType":"图片","nickname":null,"isPraise":0,"userType":null,"id":7,"contentType":"艺考答疑","createDate":1510817367000,"isFavorite":0},{"coverImg":"http://pic101.huitu.com/res/20171030/799232_20171030171425959080_1.jpg","photo":null,"praiseNum":0,"title":"我的艺考生涯","userId":1,"content":"艺考生的未来","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":4,"contentType":"经验分享","createDate":1509718045000,"isFavorite":0},{"coverImg":"http://pic131.nipic.com/file/20170526/22060368_225408266032_2.jpg","photo":null,"praiseNum":0,"title":"动听的歌喉","userId":1,"content":"我来了一首天籁之音","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":2,"contentType":"招生简章","createDate":1509717304000,"isFavorite":0},{"coverImg":"http://pic96.huitu.com/res/20170517/894913_20170517121230961020_1.jpg","photo":null,"praiseNum":0,"title":"一段美丽的舞蹈","userId":1,"content":"用心神创作","favoriteNum":0,"duration":null,"majorIds":"1","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":1,"contentType":"经验分享","createDate":1509716988000,"isFavorite":0},{"coverImg":"http://pic144.nipic.com/file/20171031/22060368_105750239032_2.jpg","photo":null,"praiseNum":0,"title":"扭秧歌","userId":1,"content":"东北二人转","favoriteNum":0,"duration":null,"majorIds":"2","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":3,"contentType":"艺考答疑","createDate":1509595183000,"isFavorite":0},{"coverImg":"http://pic95.nipic.com/file/20160407/9154248_200500187726_2.jpg","photo":null,"praiseNum":0,"title":"独奏","userId":2,"content":null,"favoriteNum":0,"duration":null,"majorIds":"3","commentNum":0,"path":null,"worksType":null,"nickname":null,"isPraise":0,"userType":null,"id":5,"contentType":"经验分享","createDate":1509502800000,"isFavorite":0}]
++             * prePage : 0
++             * nextPage : 0
++             * isFirstPage : true
++             * isLastPage : true
++             * hasPreviousPage : false
++             * hasNextPage : false
++             * navigatePages : 8
++             * navigatepageNums : [1]
++             * navigateFirstPage : 1
++             * navigateLastPage : 1
++             * firstPage : 1
++             * lastPage : 1
++             */
++
++            private int pageNum;
++            private int pageSize;
++            private int size;
++            private int startRow;
++            private int endRow;
++            private int total;
++            private int pages;
++            private int prePage;
++            private int nextPage;
++            private boolean isFirstPage;
++            private boolean isLastPage;
++            private boolean hasPreviousPage;
++            private boolean hasNextPage;
++            private int navigatePages;
++            private int navigateFirstPage;
++            private int navigateLastPage;
++            private int firstPage;
++            private int lastPage;
++            private List<ListBean> list;
++            private List<Integer> navigatepageNums;
++
++            public int getPageNum() {
++                return pageNum;
++            }
++
++            public void setPageNum(int pageNum) {
++                this.pageNum = pageNum;
++            }
++
++            public int getPageSize() {
++                return pageSize;
++            }
++
++            public void setPageSize(int pageSize) {
++                this.pageSize = pageSize;
++            }
++
++            public int getSize() {
++                return size;
++            }
++
++            public void setSize(int size) {
++                this.size = size;
++            }
++
++            public int getStartRow() {
++                return startRow;
++            }
++
++            public void setStartRow(int startRow) {
++                this.startRow = startRow;
++            }
++
++            public int getEndRow() {
++                return endRow;
++            }
++
++            public void setEndRow(int endRow) {
++                this.endRow = endRow;
++            }
++
++            public int getTotal() {
++                return total;
++            }
++
++            public void setTotal(int total) {
++                this.total = total;
++            }
++
++            public int getPages() {
++                return pages;
++            }
++
++            public void setPages(int pages) {
++                this.pages = pages;
++            }
++
++            public int getPrePage() {
++                return prePage;
++            }
++
++            public void setPrePage(int prePage) {
++                this.prePage = prePage;
++            }
++
++            public int getNextPage() {
++                return nextPage;
++            }
++
++            public void setNextPage(int nextPage) {
++                this.nextPage = nextPage;
++            }
++
++            public boolean isIsFirstPage() {
++                return isFirstPage;
++            }
++
++            public void setIsFirstPage(boolean isFirstPage) {
++                this.isFirstPage = isFirstPage;
++            }
++
++            public boolean isIsLastPage() {
++                return isLastPage;
++            }
++
++            public void setIsLastPage(boolean isLastPage) {
++                this.isLastPage = isLastPage;
++            }
++
++            public boolean isHasPreviousPage() {
++                return hasPreviousPage;
++            }
++
++            public void setHasPreviousPage(boolean hasPreviousPage) {
++                this.hasPreviousPage = hasPreviousPage;
++            }
++
++            public boolean isHasNextPage() {
++                return hasNextPage;
++            }
++
++            public void setHasNextPage(boolean hasNextPage) {
++                this.hasNextPage = hasNextPage;
++            }
++
++            public int getNavigatePages() {
++                return navigatePages;
++            }
++
++            public void setNavigatePages(int navigatePages) {
++                this.navigatePages = navigatePages;
++            }
++
++            public int getNavigateFirstPage() {
++                return navigateFirstPage;
++            }
++
++            public void setNavigateFirstPage(int navigateFirstPage) {
++                this.navigateFirstPage = navigateFirstPage;
++            }
++
++            public int getNavigateLastPage() {
++                return navigateLastPage;
++            }
++
++            public void setNavigateLastPage(int navigateLastPage) {
++                this.navigateLastPage = navigateLastPage;
++            }
++
++            public int getFirstPage() {
++                return firstPage;
++            }
++
++            public void setFirstPage(int firstPage) {
++                this.firstPage = firstPage;
++            }
++
++            public int getLastPage() {
++                return lastPage;
++            }
++
++            public void setLastPage(int lastPage) {
++                this.lastPage = lastPage;
++            }
++
++            public List<ListBean> getList() {
++                return list;
++            }
++
++            public void setList(List<ListBean> list) {
++                this.list = list;
++            }
++
++            public List<Integer> getNavigatepageNums() {
++                return navigatepageNums;
++            }
++
++            public void setNavigatepageNums(List<Integer> navigatepageNums) {
++                this.navigatepageNums = navigatepageNums;
++            }
++
++            public static class ListBean {
++                /**
++                 * coverImg : null
++                 * photo : http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloPwu6ARXW1AAAXBjxZVsQ924.jpg
++                 * praiseNum : 0
++                 * title : 海军绿绿绿
++                 * userId : 73
++                 * content : 绿绿的海军少年现在沙滩上，眺望着天际。
++                 * favoriteNum : 0
++                 * duration : null
++                 * majorIds : 2,5,3,4
++                 * commentNum : 0
++                 * path : FsQLRVF0GgYYGETxx3PJhMbSecVG
++                 * worksType : 视频
++                 * nickname : xyxy
++                 * isPraise : 0
++                 * userType : 1
++                 * id : 13
++                 * contentType : 新闻动态
++                 * createDate : 1510983963000
++                 * isFavorite : 0
++                 */
++
++                private String coverImg;
++                private String photo;
++                private int praiseNum;
++                private String title;
++                private int userId;
++                private String content;
++                private int favoriteNum;
++                private String duration;
++                private String majorIds;
++                private int commentNum;
++                private String path;
++                private String worksType;
++                private String nickname;
++                private String realname;
++                private int isPraise;
++                private int userType;
++                private int id;
++                private String contentType;
++                private long createDate;
++                private int isFavorite;
++                private String picProperty;
++
++                public String getCoverImg() {
++                    return coverImg;
++                }
++
++                public void setCoverImg(String coverImg) {
++                    this.coverImg = coverImg;
++                }
++
++                public String getPhoto() {
++                    return photo;
++                }
++
++                public void setPhoto(String photo) {
++                    this.photo = photo;
++                }
++
++                public int getPraiseNum() {
++                    return praiseNum;
++                }
++
++                public void setPraiseNum(int praiseNum) {
++                    this.praiseNum = praiseNum;
++                }
++
++                public String getTitle() {
++                    return title;
++                }
++
++                public void setTitle(String title) {
++                    this.title = title;
++                }
++
++                public int getUserId() {
++                    return userId;
++                }
++
++                public void setUserId(int userId) {
++                    this.userId = userId;
++                }
++
++                public String getContent() {
++                    return content;
++                }
++
++                public void setContent(String content) {
++                    this.content = content;
++                }
++
++                public int getFavoriteNum() {
++                    return favoriteNum;
++                }
++
++                public void setFavoriteNum(int favoriteNum) {
++                    this.favoriteNum = favoriteNum;
++                }
++
++                public String getDuration() {
++                    return duration;
++                }
++
++                public void setDuration(String duration) {
++                    this.duration = duration;
++                }
++
++                public String getMajorIds() {
++                    return majorIds;
++                }
++
++                public void setMajorIds(String majorIds) {
++                    this.majorIds = majorIds;
++                }
++
++                public int getCommentNum() {
++                    return commentNum;
++                }
++
++                public void setCommentNum(int commentNum) {
++                    this.commentNum = commentNum;
++                }
++
++                public String getPath() {
++                    return path;
++                }
++
++                public void setPath(String path) {
++                    this.path = path;
++                }
++
++                public String getWorksType() {
++                    return worksType;
++                }
++
++                public void setWorksType(String worksType) {
++                    this.worksType = worksType;
++                }
++
++                public String getNickname() {
++                    return nickname;
++                }
++
++                public void setNickname(String nickname) {
++                    this.nickname = nickname;
++                }
++
++                public int getIsPraise() {
++                    return isPraise;
++                }
++
++                public void setIsPraise(int isPraise) {
++                    this.isPraise = isPraise;
++                }
++
++                public int getUserType() {
++                    return userType;
++                }
++
++                public void setUserType(int userType) {
++                    this.userType = userType;
++                }
++
++                public int getId() {
++                    return id;
++                }
++
++                public void setId(int id) {
++                    this.id = id;
++                }
++
++                public String getContentType() {
++                    return contentType;
++                }
++
++                public void setContentType(String contentType) {
++                    this.contentType = contentType;
++                }
++
++                public long getCreateDate() {
++                    return createDate;
++                }
++
++                public void setCreateDate(long createDate) {
++                    this.createDate = createDate;
++                }
++
++                public int getIsFavorite() {
++                    return isFavorite;
++                }
++
++                public void setIsFavorite(int isFavorite) {
++                    this.isFavorite = isFavorite;
++                }
++
++                public String getRealname() {
++                    return realname;
++                }
++
++                public void setRealname(String realname) {
++                    this.realname = realname;
++                }
++
++                public String getPicProperty() {
++                    return picProperty;
++                }
++
++                public void setPicProperty(String picProperty) {
++                    this.picProperty = picProperty;
++                }
++            }
++        }
++
++        public static class ArtcircleCategoriesBean {
++            /**
++             * id : 1
++             * page : 1
++             * rows : 20
++             * name : 经验分享
++             * sortord : 1
++             */
++
++            private int id;
++            private int page;
++            private int rows;
++            private String name;
++            private int sortord;
++            private boolean isSort=false;
++
++            public int getId() {
++                return id;
++            }
++
++            public void setId(int id) {
++                this.id = id;
++            }
++
++            public int getPage() {
++                return page;
++            }
++
++            public void setPage(int page) {
++                this.page = page;
++            }
++
++            public int getRows() {
++                return rows;
++            }
++
++            public void setRows(int rows) {
++                this.rows = rows;
++            }
++
++            public String getName() {
++                return name;
++            }
++
++            public void setName(String name) {
++                this.name = name;
++            }
++
++            public int getSortord() {
++                return sortord;
++            }
++
++            public void setSortord(int sortord) {
++                this.sortord = sortord;
++            }
++
++            public boolean isSort() {
++                return isSort;
++            }
++
++            public void setSort(boolean sort) {
++                isSort = sort;
++            }
++        }
++
++        public static class SystemAdsBean {
++            /**
++             * id : 18
++             * page : 1
++             * rows : 20
++             * title : 艺考论
++             * type : 2
++             * pcImgUrl : http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloNSB-AcEMPAA45ufoMOho206.jpg
++             * pcUrl : null
++             * mobileImgUrl : http://image.5roo.com/uwo-file/fast/data/00/A1/ctcYLloNSCCABssnAAUXvvtCsVI829.jpg
++             * mobileUrl : null
++             * sortNo : null
++             * status : 0
++             */
++
++            private int id;
++            private int page;
++            private int rows;
++            private String title;
++            private String type;
++            private String urlType;
++            private String pcImgUrl;
++            private String pcUrl;
++            private String mobileImgUrl;
++            private String mobileUrl;
++            private String sortNo;
++            private int status;
++
++            public int getId() {
++                return id;
++            }
++
++            public void setId(int id) {
++                this.id = id;
++            }
++
++            public int getPage() {
++                return page;
++            }
++
++            public void setPage(int page) {
++                this.page = page;
++            }
++
++            public int getRows() {
++                return rows;
++            }
++
++            public void setRows(int rows) {
++                this.rows = rows;
++            }
++
++            public String getTitle() {
++                return title;
++            }
++
++            public void setTitle(String title) {
++                this.title = title;
++            }
++
++            public String getType() {
++                return type;
++            }
++
++            public void setType(String type) {
++                this.type = type;
++            }
++
++            public String getPcImgUrl() {
++                return pcImgUrl;
++            }
++
++            public void setPcImgUrl(String pcImgUrl) {
++                this.pcImgUrl = pcImgUrl;
++            }
++
++            public String getPcUrl() {
++                return pcUrl;
++            }
++
++            public void setPcUrl(String pcUrl) {
++                this.pcUrl = pcUrl;
++            }
++
++            public String getMobileImgUrl() {
++                return mobileImgUrl;
++            }
++
++            public void setMobileImgUrl(String mobileImgUrl) {
++                this.mobileImgUrl = mobileImgUrl;
++            }
++
++            public String getMobileUrl() {
++                return mobileUrl;
++            }
++
++            public void setMobileUrl(String mobileUrl) {
++                this.mobileUrl = mobileUrl;
++            }
++
++            public String getSortNo() {
++                return sortNo;
++            }
++
++            public void setSortNo(String sortNo) {
++                this.sortNo = sortNo;
++            }
++
++            public int getStatus() {
++                return status;
++            }
++
++            public void setStatus(int status) {
++                this.status = status;
++            }
++
++            public String getUrlType() {
++                return urlType;
++            }
++
++            public void setUrlType(String urlType) {
++                this.urlType = urlType;
++            }
++        }
++    }
++}
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/model/entity/LiveDetailBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/model/entity/LiveDetailBean.java	(date 1525827702128)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/model/entity/LiveDetailBean.java	(date 1525827702128)
+@@ -0,0 +1,252 @@
++package com.jiyun.asmodeus.xyxy.model.entity;
++
++
++public class LiveDetailBean {
++
++
++    /**
++     * code : 0
++     * message : 成功
++     * data : {"coverImg":"http://img1.3lian.com/2015/a1/136/d/242.jpg","endDate":1510387638000,"subscribe":1,"photo":null,"replay":8000,"title":"舞蹈直播","type":"讲堂","isSubscribe":0,"content":"666666666","realname":"王亮","majorIds":"2,3","teacherId":1,"subscribeNum":100,"price":2000,"intro":null,"nickname":"王老师","attention":0,"id":1,"userType":null,"favorite":0,"startDate":1510304943000}
++     */
++
++    private int code;
++    private String message;
++    private DataBean data;
++
++    public int getCode() {
++        return code;
++    }
++
++    public void setCode(int code) {
++        this.code = code;
++    }
++
++    public String getMessage() {
++        return message;
++    }
++
++    public void setMessage(String message) {
++        this.message = message;
++    }
++
++    public DataBean getData() {
++        return data;
++    }
++
++    public void setData(DataBean data) {
++        this.data = data;
++    }
++
++    public static class DataBean {
++
++
++        private String coverImg;
++        private long endDate;
++        private int subscribe;
++        private String photo;
++        private double replay;
++        private String title;
++        private String type;
++        private int isSubscribe;
++        private String content;
++        private String realname;
++        private String majorIds;
++        private int teacherId;
++        private int subscribeNum;
++        private double price;
++        private String intro;
++        private String nickname;
++        private int attention;
++        private int id;
++        private int userType;
++        private int isFavorite;
++        private long startDate;
++        private int liveStatus;
++        private String replayPath;
++
++        public String getCoverImg() {
++            return coverImg;
++        }
++
++        public void setCoverImg(String coverImg) {
++            this.coverImg = coverImg;
++        }
++
++        public long getEndDate() {
++            return endDate;
++        }
++
++        public void setEndDate(long endDate) {
++            this.endDate = endDate;
++        }
++
++        public int getSubscribe() {
++            return subscribe;
++        }
++
++        public void setSubscribe(int subscribe) {
++            this.subscribe = subscribe;
++        }
++
++        public String getPhoto() {
++            return photo;
++        }
++
++        public void setPhoto(String photo) {
++            this.photo = photo;
++        }
++
++        public double getReplay() {
++            return replay;
++        }
++
++        public void setReplay(double replay) {
++            this.replay = replay;
++        }
++
++        public String getTitle() {
++            return title;
++        }
++
++        public void setTitle(String title) {
++            this.title = title;
++        }
++
++        public String getType() {
++            return type;
++        }
++
++        public void setType(String type) {
++            this.type = type;
++        }
++
++        public int getIsSubscribe() {
++            return isSubscribe;
++        }
++
++        public void setIsSubscribe(int isSubscribe) {
++            this.isSubscribe = isSubscribe;
++        }
++
++        public String getContent() {
++            return content;
++        }
++
++        public void setContent(String content) {
++            this.content = content;
++        }
++
++        public String getRealname() {
++            return realname;
++        }
++
++        public void setRealname(String realname) {
++            this.realname = realname;
++        }
++
++        public String getMajorIds() {
++            return majorIds;
++        }
++
++        public void setMajorIds(String majorIds) {
++            this.majorIds = majorIds;
++        }
++
++        public int getTeacherId() {
++            return teacherId;
++        }
++
++        public void setTeacherId(int teacherId) {
++            this.teacherId = teacherId;
++        }
++
++        public int getSubscribeNum() {
++            return subscribeNum;
++        }
++
++        public void setSubscribeNum(int subscribeNum) {
++            this.subscribeNum = subscribeNum;
++        }
++
++        public double getPrice() {
++            return price;
++        }
++
++        public void setPrice(double price) {
++            this.price = price;
++        }
++
++        public String getIntro() {
++            return intro;
++        }
++
++        public void setIntro(String intro) {
++            this.intro = intro;
++        }
++
++        public String getNickname() {
++            return nickname;
++        }
++
++        public void setNickname(String nickname) {
++            this.nickname = nickname;
++        }
++
++        public int getAttention() {
++            return attention;
++        }
++
++        public void setAttention(int attention) {
++            this.attention = attention;
++        }
++
++        public int getId() {
++            return id;
++        }
++
++        public void setId(int id) {
++            this.id = id;
++        }
++
++        public int getUserType() {
++            return userType;
++        }
++
++        public void setUserType(int userType) {
++            this.userType = userType;
++        }
++
++        public int getFavorite() {
++            return isFavorite;
++        }
++
++        public void setFavorite(int isFavorite) {
++            this.isFavorite = isFavorite;
++        }
++
++        public long getStartDate() {
++            return startDate;
++        }
++
++        public void setStartDate(long startDate) {
++            this.startDate = startDate;
++        }
++
++        public int getLiveStatus() {
++            return liveStatus;
++        }
++
++        public void setLiveStatus(int liveStatus) {
++            this.liveStatus = liveStatus;
++        }
++
++        public String getReplayPath() {
++            return replayPath;
++        }
++
++        public void setReplayPath(String replayPath) {
++            this.replayPath = replayPath;
++        }
++    }
++}
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/presenter/ValiablePresenterImp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/presenter/ValiablePresenterImp.java	(date 1525846979694)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/presenter/ValiablePresenterImp.java	(date 1525846979694)
+@@ -0,0 +1,92 @@
++package com.jiyun.asmodeus.xyxy.presenter;
++
++import com.jiyun.asmodeus.xyxy.App;
++import com.jiyun.asmodeus.xyxy.contract.ValiableContract;
++import com.jiyun.asmodeus.xyxy.contract.WorkContract;
++import com.jiyun.asmodeus.xyxy.model.biz.HomeworkService;
++import com.jiyun.asmodeus.xyxy.model.biz.ValuableService;
++import com.jiyun.asmodeus.xyxy.model.entity.HomeValuanleBean;
++import com.jiyun.asmodeus.xyxy.model.entity.WorkBean;
++import com.jiyun.asmodeus.xyxy.model.utils.RetrofitUtils;
++import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
++
++import java.util.HashMap;
++import java.util.Map;
++
++import io.reactivex.android.schedulers.AndroidSchedulers;
++import io.reactivex.functions.Consumer;
++import io.reactivex.schedulers.Schedulers;
++
++public class ValiablePresenterImp implements ValiableContract.ValiablePresenter {
++    private ValuableService model;
++    private ValiableContract.ValiableView view;
++    String appToken = (String) SharedPreferencesUtils.getParam(App.context, "xyxy_apptoken", "String");
++
++    public ValiablePresenterImp(ValiableContract.ValiableView  view) {
++        this.view = view;
++        model = RetrofitUtils.getInstance().getValuableService();
++    }
++
++    @Override
++    public void GetWorkZhiNeng() {
++        Map<String, String> params = new HashMap<>();
++        Map<String, String> headrs = new HashMap<>();
++
++        params.put("sortord", 0 + "");
++        headrs.put("apptoken", appToken);
++        model.loadWorkPage(params, headrs)
++                .subscribeOn(Schedulers.newThread())
++                .observeOn(AndroidSchedulers.mainThread())
++                .subscribe(new Consumer<HomeValuanleBean>() {
++                    @Override
++                    public void accept(HomeValuanleBean workBean) throws Exception {
++
++                        if (workBean.getCode() == 0) {
++                            view.laodWorkZhiNeng(workBean);
++                        }
++                    }
++                });
++    }
++
++    @Override
++    public void GetWorkZanShu() {
++        Map<String, String> params1 = new HashMap<>();
++        Map<String, String> headrs1 = new HashMap<>();
++
++        params1.put("sortord", 1+"");
++        headrs1.put("apptoken", appToken);
++        model.loadWorkPage(params1, headrs1)
++                .subscribeOn(Schedulers.newThread())
++                .observeOn(AndroidSchedulers.mainThread())
++                .subscribe(new Consumer<HomeValuanleBean>() {
++                    @Override
++                    public void accept(HomeValuanleBean workBean) throws Exception {
++                        if (workBean.getCode() == 0) {
++                            view.laodWorkZanShu(workBean);
++                        }
++                    }
++                });
++    }
++
++    @Override
++    public void GetWorkZuiXin() {
++        Map<String, String> params2 = new HashMap<>();
++        Map<String, String> headrs2 = new HashMap<>();
++
++        params2.put("sortord", 2+"");
++        headrs2.put("apptoken", appToken);
++        model.loadWorkPage(params2, headrs2)
++                .subscribeOn(Schedulers.newThread())
++                .observeOn(AndroidSchedulers.mainThread())
++                .subscribe(new Consumer<HomeValuanleBean>() {
++                    @Override
++                    public void accept(HomeValuanleBean workBean) throws Exception {
++                        if (workBean.getCode() == 0) {
++                            view.laodWorkZuiXin(workBean);
++                        }
++                    }
++                });
++    }
++
++
++}
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/view/adapter/HomeValuableListViewAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/view/adapter/HomeValuableListViewAdapter.java	(date 1525862684381)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/view/adapter/HomeValuableListViewAdapter.java	(date 1525862684381)
+@@ -0,0 +1,366 @@
++package com.jiyun.asmodeus.xyxy.view.adapter;
++
++import android.app.Activity;
++import android.content.Context;
++import android.text.TextUtils;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.BaseAdapter;
++import android.widget.CheckBox;
++import android.widget.ImageView;
++import android.widget.LinearLayout;
++import android.widget.RelativeLayout;
++import android.widget.TextView;
++
++import com.bumptech.glide.Glide;
++import com.jiyun.asmodeus.xyxy.R;
++import com.jiyun.asmodeus.xyxy.model.entity.HomeValuanleBean;
++import com.jiyun.asmodeus.xyxy.model.utils.BitmapHelp;
++import com.jiyun.asmodeus.xyxy.model.utils.Constant;
++import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
++import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
++import com.lidroid.xutils.ViewUtils;
++import com.lidroid.xutils.view.annotation.ViewInject;
++import com.makeramen.roundedimageview.RoundedImageView;
++
++import java.util.List;
++
++
++
++public class HomeValuableListViewAdapter extends BaseAdapter {
++
++
++    private Context context;
++
++    private LayoutInflater layoutInflater;
++
++    private OnValuableItemShareClick onItemShareClick;
++
++
++    public interface OnValuableItemShareClick{
++
++        void onItemShareClick(int position);
++        void onReplyClick(int position);
++        void onPraiseClick(int position);
++        void onFavoriteClick(int position);
++
++    }
++
++    private List<HomeValuanleBean.DataBean.ArtcircleList.ListBean> list;
++
++    public HomeValuableListViewAdapter(Context context ,List<HomeValuanleBean.DataBean.ArtcircleList.ListBean> list) {
++        this.context = context;
++        this.list = list;
++        layoutInflater = LayoutInflater.from(context);
++    }
++
++
++    public void setOnValuableItemShareClick(OnValuableItemShareClick onItemShareClick) {
++        this.onItemShareClick = onItemShareClick;
++    }
++    @Override
++    public int getCount() {
++        return list.size();
++    }
++
++    @Override
++    public Object getItem(int position) {
++        return null;
++    }
++
++    @Override
++    public long getItemId(int position) {
++        return 0;
++    }
++
++    @Override
++    public View getView(final int position, View convertView, ViewGroup parent) {
++
++        final ViewHolder viewHolder;
++
++        if(convertView==null){
++            viewHolder =new ViewHolder();
++            convertView = layoutInflater.inflate(R.layout.home_valuable_listview_item, null);
++            ViewUtils.inject(viewHolder,convertView);
++            convertView.setTag(viewHolder);
++
++        }else {
++            viewHolder = (ViewHolder) convertView.getTag();
++        }
++
++
++        Glide.with(context).load(list.get(position).getPhoto()).into(viewHolder.img);
++        if(TextUtils.equals(Constant.PUSH_AUDIO,list.get(position).getWorksType())){
++            BitmapHelp.setAudioRelayout(context,viewHolder.audio_group);
++            if(!TextUtils.isEmpty(list.get(position).getDuration())){
++                viewHolder.audio_time.setText(list.get(position).getDuration());
++            }else{
++                viewHolder.audio_time.setText("");
++            }
++            viewHolder.introimg.setVisibility(View.GONE);
++            viewHolder.audioimg.setVisibility(View.VISIBLE);
++            viewHolder.audio_group.setVisibility(View.VISIBLE);
++            viewHolder.video_group.setVisibility(View.GONE);
++        }else if(TextUtils.equals(Constant.PUSH_IMAGE,list.get(position).getWorksType())){
++            if(!TextUtils.isEmpty(list.get(position).getPicProperty())) {
++                BitmapHelp.setImageView(context,list.get(position).getPicProperty(),viewHolder.introimg);
++            }
++            viewHolder.audioimg.setVisibility(View.GONE);
++            viewHolder.introimg.setVisibility(View.VISIBLE);
++            Glide.with(context).load(list.get(position).getCoverImg()).into(viewHolder.introimg);
++            viewHolder.audio_group.setVisibility(View.GONE);
++            viewHolder.video_group.setVisibility(View.GONE);
++        }else if(TextUtils.equals(Constant.PUSH_VIDEO,list.get(position).getWorksType())){
++            if(!TextUtils.isEmpty(list.get(position).getPicProperty())) {
++                BitmapHelp.setImageView(context,list.get(position).getPicProperty(),viewHolder.introimg);
++            }
++            if(!TextUtils.isEmpty(list.get(position).getDuration())){
++                viewHolder.video_time.setText(list.get(position).getDuration());
++            }
++            viewHolder.audioimg.setVisibility(View.GONE);
++            viewHolder.introimg.setVisibility(View.VISIBLE);
++
++            Glide.with(context).load(list.get(position).getCoverImg()).into(viewHolder.introimg);
++            viewHolder.audio_group.setVisibility(View.GONE);
++            viewHolder.video_group.setVisibility(View.VISIBLE);
++        }else{
++            viewHolder.introimg.setVisibility(View.GONE);
++            viewHolder.audio_group.setVisibility(View.GONE);
++            viewHolder.video_group.setVisibility(View.GONE);
++            viewHolder.audioimg.setVisibility(View.GONE);
++        }
++
++
++
++
++            viewHolder.name.setText(list.get(position).getRealname());
++
++
++
++            viewHolder.name.setText(list.get(position).getNickname());
++
++
++        if(TextUtils.isEmpty(list.get(position).getContentType())){
++            viewHolder.content_type.setVisibility(View.INVISIBLE);
++        }else{
++            viewHolder.content_type.setVisibility(View.VISIBLE);
++            viewHolder.content_type.setText(list.get(position).getContentType());
++        }
++
++        viewHolder.time.setText(TimeShift.getChatTime(list.get(position).getCreateDate()));
++
++        viewHolder.title.setText(list.get(position).getTitle());
++
++        viewHolder.content.setText(list.get(position).getContent());
++
++        if(!TextUtils.isEmpty(list.get(position).getMajorIds())){
++
++//            SplitStringColorUtils.addForeColorSpan(context,list.get(position).getMajorIds().split(","),viewHolder.worktype);
++        }
++
++        //是否点赞
++        if(list.get(position).getIsPraise()==Constant.NOTFAVORITE){
++
++            viewHolder.praise_cb.setChecked(false);
++
++        }else{
++            viewHolder.praise_cb.setChecked(true);
++        }
++
++        //是否关注
++        if(list.get(position).getIsFavorite()==Constant.NOTFAVORITE){
++
++            viewHolder.collect_cb.setChecked(false);
++
++        }else{
++            viewHolder.collect_cb.setChecked(true);
++        }
++
++
++        //关注
++        if(list.get(position).getFavoriteNum()!=0){
++            viewHolder.collect_cb.setText(list.get(position).getFavoriteNum()+"");
++        }else{
++            viewHolder.collect_cb.setText("");
++        }
++
++        if(list.get(position).getCommentNum()!=0){
++            viewHolder.reply_cb.setText(list.get(position).getCommentNum()+"");
++        }else{
++            viewHolder.reply_cb.setText("");
++        }
++
++        if(list.get(position).getPraiseNum()!=0){
++            viewHolder.praise_cb.setText(list.get(position).getPraiseNum()+"");
++        }else{
++            viewHolder.praise_cb.setText("");
++        }
++
++
++        //评论
++        viewHolder.reply_group.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                viewHolder.reply_cb.setChecked(false);
++
++            }
++        });
++        viewHolder.reply_cb.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                viewHolder.reply_cb.setChecked(false);
++
++            }
++        });
++
++        //点赞
++        viewHolder.praise_group.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                if(viewHolder.praise_cb.isChecked()){
++                    viewHolder.praise_cb.setChecked(false);
++                    if(list.get(position).getPraiseNum()==0){
++                        viewHolder.praise_cb.setText(list.get(position).getPraiseNum()+"");
++                    }else{
++                        list.get(position).setPraiseNum(list.get(position).getPraiseNum()-1);
++                        viewHolder.praise_cb.setText(list.get(position).getPraiseNum()+"");
++                    }
++                }else{
++                    viewHolder.praise_cb.setChecked(true);
++                    list.get(position).setPraiseNum(list.get(position).getPraiseNum()+1);
++                    viewHolder.praise_cb.setText(list.get(position).getPraiseNum()+"");
++                }
++                if(onItemShareClick!=null){
++
++                    onItemShareClick.onPraiseClick(position);
++                }
++            }
++        });
++
++        viewHolder.praise_cb.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                if(viewHolder.praise_cb.isChecked()){
++                    viewHolder.praise_cb.setChecked(true);
++                    list.get(position).setPraiseNum(list.get(position).getPraiseNum()+1);
++                    viewHolder.praise_cb.setText(list.get(position).getPraiseNum()+"");
++                }else{
++                    viewHolder.praise_cb.setChecked(false);
++                    if(list.get(position).getPraiseNum()==0){
++                        viewHolder.praise_cb.setText(list.get(position).getPraiseNum()+"");
++                    }else{
++                        list.get(position).setPraiseNum(list.get(position).getPraiseNum()-1);
++                        viewHolder.praise_cb.setText(list.get(position).getPraiseNum()+"");
++                    }
++                }
++                if(onItemShareClick!=null){
++
++                    onItemShareClick.onPraiseClick(position);
++                }
++            }
++        });
++
++        //关注
++        viewHolder.collect_group.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++            }
++        });
++        viewHolder.collect_cb.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++
++            }
++        });
++
++        viewHolder.img.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++            }
++        });
++
++
++        //分享
++        viewHolder.share.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++
++            }
++        });
++
++        return convertView;
++    }
++
++
++    private class ViewHolder{
++
++        @ViewInject(R.id.home_valuable_listitem_img)
++        private RoundedImageView img;
++
++        @ViewInject(R.id.home_valuable_listitem_name)
++        private TextView name;
++
++        @ViewInject(R.id.home_valuable_listitem_contenttype)
++        private TextView content_type;
++
++        @ViewInject(R.id.home_valuable_listitem_time)
++        private TextView time;
++
++        @ViewInject(R.id.home_valuable_listitem_title)
++        private TextView title;
++
++        @ViewInject(R.id.home_valuable_listitem_content)
++        private TextView content;
++
++        @ViewInject(R.id.home_valuable_listitem_contentimg)
++        private ImageView introimg;
++
++        @ViewInject(R.id.home_valuable_listitem_worktype)
++        private TextView worktype;
++
++        @ViewInject(R.id.home_valuable_list_item_share)
++        private LinearLayout share;
++
++        @ViewInject(R.id.home_valuable_list_item_reply_group)
++        private LinearLayout reply_group;
++
++        @ViewInject(R.id.home_valuable_list_item_reply_cb)
++        private CheckBox reply_cb;
++
++        @ViewInject(R.id.home_valuable_list_item_praise_group)
++        private LinearLayout praise_group;
++
++        @ViewInject(R.id.home_valuable_list_item_praise_cb)
++        private CheckBox praise_cb;
++
++        @ViewInject(R.id.home_valuable_list_item_collect_group)
++        private LinearLayout collect_group;
++
++        @ViewInject(R.id.home_valuable_list_item_collect_cb)
++        private CheckBox collect_cb;
++
++        @ViewInject(R.id.home_valuable_listitem_audio_gorpu)
++        private RelativeLayout audio_group;
++
++        @ViewInject(R.id.home_valuable_listitem_audio_time)
++        private TextView audio_time;
++
++        @ViewInject(R.id.home_valuable_listitem_video_gorpu)
++        private LinearLayout video_group;
++
++        @ViewInject(R.id.home_valuable_listitem_video_time)
++        private TextView video_time;
++
++        @ViewInject(R.id.home_valuable_listitem_contentimg_group)
++        private RelativeLayout contentimg_group;
++
++        @ViewInject(R.id.home_valuable_listitem_audioimg)
++        private ImageView audioimg;
++    }
++
++}
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/view/adapter/RecyclerValuableTitleAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/view/adapter/RecyclerValuableTitleAdapter.java	(date 1525863587747)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/view/adapter/RecyclerValuableTitleAdapter.java	(date 1525863587747)
+@@ -0,0 +1,113 @@
++package com.jiyun.asmodeus.xyxy.view.adapter;
++
++import android.content.Context;
++import android.support.v7.widget.RecyclerView;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.RelativeLayout;
++import android.widget.TextView;
++
++import com.jiyun.asmodeus.xyxy.R;
++import com.jiyun.asmodeus.xyxy.model.entity.HomeValuanleBean;
++
++
++import java.util.List;
++
++public class RecyclerValuableTitleAdapter extends RecyclerView.Adapter<RecyclerValuableTitleAdapter.ViewHolder>{
++
++    private Context context;
++
++    private List<HomeValuanleBean.DataBean.ArtcircleCategoriesBean> contentSortlis;
++
++    private TextView tag;
++
++    private Integer curentInt;
++
++    public void setCurentInt(Integer integer){
++        curentInt = integer;
++        this.notifyDataSetChanged();
++    }
++
++    private RecyclerValuableSingleSortListener listener;
++
++    public void setListener(RecyclerValuableSingleSortListener listener) {
++        this.listener = listener;
++    }
++
++    public interface RecyclerValuableSingleSortListener{
++        void onItemClickListener(int position);
++    }
++
++    public RecyclerValuableTitleAdapter(List<HomeValuanleBean.DataBean.ArtcircleCategoriesBean> contentSortlis) {
++        this.contentSortlis = contentSortlis;
++    }
++
++    @Override
++    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
++        context = parent.getContext();
++        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_valuable_sort_recycleritem,parent,false);
++        ViewHolder viewHolder = new ViewHolder(view);
++        return viewHolder;
++    }
++
++    @Override
++    public void onBindViewHolder(final ViewHolder holder, final int position) {
++
++        holder.tv.setText(contentSortlis.get(position).getName());
++
++        if(contentSortlis.get(position).isSort()) {
++            holder.line.setVisibility(View.VISIBLE);
++            curentInt = position;
++            tag=holder.line;
++        }else{
++            contentSortlis.get(position).setSort(false);
++            holder.line.setVisibility(View.INVISIBLE);
++        }
++
++        holder.group.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                if(tag!=null){
++                    contentSortlis.get(curentInt).setSort(false);
++                    tag.setVisibility(View.INVISIBLE);
++                }
++                holder.line.setVisibility(View.VISIBLE);
++                contentSortlis.get(position).setSort(false);
++                tag = holder.line;
++                curentInt = position;
++                if(listener!=null){
++
++                    listener.onItemClickListener(position);
++                }
++            }
++        });
++    }
++
++    @Override
++    public int getItemCount() {
++        return contentSortlis.size();
++    }
++
++
++
++    public class ViewHolder extends RecyclerView.ViewHolder{
++
++        private TextView tv;
++
++        private TextView line;
++
++        private RelativeLayout group;
++
++        public ViewHolder(View itemView) {
++            super(itemView);
++
++            tv = itemView.findViewById(R.id.home_valuable_sort_recycleritem_tv);
++
++            line = itemView.findViewById(R.id.home_valuable_sort_recycleritem_line);
++
++            group = itemView.findViewById(R.id.home_work_fragment_capacity_group);
++        }
++    }
++
++}
+Index: app/src/main/java/com/jiyun/asmodeus/xyxy/view/fragment/homeactivity/LivingListActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/jiyun/asmodeus/xyxy/view/fragment/homeactivity/LivingListActivity.java	(date 1525917262426)
++++ app/src/main/java/com/jiyun/asmodeus/xyxy/view/fragment/homeactivity/LivingListActivity.java	(date 1525917262426)
+@@ -0,0 +1,61 @@
++package com.jiyun.asmodeus.xyxy.view.fragment.homeactivity;
++
++import android.os.Bundle;
++import android.support.v7.app.AppCompatActivity;
++import android.support.v7.widget.RecyclerView;
++import android.view.View;
++import android.widget.Button;
++import android.widget.RelativeLayout;
++import android.widget.TextView;
++
++import com.jiyun.asmodeus.xyxy.R;
++
++public class LivingListActivity extends AppCompatActivity implements View.OnClickListener {
++
++    private TextView livinglist_aty_title_cancle;
++    private RelativeLayout livinglist_aty_title_group;
++    private TextView livinglist_aty_level1_tv;
++    private TextView livinglist_aty_level1_line;
++    private RelativeLayout livinglist_aty_level1;
++    private TextView livinglist_aty_level2_tv;
++    private TextView livinglist_aty_level2_line;
++    private RelativeLayout livinglist_aty_level2;
++    private RecyclerView livinglist_aty_recyclerview;
++    private RelativeLayout livinglist_aty_recyclerview_empty;
++    private Button livinglist_aty_recyclerview_fault_btn;
++    private RelativeLayout livinglist_aty_recyclerview_fault;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_living_list);
++        initView();
++
++    }
++
++    private void initView() {
++        livinglist_aty_title_cancle = (TextView) findViewById(R.id.livinglist_aty_title_cancle);
++        livinglist_aty_title_group = (RelativeLayout) findViewById(R.id.livinglist_aty_title_group);
++        livinglist_aty_level1_tv = (TextView) findViewById(R.id.livinglist_aty_level1_tv);
++        livinglist_aty_level1_line = (TextView) findViewById(R.id.livinglist_aty_level1_line);
++        livinglist_aty_level1 = (RelativeLayout) findViewById(R.id.livinglist_aty_level1);
++        livinglist_aty_level2_tv = (TextView) findViewById(R.id.livinglist_aty_level2_tv);
++        livinglist_aty_level2_line = (TextView) findViewById(R.id.livinglist_aty_level2_line);
++        livinglist_aty_level2 = (RelativeLayout) findViewById(R.id.livinglist_aty_level2);
++        livinglist_aty_recyclerview = (RecyclerView) findViewById(R.id.livinglist_aty_recyclerview);
++        livinglist_aty_recyclerview_empty = (RelativeLayout) findViewById(R.id.livinglist_aty_recyclerview_empty);
++        livinglist_aty_recyclerview_fault_btn = (Button) findViewById(R.id.livinglist_aty_recyclerview_fault_btn);
++        livinglist_aty_recyclerview_fault = (RelativeLayout) findViewById(R.id.livinglist_aty_recyclerview_fault);
++
++        livinglist_aty_recyclerview_fault_btn.setOnClickListener(this);
++    }
++
++    @Override
++    public void onClick(View v) {
++        switch (v.getId()) {
++            case R.id.livinglist_aty_recyclerview_fault_btn:
++
++                break;
++        }
++    }
++}
+Index: app/src/main/res/layout/activity_living_list.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_living_list.xml	(date 1525916457531)
++++ app/src/main/res/layout/activity_living_list.xml	(date 1525916457531)
+@@ -0,0 +1,213 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:orientation="vertical"
++    android:layout_height="match_parent"
++    tools:context=".view.fragment.homeactivity.LivingListActivity">
++    <RelativeLayout
++        android:id="@+id/livinglist_aty_title_group"
++        android:layout_width="match_parent"
++        android:layout_marginTop="@dimen/ts_26"
++        android:layout_alignParentTop="true"
++        android:layout_height="@dimen/ts_44">
++
++        <TextView
++            android:id="@+id/livinglist_aty_title_cancle"
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            style="@style/cancle_bg_style" />
++
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:text="直播课程"
++            style="@style/listui_title_style"
++            android:layout_height="wrap_content" />
++
++
++        <RelativeLayout
++            android:layout_width="wrap_content"
++            android:layout_alignParentRight="true"
++            android:layout_centerVertical="true"
++            android:layout_height="match_parent">
++
++            <LinearLayout
++                android:layout_width="wrap_content"
++                android:orientation="horizontal"
++                android:gravity="center_vertical"
++                android:layout_height="match_parent">
++
++                <TextView
++                    android:layout_width="@dimen/ts_22"
++                    android:layout_marginRight="@dimen/ts_12"
++                    android:background="@mipmap/home_master_search"
++                    android:layout_height="@dimen/ts_22" />
++
++            </LinearLayout>
++
++        </RelativeLayout>
++
++        <TextView
++            android:layout_width="match_parent"
++            style="@style/login_line_style"
++            android:layout_alignParentBottom="true"
++            android:layout_height="@dimen/ts_1" />
++
++    </RelativeLayout>
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:orientation="horizontal"
++        android:background="#f8f8f8"
++        android:layout_height="@dimen/ts_36">
++
++        <RelativeLayout
++            android:id="@+id/livinglist_aty_level1"
++            android:layout_width="0dp"
++            android:layout_weight="1"
++            android:layout_height="match_parent">
++
++            <TextView
++                android:id="@+id/livinglist_aty_level1_tv"
++                android:layout_width="wrap_content"
++                android:text="课程"
++                android:layout_centerInParent="true"
++                style="@style/home_work_sorbar_enabled_true_style"
++                android:layout_height="wrap_content" />
++            <TextView
++                android:id="@+id/livinglist_aty_level1_line"
++                android:layout_width="@dimen/ts_20"
++                android:background="@drawable/home_work_fragment_sortline_bg"
++                android:visibility="invisible"
++                android:layout_centerHorizontal="true"
++                android:layout_alignParentBottom="true"
++                android:layout_height="@dimen/ts_3" />
++        </RelativeLayout>
++
++
++        <RelativeLayout
++            android:id="@+id/livinglist_aty_level2"
++            android:layout_width="0dp"
++            android:layout_weight="1"
++            android:layout_height="match_parent">
++
++            <TextView
++                android:id="@+id/livinglist_aty_level2_tv"
++                android:layout_width="wrap_content"
++                android:text="直播live"
++                android:layout_centerInParent="true"
++                style="@style/home_work_sorbar_enabled_true_style"
++                android:layout_height="wrap_content" />
++
++            <TextView
++                android:id="@+id/livinglist_aty_level2_line"
++                android:layout_width="@dimen/ts_20"
++                android:background="#FFD235"
++                android:visibility="invisible"
++                android:layout_centerHorizontal="true"
++                android:layout_alignParentBottom="true"
++                android:layout_height="@dimen/ts_3" />
++        </RelativeLayout>
++
++
++    </LinearLayout>
++
++    <TextView
++        android:layout_width="match_parent"
++        style="@style/login_line_style"
++        android:layout_alignParentBottom="true"
++        android:layout_height="@dimen/ts_1" />
++
++    <android.support.v7.widget.RecyclerView
++        android:id="@+id/livinglist_aty_recyclerview"
++        android:layout_width="match_parent"
++        android:scrollbars="none"
++        android:visibility="visible"
++        android:cacheColorHint="@color/transparent"
++        android:fadingEdge="none"
++        android:layout_height="match_parent">
++
++    </android.support.v7.widget.RecyclerView>
++
++    <RelativeLayout
++        android:id="@+id/livinglist_aty_recyclerview_empty"
++        android:layout_width="match_parent"
++        android:visibility="gone"
++        android:layout_height="match_parent">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:orientation="vertical"
++            android:gravity="center"
++            android:layout_marginTop="@dimen/ts_145"
++            android:layout_height="wrap_content">
++
++            <ImageView
++                android:layout_width="@dimen/ts_80"
++                android:src="@mipmap/empty_content"
++                android:layout_height="@dimen/ts_77" />
++            <TextView
++                android:layout_width="wrap_content"
++                android:text="暂无内容"
++                android:layout_marginTop="@dimen/ts_10"
++                android:textSize="@dimen/ts_14"
++                android:textColor="@color/black"
++                android:layout_height="wrap_content" />
++
++        </LinearLayout>
++
++    </RelativeLayout>
++
++    <RelativeLayout
++        android:id="@+id/livinglist_aty_recyclerview_fault"
++        android:layout_width="match_parent"
++        android:visibility="gone"
++        android:layout_height="match_parent">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:orientation="vertical"
++            android:gravity="center"
++            android:layout_marginTop="@dimen/ts_145"
++            android:layout_height="wrap_content">
++
++            <ImageView
++                android:layout_width="@dimen/ts_80"
++                android:src="@mipmap/netwok_fault"
++                android:layout_height="@dimen/ts_77" />
++
++            <TextView
++                android:layout_width="wrap_content"
++                android:text="网络不给力"
++                android:layout_marginTop="@dimen/ts_14"
++                android:textSize="@dimen/ts_12"
++                android:textColor="@color/black"
++                android:layout_height="wrap_content" />
++
++            <TextView
++                android:layout_width="wrap_content"
++                android:text="请检查网络链接后，点击重试"
++                android:layout_marginTop="@dimen/ts_8"
++                android:textSize="@dimen/ts_12"
++                android:textColor="@color/gray"
++                android:layout_height="wrap_content" />
++
++
++            <Button
++                android:id="@+id/livinglist_aty_recyclerview_fault_btn"
++                android:layout_width="@dimen/ts_82"
++                android:background="@drawable/button_blue_bg_active"
++                android:layout_marginTop="@dimen/ts_12"
++                android:text="重试"
++                android:textColor="@color/white"
++                android:textSize="@dimen/ts_14"
++                android:gravity="center"
++                android:layout_height="@dimen/ts_32" />
++
++        </LinearLayout>
++
++
++    </RelativeLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/home_valuable_sort_recycleritem.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/home_valuable_sort_recycleritem.xml	(date 1521463860881)
++++ app/src/main/res/layout/home_valuable_sort_recycleritem.xml	(date 1521463860881)
+@@ -0,0 +1,29 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:orientation="vertical" android:layout_width="wrap_content"
++    android:background="#f8f8f8"
++    android:layout_height="@dimen/ts_36">
++
++        <RelativeLayout
++            android:id="@+id/home_work_fragment_capacity_group"
++            android:layout_width="@dimen/ts_90"
++            android:layout_height="match_parent">
++
++            <TextView
++                android:id="@+id/home_valuable_sort_recycleritem_tv"
++                android:layout_width="wrap_content"
++                android:layout_centerInParent="true"
++                style="@style/home_work_sorbar_enabled_true_style"
++                android:layout_height="wrap_content" />
++            <TextView
++                android:id="@+id/home_valuable_sort_recycleritem_line"
++                android:layout_width="@dimen/ts_20"
++                android:background="#FFD235"
++                android:visibility="invisible"
++                android:layout_centerHorizontal="true"
++                android:layout_alignParentBottom="true"
++                android:layout_height="@dimen/ts_3" />
++
++        </RelativeLayout>
++
++</LinearLayout>
+\ No newline at end of file
+Index: Work1q.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Work1q.patch	(date 1525917173902)
++++ Work1q.patch	(date 1525917173902)
+@@ -0,0 +1,0 @@
