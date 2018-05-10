@@ -1,7 +1,6 @@
 package com.jiyun.asmodeus.xyxy.model.utils;
 
 
-
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.model.biz.AppTokenService;
@@ -14,6 +13,7 @@ import com.jiyun.asmodeus.xyxy.model.biz.NoticeService;
 import com.jiyun.asmodeus.xyxy.model.biz.PhoneCodeService;
 import com.jiyun.asmodeus.xyxy.model.biz.RegistService;
 import com.jiyun.asmodeus.xyxy.model.biz.TeacherService;
+import com.jiyun.asmodeus.xyxy.model.biz.ValuableService;
 import com.jiyun.asmodeus.xyxy.model.entity.TokenBean;
 import com.jiyun.asmodeus.xyxy.view.MainActivity;
 
@@ -33,6 +33,7 @@ public class RetrofitUtils {
     private static RetrofitUtils retrofitUtils;
 
     private final Retrofit retrofit;
+
     private RetrofitUtils() {
        retrofit= new Retrofit.Builder()
                 .baseUrl(Constant.Root_url)
@@ -62,6 +63,7 @@ public class RetrofitUtils {
                     }
                 });
     }
+
     public static RetrofitUtils getInstance() {
         if (retrofitUtils == null) {
             synchronized (RetrofitUtils.class) {
@@ -101,8 +103,11 @@ public class RetrofitUtils {
     public IResetPassService getIResetPassService(){
         return retrofit.create(IResetPassService.class);
     }
+    public ValuableService getValuableService(){
+        return retrofit.create(ValuableService.class);
     public CenterService getcenterService(){
         return retrofit.create(CenterService.class);
     }
     }
+}
 
