@@ -46,7 +46,13 @@
             android:name=".view.fragment.homeactivity.MasterLiveDetailActivity"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".view.fragment.homeactivity.LivingListActivity" />
-        <activity android:name=".view.fragment.workactivity.PublishSelectWokListActivity"></activity>
+        <activity android:name=".view.fragment.workactivity.PublishSelectWokListActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterLiveListActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterWorkListActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterFudaoListActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterTieziListActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterGuanzhuListActivity" />
+        <activity android:name=".view.fragment.homeactivity.MasterFansListActivity"></activity>
     </application>
 
 </manifest>
