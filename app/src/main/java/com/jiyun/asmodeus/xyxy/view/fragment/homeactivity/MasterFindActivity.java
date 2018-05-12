@@ -1,15 +1,17 @@
 package com.jiyun.asmodeus.xyxy.view.fragment.homeactivity;
 
 
+
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
@@ -59,12 +61,6 @@ public class MasterFindActivity extends BaseActivity implements View.OnClickList
 
     private int page = 1;
 
-    /**
-     * 筛选栏选中集
-     */
-    private List<TextView> sortBars_tv;
-
-    private List<TextView> sortBars_line;
 
     private MasterListAtyAdapter adapter;
 
@@ -101,6 +97,7 @@ public class MasterFindActivity extends BaseActivity implements View.OnClickList
         master_list_level2.setOnClickListener(this);
         master_list_level1.setOnClickListener(this);
         GetData(SORT_TYPE_DASHI);
+
     }
 
     @Override
@@ -155,7 +152,18 @@ public class MasterFindActivity extends BaseActivity implements View.OnClickList
                         gridLayoutManager =new GridLayoutManager(MasterFindActivity.this,2,GridLayoutManager.VERTICAL,false);;
                         masterlist_recyclerview.setLayoutManager(gridLayoutManager);
                         masterlist_recyclerview.setAdapter(adapter);
-                         adapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
+                        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                                if(masterwoksBeen.isEmpty()){
+                                    return;
+                                }
+                                Intent intent = new Intent(MasterFindActivity.this, MasterDetailActivity.class);
+                                intent.putExtra("id",masterwoksBeen.get(position).getId()) ;
+                                startActivity(intent);
+                            }
+                        });
                     }
                 });
 

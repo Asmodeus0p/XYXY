@@ -125,59 +125,55 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
         masterdetail_courses_listview.setAdapter(courseAdapter);
         liveAdapter.notifyDataSetChanged();
         courseAdapter.notifyDataSetChanged();
-        id = getIntent().getIntExtra("id", 0);
-        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
-            @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                switch (position) {
-                    case ZHIBO:
-                        Intent intent = new Intent(MasterDetailActivity.this, MasterLiveListActivity.class);
-                        intent.putExtra("name", name);
-                        intent.putExtra("teacherid", id);
-                        startActivity(intent);
-                        break;
-                    case ZUOYE:
-                        Intent intent1 = new Intent(MasterDetailActivity.this, MasterWorkListActivity.class);
-                        intent1.putExtra("name", name);
-                        intent1.putExtra("teacherid", id);
-                       startActivity(intent1);
 
-                        break;
-                    case FUDAO:
-
-                        Intent intent2 = new Intent(MasterDetailActivity.this, MasterFudaoListActivity.class);
-                        intent2.putExtra("name", name);
-                        intent2.putExtra("teacherid", id);
-                        startActivity(intent2);
-
-                        break;
-                    case TIEZI:
-                        Intent intent3 = new Intent(MasterDetailActivity.this, MasterTieziListActivity.class);
-                        intent3.putExtra("name", name);
-                        intent3.putExtra("teacherid", id);
-                        startActivity(intent3);
-
-                        break;
-
-                    case GUANZHU:
-                        Intent intent4 = new Intent(MasterDetailActivity.this, MasterGuanzhuListActivity.class);
-                        intent4.putExtra("name", name);
-                        intent4.putExtra("teacherid", id);
-                        startActivity(intent4);
-                        break;
-                    case FENSI:
-
-                        Intent intent5= new Intent(MasterDetailActivity.this, MasterGuanzhuListActivity.class);
-                        intent5.putExtra("name", name);
-                        intent5.putExtra ("teacherid", id);
-                        startActivity(intent5);
-
-                        break;
-                    default:
-                        break;
+        adapter.setOnItemClickListener(
+                new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                        switch (position) {
+                            case ZHIBO:
+                                Intent intent = new Intent(MasterDetailActivity.this, MasterLiveListActivity.class);
+                                intent.putExtra("name", name);
+                                intent.putExtra("teacherid", id);
+                                startActivity(intent);
+                                break;
+                            case ZUOYE:
+                                Intent intent1 = new Intent(MasterDetailActivity.this, MasterWorkListActivity.class);
+                                intent1.putExtra("name", name);
+                                intent1.putExtra("teacherid", id);
+                                startActivity(intent1);
+                                break;
+                            case FUDAO:
+                                Intent intent2 = new Intent(MasterDetailActivity.this, MasterFudaoListActivity.class);
+                                intent2.putExtra("name", name);
+                                intent2.putExtra("teacherid", id);
+                                startActivity(intent2);
+                                break;
+                            case TIEZI:
+                                Intent intent3 = new Intent(MasterDetailActivity.this, MasterTieziListActivity.class);
+                                intent3.putExtra("name", name);
+                                intent3.putExtra("teacherid", id);
+                                startActivity(intent3);
+                                break;
+                            case GUANZHU:
+                                Intent intent4 = new Intent(MasterDetailActivity.this, MasterGuanzhuListActivity.class);
+                                intent4.putExtra("name", name);
+                                intent4.putExtra("teacherid", id);
+                                startActivity(intent4);
+                                break;
+                            case FENSI:
+                                Intent intent5 = new Intent(MasterDetailActivity.this, MasterGuanzhuListActivity.class);
+                                intent5.putExtra("name", name);
+                                intent5.putExtra("teacherid", id);
+                                startActivity(intent5);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 }
-            }
-        });
+        );
+
     }
 
     @Override
@@ -205,10 +201,10 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
 
     public void getData() {
         OkHttpClient client = new OkHttpClient.Builder().build();
+        id = getIntent().getIntExtra("id", 0);
 
-        Log.e("1234", id + "");
         String appToken = (String) SharedPreferencesUtils.getParam(this, "xyxy_apptoken", "String");
-        Log.e("1234", appToken);
+
         FormBody userId = new FormBody.Builder().add("userId", id + "").build();
         Request build = new Request.Builder().url("https://www.univstar.com/v1/m/user/homepage").post(userId).addHeader("apptoken", appToken).build();
         client.newCall(build).enqueue(new Callback() {

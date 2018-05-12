@@ -52,7 +52,8 @@
         <activity android:name=".view.fragment.homeactivity.MasterFudaoListActivity" />
         <activity android:name=".view.fragment.homeactivity.MasterTieziListActivity" />
         <activity android:name=".view.fragment.homeactivity.MasterGuanzhuListActivity" />
-        <activity android:name=".view.fragment.homeactivity.MasterFansListActivity"></activity>
+        <activity android:name=".view.fragment.homeactivity.MasterFansListActivity" />
+        <activity android:name=".view.fragment.homeactivity.WorkDataActivity"></activity>
     </application>
 
 </manifest>
