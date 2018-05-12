@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.fragment.workactivity.PublishSelectWokListActivity">
-
+    tools:context=".view.fragment.homeactivity.MasterLiveListActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/ts_26"

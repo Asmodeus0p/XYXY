@@ -1,6 +1,8 @@
 package com.jiyun.asmodeus.xyxy.view.fragment.homeactivity;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -12,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.entity.MasterDetailBean;
@@ -71,6 +74,7 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
     private ImageView masterdetail_aty_share;
     private String[] flag = {"课程", "作业", "辅导", "帖子", "关注", "粉丝"};
     private boolean isAttention = false;
+    private int id;
 
     @Override
     protected int getLayoutId() {
@@ -122,6 +126,54 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
         liveAdapter.notifyDataSetChanged();
         courseAdapter.notifyDataSetChanged();
 
+        adapter.setOnItemClickListener(
+                new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                        switch (position) {
+                            case ZHIBO:
+                                Intent intent = new Intent(MasterDetailActivity.this, MasterLiveListActivity.class);
+                                intent.putExtra("name", name);
+                                intent.putExtra("teacherid", id);
+                                startActivity(intent);
+                                break;
+                            case ZUOYE:
+                                Intent intent1 = new Intent(MasterDetailActivity.this, MasterWorkListActivity.class);
+                                intent1.putExtra("name", name);
+                                intent1.putExtra("teacherid", id);
+                                startActivity(intent1);
+                                break;
+                            case FUDAO:
+                                Intent intent2 = new Intent(MasterDetailActivity.this, MasterFudaoListActivity.class);
+                                intent2.putExtra("name", name);
+                                intent2.putExtra("teacherid", id);
+                                startActivity(intent2);
+                                break;
+                            case TIEZI:
+                                Intent intent3 = new Intent(MasterDetailActivity.this, MasterTieziListActivity.class);
+                                intent3.putExtra("name", name);
+                                intent3.putExtra("teacherid", id);
+                                startActivity(intent3);
+                                break;
+                            case GUANZHU:
+                                Intent intent4 = new Intent(MasterDetailActivity.this, MasterGuanzhuListActivity.class);
+                                intent4.putExtra("name", name);
+                                intent4.putExtra("teacherid", id);
+                                startActivity(intent4);
+                                break;
+                            case FENSI:
+                                Intent intent5 = new Intent(MasterDetailActivity.this, MasterGuanzhuListActivity.class);
+                                intent5.putExtra("name", name);
+                                intent5.putExtra("teacherid", id);
+                                startActivity(intent5);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+        );
+
     }
 
     @Override
@@ -149,10 +201,10 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
 
     public void getData() {
         OkHttpClient client = new OkHttpClient.Builder().build();
-        int id = getIntent().getIntExtra("id", 0);
-        Log.e("1234", id + "");
+        id = getIntent().getIntExtra("id", 0);
+
         String appToken = (String) SharedPreferencesUtils.getParam(this, "xyxy_apptoken", "String");
-        Log.e("1234", appToken);
+
         FormBody userId = new FormBody.Builder().add("userId", id + "").build();
         Request build = new Request.Builder().url("https://www.univstar.com/v1/m/user/homepage").post(userId).addHeader("apptoken", appToken).build();
         client.newCall(build).enqueue(new Callback() {
@@ -189,15 +241,12 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
 
                             masterdetail_teacherdetail_tv.setText(data.getUser().getDetails());
                         }
-
                         masterdetail_replynum.setText(data.getPraise().getPraiseCount() + "");
-
                         if (data.getPraise().getIsPraise() == Constant.NOTFAVORITE) {
                             masterdetail_replynum.setChecked(false);
                         } else {
                             masterdetail_replynum.setChecked(true);
                         }
-
                         recyclerList.get(ZHIBO).setNum(data.getLiveCount() + "");
                         recyclerList.get(ZUOYE).setNum(data.getHomewokPublishCount() + "");
                         recyclerList.get(FUDAO).setNum(data.getCoachingCount() + "");
@@ -205,10 +254,8 @@ public class MasterDetailActivity extends BaseActivity implements View.OnClickLi
                         recyclerList.get(GUANZHU).setNum(data.getAttentionCount() + "");
                         recyclerList.get(FENSI).setNum(data.getFansCount() + "");
                         adapter.notifyDataSetChanged();
-
                         liveCoursesBeen.addAll(data.getLiveCourses());
                         liveAdapter.notifyDataSetChanged();
-
                         coursesBeen.addAll(data.getCourses());
                         courseAdapter.notifyDataSetChanged();
 

@@ -1,6 +1,7 @@
-package com.jiyun.asmodeus.xyxy.view.fragment.workactivity;
+package com.jiyun.asmodeus.xyxy.view.fragment.homeactivity;
 
-
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
 
-public class PublishSelectWokListActivity extends BaseActivity implements View.OnClickListener {
+public class MasterTieziListActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView masterworklist_title_cancle;
     private TextView masterworklist_title_tv;
@@ -22,12 +23,14 @@ public class PublishSelectWokListActivity extends BaseActivity implements View.O
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_publish_select_wok_list;
+        return R.layout.activity_master_tiezi_list;
     }
 
     @Override
     protected void initData() {
-
+        Intent intent = getIntent();
+        int teacherid = intent.getIntExtra("teacherid", 0);
+        String name = intent.getStringExtra("name");
     }
 
     @Override

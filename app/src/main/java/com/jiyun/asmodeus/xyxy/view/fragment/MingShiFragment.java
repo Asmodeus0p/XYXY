@@ -1,6 +1,7 @@
 package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,6 +28,7 @@ import com.jiyun.asmodeus.xyxy.view.adapter.HomeMasterWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeRecommendMasterAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
 import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.MasterLiveDetailActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.WorkDataActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.MyGridView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyListView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyScrollView;
@@ -108,6 +110,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         home_master_look_group.setOnClickListener(this);
         home_master_work_group.setOnClickListener(this);
         home_master_chat_group.setOnClickListener(this);
+
         home_master_learn_group.setOnClickListener(this);
     }
 
@@ -118,18 +121,12 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
 
     @Override
     public void laodTeacherDatas(HomeBean homeBean) {
-
-        //广告栏
         systemAds.addAll(homeBean.getData().getSystemAds());
         ArrayList<String> urls = new ArrayList<>();
         for (HomeBean.DataBean.SystemAdsBean systemAd : systemAds) {
             urls.add(systemAd.getMobileImgUrl());
         }
         home_master_adv_viewpager.setImagesUrl(urls);
-
-
-        //推荐名师
-
         usersAdapter = new HomeRecommendMasterAdapter(usersbean);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -140,8 +137,8 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         usersAdapter.setmOnItemClickListener(new HomeRecommendMasterAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                if(usersbean.isEmpty()){
-                    return ;
+                if (usersbean.isEmpty()) {
+                    return;
                 }
                 int id = usersbean.get(position).getId();
                 Intent intent = new Intent(getContext(), MasterDetailActivity.class);
@@ -151,10 +148,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
             }
         });
 
-
 //        //直播课程
-
-
         liveCoursesBeen.addAll(homeBean.getData().getLiveCourses());
         liveCoursesAdapter = new HomeMasterLiveGridViewAdapter(getContext(), liveCoursesBeen);
         home_master_live_gridview.setAdapter(liveCoursesAdapter);
@@ -174,6 +168,18 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
         homewoksBeen.addAll(homeBean.getData().getHomewoks());
         homewoksAdapter = new HomeMasterWorkListViewAdapter(getContext(), homewoksBeen);
         home_master_work_listview.setAdapter(homewoksAdapter);
+        home_master_work_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (homewoksBeen.isEmpty()) {
+                    return;
+                }
+                Intent intent = new Intent(getActivity(), WorkDataActivity.class);
+                intent.putExtra("id", homewoksBeen.get(position).getId());
+                startActivity(intent);
+
+            }
+        });
         homewoksAdapter.notifyDataSetChanged();
 
     }
