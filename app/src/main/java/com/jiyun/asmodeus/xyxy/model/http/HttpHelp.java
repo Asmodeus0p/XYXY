@@ -12,7 +12,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.google.gson.Gson;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import com.jiyun.asmodeus.xyxy.R;
+import com.jiyun.asmodeus.xyxy.model.biz.IAppToken;
+import com.jiyun.asmodeus.xyxy.model.entity.AppTokenBean;
 import com.jiyun.asmodeus.xyxy.model.utils.AddCookiesInterceptor;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.ReceivedCookiesInterceptor;
@@ -21,7 +24,10 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 
-
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import retrofit2.Retrofit;
@@ -84,7 +90,48 @@ public class HttpHelp {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
+        retrofit.create(IAppToken.class)
+                .getAppToken("/v1/m/security/apptoken")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<AppTokenBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
+                    }
+
+                    @Override
+                    public void onNext(AppTokenBean value) {
+
+                        if(value==null||value.getData()==null){
+                            return;
+                        }
+
+                        String apptoken = value.getData().getApptoken();
+
+                        long time = System.currentTimeMillis();
+
+                        try {
+                            String desApptoken= EncryptUtil.decrypt(apptoken);
+
+                            String headerApptoken=EncryptUtil.encrypt(time + desApptoken).replaceAll("\\n","").toUpperCase();
+
+                            HttpHelp.saveAppToken(context,headerApptoken,time);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
 
     }
 
@@ -100,6 +147,9 @@ public class HttpHelp {
 
         return gson.toJson(object);
     }
+
+
+
 
 
 
