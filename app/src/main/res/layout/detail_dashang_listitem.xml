@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:id="@+id/detail_dashang_listitem_group"
+    android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="@dimen/ts_36"
+        app:riv_oval="true"
+        android:layout_centerInParent="true"
+        android:src="@color/white"
+        android:layout_height="@dimen/ts_36" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/detail_dashang_listitem_img"
+        android:layout_width="@dimen/ts_32"
+        app:riv_oval="true"
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerInParent="true"
+        android:layout_height="@dimen/ts_32" />
+
+</RelativeLayout>

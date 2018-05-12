@@ -27,14 +27,27 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.jiyun.asmodeus.xyxy.R;
+import com.jiyun.asmodeus.xyxy.model.biz.IGiftList;
+import com.jiyun.asmodeus.xyxy.model.biz.IPraise;
+import com.jiyun.asmodeus.xyxy.model.biz.IPraiseCancle;
+import com.jiyun.asmodeus.xyxy.model.biz.IWorkCommentPageList;
+import com.jiyun.asmodeus.xyxy.model.biz.IWorkCommentPost;
+import com.jiyun.asmodeus.xyxy.model.biz.IWorkDetail;
+import com.jiyun.asmodeus.xyxy.model.entity.BasicCommentSuccessModel;
+import com.jiyun.asmodeus.xyxy.model.entity.BasicSuccessBean;
+import com.jiyun.asmodeus.xyxy.model.entity.GiftListModel;
 import com.jiyun.asmodeus.xyxy.model.entity.WokDetailBean;
 import com.jiyun.asmodeus.xyxy.model.http.HttpHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.BitmapHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
+import com.jiyun.asmodeus.xyxy.view.adapter.DetailDaShangAdapter;
+import com.jiyun.asmodeus.xyxy.view.adapter.WorkDetailCommentAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.LoginActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.MyListView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyScrollView;
 import com.lidroid.xutils.ViewUtils;
@@ -46,6 +59,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -243,28 +257,16 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
     private WorkPaySucessRecceiver workPaySucessRecceiver;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.wok_detail_aty);
-        ViewUtils.inject(this);
-        setTitleTheme(this,true);
-        AndroidBug5497Workaround.assistActivity(this);
 
-        init();
-
-        initView();
-
-    }
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.activity_work_data;
     }
 
     @Override
     protected void initData() {
-
+        init();
     }
 
 
@@ -340,7 +342,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
         registerReceiver(workPaySucessRecceiver,filter);
     }
 
-    private void initView(){
+    protected void initView(){
 
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
@@ -365,7 +367,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
             public void onPraiseClick(int position) {
 
                 if(!HttpHelp.isLogin(context)){
-                    startActivity(new Intent(context, LoginAty.class));
+                    context.startActivity(new Intent(context,LoginActivity.class));
                     return ;
                 }
 
@@ -391,7 +393,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                 if(commentList.isEmpty()){
                     return;
                 }
-                WokDetailCommentAty.start((Activity) context,commentList.get(position).getId(),commentList.get(position).getUserId(),workId,commentList.get(position).getContent(),commentList.get(position).getReplyNum());
+//                WokDetailCommentAty.start((Activity) context,commentList.get(position).getId(),commentList.get(position).getUserId(),workId,commentList.get(position).getContent(),commentList.get(position).getReplyNum());
             }
 
             @Override
@@ -439,7 +441,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
 
                 if(!HttpHelp.isLogin(context)){
-                    startActivity(new Intent(context, LoginAty.class));
+                    context.startActivity(new Intent(context,LoginActivity.class));
                     return ;
                 }
 
@@ -462,7 +464,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
 
                 if(!HttpHelp.isLogin(context)){
-                    startActivity(new Intent(context, LoginAty.class));
+                    context.startActivity(new Intent(context,LoginActivity.class));
                     return ;
                 }
 
@@ -516,8 +518,8 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
                 if(TextUtils.equals(homewokBean.getWorksType(),Constant.PUSH_IMAGE)){
 
-                    ImageDetailActivity.start((Activity) context,homewokBean.getPath());
-                    AtyAnim.centUp(WokDetailAty.this);
+//                    ImageDetailActivity.start((Activity) context,homewokBean.getPath());
+//                    AtyAnim.centUp(WokDetailAty.this);
                 }
                 if(TextUtils.equals(homewokBean.getWorksType(),Constant.PUSH_AUDIO)){
 
@@ -605,9 +607,9 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
                 }
                 if(TextUtils.equals(homewokBean.getWorksType(),Constant.PUSH_VIDEO)){
-
-                    VideoDetailActivity.start((Activity)context,homewokBean.getPath());
-                    AtyAnim.centUp(WokDetailAty.this);
+//
+//                    VideoDetailActivity.start((Activity)context,homewokBean.getPath());
+//                    AtyAnim.centUp(WokDetailAty.this);
                 }
                 break;
             case R.id.wok_detail_aty_pay_teacher_introimg:
@@ -619,8 +621,8 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
                 if(TextUtils.equals(homewokBean.getAnswerWorksType(),Constant.PUSH_IMAGE)){
 
-                    ImageDetailActivity.start((Activity) context,homewokBean.getAnswerPath());
-                    AtyAnim.centUp(WokDetailAty.this);
+//                    ImageDetailActivity.start((Activity) context,homewokBean.getAnswerPath());
+//                    AtyAnim.centUp(WokDetailAty.this);
                 }
                 if(TextUtils.equals(homewokBean.getAnswerWorksType(),Constant.PUSH_AUDIO)){
 
@@ -711,8 +713,8 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                 }
                 if(TextUtils.equals(homewokBean.getAnswerWorksType(),Constant.PUSH_VIDEO)){
 
-                    VideoDetailActivity.start((Activity)context,homewokBean.getAnswerPath());
-                    AtyAnim.centUp(WokDetailAty.this);
+//                    VideoDetailActivity.start((Activity)context,homewokBean.getAnswerPath());
+//                    AtyAnim.centUp(WokDetailAty.this);
                 }
 
                 break;
@@ -725,14 +727,14 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
 //                new AlertBottom((Activity) context).popupWokValuableAlter(wok_detail_aty_group,false,0,"","学生作业",homewokBean.getContent());
 
-                new AlertBottom((Activity) context).popupAlter(wok_detail_aty_group,String.format(Constant.WORK_SHARE_URL,homewokBean.getId()),String.format("%s的作品",homewokBean.getNickname()),Constant.SHARE_CONTENT);
+//                new AlertBottom((Activity) context).popupAlter(wok_detail_aty_group,String.format(Constant.WORK_SHARE_URL,homewokBean.getId()),String.format("%s的作品",homewokBean.getNickname()),Constant.SHARE_CONTENT);
 
                 break;
             case R.id.wok_detail_aty_priceing_group:
 
 
                 if(!HttpHelp.isLogin(context)){
-                    startActivity(new Intent(context, LoginAty.class));
+                    context.startActivity(new Intent(context,LoginActivity.class));
                     return ;
                 }
 
@@ -740,13 +742,13 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                     return;
                 }
 
-                new AlertBottom((Activity) context).peepWindePay(wok_detail_aty_group,HttpHelp.getUserId(context),homewokBean.getStudentId(),homewokBean.getId(),homewokBean.getPeepPrice());
+//                new AlertBottom((Activity) context).peepWindePay(wok_detail_aty_group,HttpHelp.getUserId(context),homewokBean.getStudentId(),homewokBean.getId(),homewokBean.getPeepPrice());
 
                 break;
             case R.id.wok_detail_aty_dashang:
 
                 if(!HttpHelp.isLogin(context)){
-                    startActivity(new Intent(context, LoginAty.class));
+                    context.startActivity(new Intent(context,LoginActivity.class));
                     return ;
                 }
 
@@ -785,7 +787,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                         giftLists.clear();
                         giftLists.addAll(value.getData().getGiftList());
 
-                        new GiftPopup(context,PayBroadCast_Key).poopWindePorPay(wok_detail_aty_group,giftLists,value.getData().getUserBeanAmount(),homewokBean.getStudentId(),homewokBean.getTUserId(),homewokBean.getId(),3,"0");
+//                        new GiftPopup(context,PayBroadCast_Key).poopWindePorPay(wok_detail_aty_group,giftLists,value.getData().getUserBeanAmount(),homewokBean.getStudentId(),homewokBean.getTUserId(),homewokBean.getId(),3,"0");
 
                     }
 
@@ -810,14 +812,14 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                 .postPraise(userid,itemid,HttpHelp.getUserId(context),type)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BasicSuccessModel>() {
+                .subscribe(new Observer<BasicSuccessBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         compositeDisposable.add(d);
                     }
 
                     @Override
-                    public void onNext(BasicSuccessModel value) {
+                    public void onNext(BasicSuccessBean value) {
                         if(value==null){
                             return;
                         }
@@ -843,14 +845,14 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                 .postPraiseCancle(userid,itemid,HttpHelp.getUserId(context),type)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BasicSuccessModel>() {
+                .subscribe(new Observer<BasicSuccessBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         compositeDisposable.add(d);
                     }
 
                     @Override
-                    public void onNext(BasicSuccessModel value) {
+                    public void onNext(BasicSuccessBean value) {
                         if(value==null){
                             return;
                         }
@@ -879,14 +881,14 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                 .workCommentPage(workId,HttpHelp.getUserId(context),page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<WokDetailModel>() {
+                .subscribe(new Observer<WokDetailBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         compositeDisposable.add(d);
                     }
 
                     @Override
-                    public void onNext(WokDetailModel value) {
+                    public void onNext(WokDetailBean value) {
 
                         if(value==null||value.getData()==null||value.getData().getComments()==null){
                             if(page>1){
@@ -924,19 +926,19 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                 .loadWorkDetail(workId,HttpHelp.getUserId(context))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<WokDetailModel>() {
+                .subscribe(new Observer<WokDetailBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         compositeDisposable.add(d);
                     }
 
                     @Override
-                    public void onNext(WokDetailModel value) {
+                    public void onNext(WokDetailBean value) {
 
                         if(value==null){
                             return ;
                         }
-                        wok_detail_aty_loadView.setVisibility(View.GONE);
+
                         wok_detail_aty_contentView.setVisibility(View.VISIBLE);
                         fillData(value.getData());
                     }
@@ -957,7 +959,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
     }
 
 
-    private void fillData(WokDetailModel.DataBean dataBean){
+    private void fillData(WokDetailBean.DataBean dataBean){
 
         if(dataBean==null||dataBean.getHomewok()==null){
             return ;
@@ -990,7 +992,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                     //未偷听
                     wok_detail_aty_priced_group.setVisibility(View.VISIBLE);
                     wok_detail_aty_pay_teacher_group.setVisibility(View.GONE);
-                    HttpHelp.glideLoadC(context, wok_detail_aty_teacherimg, homewokBean.getTPhoto(), R.mipmap.user_head_portrait);
+                    Glide.with(context).load( homewokBean.getTPhoto()).into( wok_detail_aty_teacherimg);
                     wok_detail_aty_teachername.setText(homewokBean.getTRealname());
                     SplitStringColorUtils.setImgLevel(wok_detail_aty_teacherlevel, homewokBean.getTUserType());
                     wok_detail_aty_teacherintro.setText(homewokBean.getTIntro());
@@ -1001,7 +1003,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                     wok_detail_aty_priced_group.setVisibility(View.GONE);
                     wok_detail_aty_pay_teacher_group.setVisibility(View.VISIBLE);
 
-                    HttpHelp.glideLoadC(context, wok_detail_aty_pay_teachertimg, homewokBean.getTPhoto(), R.mipmap.user_head_portrait);
+                    Glide.with(context).load( homewokBean.getTPhoto()).into(wok_detail_aty_pay_teachertimg);
                     wok_detail_aty_pay_teachername.setText(homewokBean.getTRealname());
                     wok_detail_aty_pay_teacher_intro.setText(homewokBean.getTIntro());
                     wok_detail_aty_pay_teacher_content.setText(homewokBean.getAnswerContent());
@@ -1017,12 +1019,13 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                         wok_detail_aty_pay_teacher_audio_time.setText(homewokBean.getAnswerDuration());
                     } else if (TextUtils.equals(Constant.PUSH_IMAGE, homewokBean.getAnswerWorksType())) {
                         BitmapHelp.setImageView(context,homewokBean.getAnswerPicProperty(),wok_detail_aty_pay_teacher_introimg);
-                        HttpHelp.glideLoadF(context, wok_detail_aty_pay_teacher_introimg, homewokBean.getAnswerCoverImg());
+
+                        Glide.with(context).load(  homewokBean.getAnswerCoverImg()).into(wok_detail_aty_pay_teacher_introimg);
                         wok_detail_aty_pay_teacher_audio_gorpu.setVisibility(View.GONE);
                         wok_detail_aty_pay_teacher_video_gorpu.setVisibility(View.GONE);
                     } else if (TextUtils.equals(Constant.PUSH_VIDEO, homewokBean.getAnswerWorksType())) {
                         BitmapHelp.setImageView(context,homewokBean.getAnswerPicProperty(),wok_detail_aty_pay_teacher_introimg);
-                        HttpHelp.glideLoadF(context, wok_detail_aty_pay_teacher_introimg, homewokBean.getAnswerCoverImg());
+                        Glide.with(context).load(homewokBean.getAnswerCoverImg()).into(wok_detail_aty_pay_teacher_introimg);
                         wok_detail_aty_pay_teacher_audio_gorpu.setVisibility(View.GONE);
                         wok_detail_aty_pay_teacher_video_gorpu.setVisibility(View.VISIBLE);
                         wok_detail_aty_pay_teacher_audio_time.setText(homewokBean.getAnswerDuration());
@@ -1038,8 +1041,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
         }
 
         //学生作业内容
-        HttpHelp.glideLoadC(context,wok_detail_aty_studentimg,homewokBean.getPhoto(),R.mipmap.user_head_portrait);
-
+        Glide.with(context).load(homewokBean.getPhoto()).into(wok_detail_aty_studentimg);
         wok_detail_aty_studentname.setText(homewokBean.getNickname());
 
         wok_detail_aty_time.setText(TimeShift.getChatTime(homewokBean.getCreateDate()));
@@ -1057,12 +1059,12 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
             wok_detail_aty_audio_time.setText(homewokBean.getDuration());
         }else if(TextUtils.equals(Constant.PUSH_IMAGE,homewokBean.getWorksType())){
             BitmapHelp.setImageView(context,homewokBean.getPicProperty(),wok_detail_aty_introimg);
-            HttpHelp.glideLoadF(context,wok_detail_aty_introimg,homewokBean.getCoverImg());
+            Glide.with(context).load(homewokBean.getCoverImg()).into(wok_detail_aty_introimg);
             wok_detail_aty_audio_gorpu.setVisibility(View.GONE);
             wok_detail_aty_video_gorpu.setVisibility(View.GONE);
         }else if(TextUtils.equals(Constant.PUSH_VIDEO,homewokBean.getWorksType())){
             BitmapHelp.setImageView(context,homewokBean.getPicProperty(),wok_detail_aty_introimg);
-            HttpHelp.glideLoadF(context,wok_detail_aty_introimg,homewokBean.getCoverImg());
+            Glide.with(context).load(homewokBean.getCoverImg()).into(wok_detail_aty_introimg);
             wok_detail_aty_audio_gorpu.setVisibility(View.GONE);
             wok_detail_aty_video_gorpu.setVisibility(View.VISIBLE);
             wok_detail_aty_video_time.setText(homewokBean.getDuration());
@@ -1207,7 +1209,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            WokDetailModel.DataBean.RewardUserListBean rewardUserListBean = new WokDetailModel.DataBean.RewardUserListBean();
+            WokDetailBean.DataBean.RewardUserListBean rewardUserListBean = new WokDetailBean.DataBean.RewardUserListBean();
 
             rewardUserListBean.setUserPhoto(intent.getStringExtra(Constant.User_icon));
 
