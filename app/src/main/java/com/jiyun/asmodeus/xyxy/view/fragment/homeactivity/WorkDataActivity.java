@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.entity.WokDetailBean;
+import com.jiyun.asmodeus.xyxy.model.http.HttpHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.BitmapHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
