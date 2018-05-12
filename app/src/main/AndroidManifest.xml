@@ -46,7 +46,9 @@
             android:name=".view.fragment.homeactivity.MasterLiveDetailActivity"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".view.fragment.homeactivity.LivingListActivity" />
-        <activity android:name=".view.fragment.workactivity.PublishSelectWokListActivity"></activity>
+        <activity android:name=".view.fragment.workactivity.PublishSelectWokListActivity" />
+        <activity android:name=".view.fragment.NoticeInfoActivity" />
+        <activity android:name=".view.fragment.UserInfoActivity"></activity>
     </application>
 
 </manifest>

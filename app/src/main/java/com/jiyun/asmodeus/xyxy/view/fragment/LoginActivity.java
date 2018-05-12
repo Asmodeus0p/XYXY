@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void laodLoginDatas(LoginRegsterSucessBean loginRegsterSucessBean) {
-      //  Log.e("==", loginRegsterSucessBean.getMessage());
+        Log.e("==", loginRegsterSucessBean.getMessage());
        if (loginRegsterSucessBean.getMessage().equals("cid为空")){
            Intent intent = new Intent(this,MainActivity.class);
             intent.putExtra("nickname",loginRegsterSucessBean.getData().getNickname());
@@ -109,7 +109,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             SharedPreferencesUtils.saveUsarInfo(getApplicationContext(),loginRegsterSucessBean.getData().getMobile()
             ,loginRegsterSucessBean.getData().getPhoto(),loginRegsterSucessBean.getData().getNickname());
             setResult(10,intent);
-            SharedPreferencesUtils.saveId(this,loginRegsterSucessBean.getData().getId()+"");
+           int id = loginRegsterSucessBean.getData().getId();
+           SharedPreferencesUtils.saveUserId(getApplicationContext(),id);
+           SharedPreferencesUtils.saveId(this,loginRegsterSucessBean.getData().getId()+"");
             Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
             finish();
 

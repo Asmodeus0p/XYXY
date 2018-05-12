@@ -3,6 +3,7 @@ package com.jiyun.asmodeus.xyxy.view.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
@@ -55,7 +56,7 @@ public class NoticeFragment extends BaseFragment implements NoticeContract.Notic
         list=new ArrayList<>();
         mRecy=getView().findViewById(R.id.yugaoRecy);
         time_chose=getView().findViewById(R.id.time_chose);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         mRecy.setLayoutManager(linearLayoutManager);
         presenterImp=new NoticePresenterImp(this);
         presenterImp.laodNoticeDatas();
@@ -65,7 +66,11 @@ public class NoticeFragment extends BaseFragment implements NoticeContract.Notic
         adapter.setOnAdapterClick(new NoticeAdapter.OnItemListener() {
             @Override
             public void setOnClick(View v, int postion) {
-
+                NoticeBean.DataBean.ListBean listBean = list.get(postion);
+                Intent intent = new Intent(getActivity(),NoticeInfoActivity.class);
+                int id = listBean.getId();
+                intent.putExtra("id",id);
+                startActivity(intent);
             }
         });
     }
@@ -87,6 +92,7 @@ public class NoticeFragment extends BaseFragment implements NoticeContract.Notic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.time_chose:
+                //时间筛选Popuwindow
                 View inflate = LayoutInflater.from(getContext()).inflate(R.layout.time_shaixuan, null);
                 data_queding = inflate.findViewById(R.id.data_queding);
                 data_chongzhi = inflate.findViewById(R.id.data_chongzhi);

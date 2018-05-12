@@ -4,12 +4,15 @@ package com.jiyun.asmodeus.xyxy.model.utils;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.model.biz.AppTokenService;
+import com.jiyun.asmodeus.xyxy.model.biz.CancleFavoriteService;
 import com.jiyun.asmodeus.xyxy.model.biz.CenterService;
+import com.jiyun.asmodeus.xyxy.model.biz.FavoriteService;
 import com.jiyun.asmodeus.xyxy.model.biz.FindPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.HomeworkService;
 import com.jiyun.asmodeus.xyxy.model.biz.IPhoneLoginService;
 import com.jiyun.asmodeus.xyxy.model.biz.IResetPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.MessageListService;
+import com.jiyun.asmodeus.xyxy.model.biz.NoticeInfoService;
 import com.jiyun.asmodeus.xyxy.model.biz.NoticeService;
 import com.jiyun.asmodeus.xyxy.model.biz.PhoneCodeService;
 import com.jiyun.asmodeus.xyxy.model.biz.RegistService;
@@ -114,6 +117,15 @@ public class RetrofitUtils {
     }
     public MessageListService getMessageListService(){
         return retrofit.create(MessageListService.class);
+    }
+    public NoticeInfoService getNoticeInfoService(){
+        return retrofit.create(NoticeInfoService.class);
+    }
+    public FavoriteService getFavoriteService(){
+        return retrofit.create(FavoriteService.class);
+    }
+    public CancleFavoriteService getcancleFavoriteService(){
+        return retrofit.create(CancleFavoriteService.class);
     }
 }
 

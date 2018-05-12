@@ -5,9 +5,8 @@ import android.os.Environment;
 
 public class Constant {
 
-
+    public static final int SuccessCode = 0;
     public static final int MinpassLength = 6;
-    static final int SuccessCode = 0;
     public static final int RECODE_AUTH_SUCCESS = 11;
     public static final int ConnectTimeout = 15;
     public static final int ReadTimeout = 20;

@@ -147,6 +147,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         home_myselft_fragment_havegift_group.setOnClickListener(this);
         home_myselft_fragment_setting.setOnClickListener(this);
         home_myselft_fragment_message.setOnClickListener(this);
+        home_myself_fragment_userinfo_group.setOnClickListener(this);
         //userStatus();
 
         checkLogin();

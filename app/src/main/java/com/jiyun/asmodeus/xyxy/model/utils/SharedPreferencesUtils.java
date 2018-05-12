@@ -69,7 +69,24 @@ public class SharedPreferencesUtils {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(Constant.UserId, id);
         editor.commit();
+    }
+    public static void saveUserId(Context context, int id) {
+        if (context == null) {
+            return;
+        }
 
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(Constant.CookieSP, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("loginId", id);
+        editor.commit();
+    }
+
+    public static int getUserId(Context context) {
+
+
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(Constant.CookieSP, Context.MODE_PRIVATE);
+        int loginUserId = sharedPreferences.getInt("loginId", 0);
+        return loginUserId;
     }
 
     public static boolean isLogin(Context context) {
