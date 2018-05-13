@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.homeactivity.VideoDetailActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <com.pili.pldroid.player.widget.PLVideoTextureView
+        android:id="@+id/video_detail_aty_video"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:background="#ee333333"
+        android:layout_height="match_parent" />
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/ts_26"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/ts_44">
+
+        <ImageView
+            android:id="@+id/video_detail_aty_cancle"
+            android:layout_width="@dimen/ts_32"
+            android:src="@mipmap/detail_back"
+            android:layout_marginLeft="@dimen/ts_12"
+            android:layout_height="@dimen/ts_32" />
+
+    </RelativeLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/video_detail_aty_progreebar"
+        android:layout_width="35dp"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_bar_bgc"
+        android:layout_height="35dp" />
+</RelativeLayout>

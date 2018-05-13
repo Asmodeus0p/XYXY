@@ -44,6 +44,7 @@ import com.jiyun.asmodeus.xyxy.model.utils.BitmapHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
+import com.jiyun.asmodeus.xyxy.view.AtyAnim;
 import com.jiyun.asmodeus.xyxy.view.adapter.DetailDaShangAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.WorkDetailCommentAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
@@ -617,8 +618,8 @@ public class WorkDataActivity extends BaselivstActivity  {
                 }
                 if(TextUtils.equals(homewokBean.getWorksType(),Constant.PUSH_VIDEO)){
 
-//                    VideoDetailActivity.start((Activity)context,homewokBean.getPath());
-//                    AtyAnim.centUp(WokDetailAty.this);
+                    VideoDetailActivity.start((Activity)context,homewokBean.getPath());
+                    AtyAnim.centUp(WorkDataActivity.this);
                 }
                 break;
             case R.id.wok_detail_aty_pay_teacher_introimg:
@@ -722,8 +723,8 @@ public class WorkDataActivity extends BaselivstActivity  {
                 }
                 if(TextUtils.equals(homewokBean.getAnswerWorksType(),Constant.PUSH_VIDEO)){
 
-//                    VideoDetailActivity.start((Activity)context,homewokBean.getAnswerPath());
-//                    AtyAnim.centUp(WokDetailAty.this);
+                    VideoDetailActivity.start((Activity)context,homewokBean.getAnswerPath());
+                    AtyAnim.centUp(WorkDataActivity.this);
                 }
 
                 break;
