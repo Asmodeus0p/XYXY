@@ -37,12 +37,14 @@ import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.MultiLineAty;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.SingleLineAty;
 import com.makeramen.roundedimageview.RoundedImageView;
+
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -134,24 +136,24 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
 
     private void initView() {
         compositeDisposable = new CompositeDisposable();
-        userinfo_aty_title_cancle = (TextView) findViewById(R.id.userinfo_aty_title_cancle);
-        userinfo_aty_userimg = (RoundedImageView) findViewById(R.id.userinfo_aty_userimg);
-        userinfo_aty_userimg_group = (RelativeLayout) findViewById(R.id.userinfo_aty_userimg_group);
-        userinfo_aty_changename_tv = (TextView) findViewById(R.id.userinfo_aty_changename_tv);
-        userinfo_aty_changename = (RelativeLayout) findViewById(R.id.userinfo_aty_changename);
-        userinfo_aty_changensex_tv = (TextView) findViewById(R.id.userinfo_aty_changensex_tv);
-        userinfo_aty_changesex = (RelativeLayout) findViewById(R.id.userinfo_aty_changesex);
-        userinfo_aty_changenaddress_tv = (TextView) findViewById(R.id.userinfo_aty_changenaddress_tv);
-        userinfo_aty_changcity = (RelativeLayout) findViewById(R.id.userinfo_aty_changcity);
-        userinfo_aty_changenbirthday_tv = (TextView) findViewById(R.id.userinfo_aty_changenbirthday_tv);
-        userinfo_aty_changenbirthday = (RelativeLayout) findViewById(R.id.userinfo_aty_changenbirthday);
-        userinfo_aty_changeteacherimg = (ImageView) findViewById(R.id.userinfo_aty_changeteacherimg);
-        userinfo_aty_changetitle = (TextView) findViewById(R.id.userinfo_aty_changetitle);
-        userinfo_aty_changetitle_group = (RelativeLayout) findViewById(R.id.userinfo_aty_changetitle_group);
-        userinfo_detail_tv = (TextView) findViewById(R.id.userinfo_detail_tv);
-        userinfo_aty_changedetails = (TextView) findViewById(R.id.userinfo_aty_changedetails);
-        userinfo_aty_changedetails_group = (RelativeLayout) findViewById(R.id.userinfo_aty_changedetails_group);
-        userinfo_aty_teacherstatus_group = (LinearLayout) findViewById(R.id.userinfo_aty_teacherstatus_group);
+        userinfo_aty_title_cancle = findViewById(R.id.userinfo_aty_title_cancle);
+        userinfo_aty_userimg = findViewById(R.id.userinfo_aty_userimg);
+        userinfo_aty_userimg_group = findViewById(R.id.userinfo_aty_userimg_group);
+        userinfo_aty_changename_tv = findViewById(R.id.userinfo_aty_changename_tv);
+        userinfo_aty_changename = findViewById(R.id.userinfo_aty_changename);
+        userinfo_aty_changensex_tv = findViewById(R.id.userinfo_aty_changensex_tv);
+        userinfo_aty_changesex = findViewById(R.id.userinfo_aty_changesex);
+        userinfo_aty_changenaddress_tv = findViewById(R.id.userinfo_aty_changenaddress_tv);
+        userinfo_aty_changcity = findViewById(R.id.userinfo_aty_changcity);
+        userinfo_aty_changenbirthday_tv = findViewById(R.id.userinfo_aty_changenbirthday_tv);
+        userinfo_aty_changenbirthday = findViewById(R.id.userinfo_aty_changenbirthday);
+        userinfo_aty_changeteacherimg = findViewById(R.id.userinfo_aty_changeteacherimg);
+        userinfo_aty_changetitle = findViewById(R.id.userinfo_aty_changetitle);
+        userinfo_aty_changetitle_group = findViewById(R.id.userinfo_aty_changetitle_group);
+        userinfo_detail_tv = findViewById(R.id.userinfo_detail_tv);
+        userinfo_aty_changedetails = findViewById(R.id.userinfo_aty_changedetails);
+        userinfo_aty_changedetails_group = findViewById(R.id.userinfo_aty_changedetails_group);
+        userinfo_aty_teacherstatus_group = findViewById(R.id.userinfo_aty_teacherstatus_group);
         userinfo_aty_title_cancle.setOnClickListener(this);
 
         userinfo_aty_userimg_group.setOnClickListener(this);
@@ -169,6 +171,21 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
         userinfo_aty_changetitle_group.setOnClickListener(this);
 
         userinfo_aty_changedetails_group.setOnClickListener(this);
+
+            //时间选择器
+//        userinfo_aty_changenbirthday.clearFocus();
+//        userinfo_aty_changenbirthday.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                new DatePickerDialog(UserInfoActivity.this, new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                        userinfo_aty_changenbirthday_tv.setText(String.format("%d-%d-%d", year, monthOfYear + 1, dayOfMonth));
+//                    }
+//                }, 2000, 1, 2).show();
+//            }
+//        });
+
 
     }
 
@@ -274,9 +291,10 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
 
     private void showStartData() {
 
+
         Calendar calendar = Calendar.getInstance();
 
-        DatePickerDialog pickDialog = new DatePickerDialog(getApplicationContext(), new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog pickDialog = new DatePickerDialog(UserInfoActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int iyear, int monthOfYear, int dayOfMonth) {
 

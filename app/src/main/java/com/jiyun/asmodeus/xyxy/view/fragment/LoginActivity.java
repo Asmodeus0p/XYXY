@@ -19,6 +19,11 @@ import com.jiyun.asmodeus.xyxy.model.entity.LoginRegsterSucessBean;
 import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.presenter.LoginPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.MainActivity;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+
+import java.util.Map;
 
 import okhttp3.ResponseBody;
 
@@ -35,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public LinearLayout login_aty_qq_btn;
     public LinearLayout login_aty_weibo_btn;
     private LoginPresenterImp presenterImp;
-
+    private UMAuthListener authListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         login_aty_phone_et_clear.setOnClickListener(this);
         login_aty_pass_et_clear.setOnClickListener(this);
         login_aty_findpass_tv.setOnClickListener(this);
-
+        login_aty_qq_btn.setOnClickListener(this);
     }
 
 
@@ -95,7 +100,60 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.login_aty_findpass_tv:
                 startActivity(new Intent(this,FindPassActivity.class));
                 break;
+            case R.id.login_aty_qq_btn:
+                QQLogin();
+                break;
         }
+    }
+    public void QQLogin(){
+
+        authListener = new UMAuthListener() {
+            /**
+             * @desc 授权开始的回调
+             * @param platform 平台名称
+             */
+            @Override
+            public void onStart(SHARE_MEDIA platform) {
+
+            }
+
+            /**
+             * @desc 授权成功的回调
+             * @param platform 平台名称
+             * @param action 行为序号，开发者用不上
+             * @param data 用户资料返回
+             */
+            @Override
+            public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+
+                Toast.makeText(LoginActivity.this, "成功了", Toast.LENGTH_LONG).show();
+
+            }
+
+            /**
+             * @desc 授权失败的回调
+             * @param platform 平台名称
+             * @param action 行为序号，开发者用不上
+             * @param t 错误原因
+             */
+            @Override
+            public void onError(SHARE_MEDIA platform, int action, Throwable t) {
+
+                Toast.makeText(LoginActivity.this, "失败：" + t.getMessage(),                                     Toast.LENGTH_LONG).show();
+            }
+
+            /**
+             * @desc 授权取消的回调
+             * @param platform 平台名称
+             * @param action 行为序号，开发者用不上
+             */
+            @Override
+            public void onCancel(SHARE_MEDIA platform, int action) {
+                Toast.makeText(LoginActivity.this, "取消了", Toast.LENGTH_LONG).show();
+            }
+        };
+        UMShareAPI umShareAPI = UMShareAPI.get(LoginActivity.this);
+        umShareAPI.getPlatformInfo(LoginActivity.this, SHARE_MEDIA.QQ, authListener);
     }
 
     @Override

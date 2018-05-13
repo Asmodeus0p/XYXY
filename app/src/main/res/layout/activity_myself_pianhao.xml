@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+
+    <!--底部确认栏-->
+    <RelativeLayout
+        android:id="@+id/usermajor_select_aty_bottombar"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/usermajor_select_aty_num"
+                android:layout_width="match_parent"
+                android:text="请选择"
+                android:gravity="center"
+                android:textColor="#5491FF"
+                android:textSize="@dimen/ts_13"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/usermajor_select_aty_unistar_btn"
+                android:layout_width="match_parent"
+                android:background="#5491FF"
+                android:gravity="center"
+                android:text="选好了？进入UnivStar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_14"
+                android:layout_height="@dimen/ts_48" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_above="@id/usermajor_select_aty_bottombar"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/ts_26"
+            android:layout_gravity="center_vertical"
+            android:layout_height="@dimen/ts_44">
+
+            <TextView
+                android:id="@+id/complete_userinfo_aty_cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/cancle_bg_style" />
+
+
+            <TextView
+                android:id="@+id/usermajor_select_aty_jump"
+                android:layout_width="@dimen/ts_32"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                style="@style/login_top_tv"
+                android:layout_marginRight="@dimen/ts_12"
+                android:text="跳过"/>
+        </RelativeLayout>
+
+
+        <com.jiyun.asmodeus.xyxy.view.ui.MyScrollView
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/ts_20"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/login_phone_tx_c"
+                            android:textSize="@dimen/ts_18"
+                            android:text="对哪个词最熟悉，最感兴趣？"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/login_phone_tx_c"
+                            android:textSize="@dimen/ts_13"
+                            android:layout_marginTop="@dimen/ts_4"
+                            android:text="选择后，相关内容优先内容推荐给你"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/ts_30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="@dimen/ts_22"
+                            android:src="@mipmap/majors"
+                            android:layout_height="@dimen/ts_22" />
+
+                        <TextView
+                            android:textColor="#FFD235"
+                            android:text="专业"
+                            android:layout_marginLeft="@dimen/ts_5"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/ts_18"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <com.jiyun.asmodeus.xyxy.view.ui.MyGridView
+                        android:id="@+id/usermajor_select_atygridview"
+                        android:layout_width="match_parent"
+                        android:numColumns="3"
+                        android:layout_centerHorizontal="true"
+                        android:listSelector="@color/transparent"
+                        android:scrollbars="none"
+                        android:divider="@color/transparent"
+                        android:dividerHeight="1px"
+                        android:layout_height="wrap_content">
+                    </com.jiyun.asmodeus.xyxy.view.ui.MyGridView>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/ts_30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="@dimen/ts_22"
+                            android:src="@mipmap/schools"
+                            android:layout_height="@dimen/ts_22" />
+
+                        <TextView
+                            android:textColor="#5491FF"
+                            android:text="院校"
+                            android:layout_marginLeft="@dimen/ts_5"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/ts_18"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <com.jiyun.asmodeus.xyxy.view.ui.MyGridView
+                        android:id="@+id/userschool_select_atygridview"
+                        android:layout_width="match_parent"
+                        android:numColumns="2"
+                        android:layout_centerHorizontal="true"
+                        android:listSelector="@color/transparent"
+                        android:scrollbars="none"
+                        android:divider="@color/transparent"
+                        android:dividerHeight="1px"
+                        android:layout_height="wrap_content">
+                    </com.jiyun.asmodeus.xyxy.view.ui.MyGridView>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.jiyun.asmodeus.xyxy.view.ui.MyScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

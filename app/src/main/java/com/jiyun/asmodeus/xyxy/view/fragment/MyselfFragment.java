@@ -26,6 +26,8 @@ import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.FensActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.GiftActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.GuanZhuActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.MessageActivity;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.MyselfPianhao;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.MyselfRenZheng;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.SettingActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.StudentDingdanActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.TieZiActivity;
@@ -124,7 +126,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         home_myself_fragment_isauth_tv = (TextView) getView().findViewById(R.id.home_myself_fragment_isauth_tv);
         home_myselft_fragment_approve = (RelativeLayout) getView().findViewById(R.id.home_myselft_fragment_approve);
         home_myselft_fragment_login_body = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_login_body);
-
+        home_myselft_fragment_approve.setOnClickListener(this);
         home_myselft_register_btn.setOnClickListener(this);
         home_myselft_login_btn.setOnClickListener(this);
         home_myselft_fragment_tiezi_group.setOnClickListener(this);
@@ -142,6 +144,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         home_myselft_fragment_student_shiyong.setOnClickListener(this);
         home_myselft_fragment_student_tuiguo.setOnClickListener(this);
         home_myselft_fragment_favorites.setOnClickListener(this);
+        home_myself_fragment_selectmajor.setOnClickListener(this);
         //userStatus();
 
         checkLogin();
@@ -221,6 +224,14 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.home_myselft_fragment_favorites:
                 startActivity(new Intent(getContext(),FavoritesAty.class));
+                break;
+            case R.id.home_myself_fragment_selectmajor:
+                startActivity(new Intent(getContext(), MyselfPianhao.class));
+
+                break;
+            case R.id.home_myselft_fragment_approve:
+
+                startActivity(new Intent(getContext(),MyselfRenZheng.class));
                 break;
 
 
