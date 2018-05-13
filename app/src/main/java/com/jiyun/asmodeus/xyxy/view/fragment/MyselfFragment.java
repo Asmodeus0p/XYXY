@@ -21,6 +21,7 @@ import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
+import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.FavoritesAty;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.FensActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.GiftActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.myselfactivity.GuanZhuActivity;
@@ -61,11 +62,6 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
     private LinearLayout home_myselft_fragment_guanzhu_group;
     private TextView home_myselft_fragment_fansCount_tv;
     private LinearLayout home_myselft_fragment_fensi_group;
-    private LinearLayout home_myselft_fragment_teacher_daizhibo;
-    private LinearLayout home_myselft_fragment_teacher_daizuoye;
-    private LinearLayout home_myselft_fragment_teacher_daifudao;
-    private LinearLayout home_myselft_fragment_teacher_jiaoxue;
-    private LinearLayout home_myselft_fragment_teacher_toolline;
     private LinearLayout home_myselft_fragment_student_fukuan;
     private LinearLayout home_myselft_fragment_student_shiyong;
     private LinearLayout home_myselft_fragment_student_tuiguo;
@@ -115,11 +111,6 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         home_myselft_fragment_guanzhu_group = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_guanzhu_group);
         home_myselft_fragment_fansCount_tv = (TextView) getView().findViewById(R.id.home_myselft_fragment_fansCount_tv);
         home_myselft_fragment_fensi_group = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_fensi_group);
-        home_myselft_fragment_teacher_daizhibo = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_daizhibo);
-        home_myselft_fragment_teacher_daizuoye = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_daizuoye);
-        home_myselft_fragment_teacher_daifudao = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_daifudao);
-        home_myselft_fragment_teacher_jiaoxue = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_jiaoxue);
-        home_myselft_fragment_teacher_toolline = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_teacher_toolline);
         home_myselft_fragment_student_fukuan = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_fukuan);
         home_myselft_fragment_student_shiyong = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_shiyong);
         home_myselft_fragment_student_tuiguo = (LinearLayout) getView().findViewById(R.id.home_myselft_fragment_student_tuiguo);
@@ -148,6 +139,9 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         home_myselft_fragment_setting.setOnClickListener(this);
         home_myselft_fragment_message.setOnClickListener(this);
         home_myself_fragment_userinfo_group.setOnClickListener(this);
+        home_myselft_fragment_student_shiyong.setOnClickListener(this);
+        home_myselft_fragment_student_tuiguo.setOnClickListener(this);
+        home_myselft_fragment_favorites.setOnClickListener(this);
         //userStatus();
 
         checkLogin();
@@ -179,14 +173,21 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 startActivity(new Intent(getActivity(), FensActivity.class));
                 break;
             case R.id.home_myselft_fragment_student_fukuan:
-
+                startActivity(new Intent(getActivity(),StudentDingdanActivity.class));
+                break;
+            case R.id.home_myselft_fragment_student_shiyong:
+                startActivity(new Intent(getActivity(),StudentDingdanActivity.class));
+                break;
+            case R.id.home_myselft_fragment_student_tuiguo:
+                startActivity(new Intent(getActivity(),StudentDingdanActivity.class));
                 break;
             case R.id.home_myself_fragment_userinfo_group:
-               // startActivity(new Intent(getActivity(),UserActivity.class));
+               startActivity(new Intent(getActivity(),UserInfoActivity.class));
                 break;
             case R.id.home_myselft_fragment_student_dingdan:
                 startActivity(new Intent(getActivity(),StudentDingdanActivity.class));
                 break;
+
             case R.id.home_myself_fragment_jindou_group:
                 String userMobile = SharedPreferencesUtils.getUserMobile(getContext());
                 Intent jindouIntent = new Intent(getActivity(), VoucherCenterActivity.class);
@@ -218,6 +219,10 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 }
 
                 break;
+            case R.id.home_myselft_fragment_favorites:
+                startActivity(new Intent(getContext(),FavoritesAty.class));
+                break;
+
 
 
 

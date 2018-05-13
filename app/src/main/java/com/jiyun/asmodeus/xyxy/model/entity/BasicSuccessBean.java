@@ -1,9 +1,5 @@
 package com.jiyun.asmodeus.xyxy.model.entity;
 
-/**
- * Created by vicoltree on 17/10/27.
- */
-
 public class BasicSuccessBean {
 
     /**

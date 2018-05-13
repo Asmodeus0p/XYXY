@@ -50,6 +50,7 @@ import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.LoginActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.MyListView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyScrollView;
+import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;

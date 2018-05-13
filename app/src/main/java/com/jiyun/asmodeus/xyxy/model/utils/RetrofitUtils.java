@@ -9,6 +9,7 @@ import com.jiyun.asmodeus.xyxy.model.biz.CenterService;
 import com.jiyun.asmodeus.xyxy.model.biz.FavoriteService;
 import com.jiyun.asmodeus.xyxy.model.biz.FindPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.HomeworkService;
+import com.jiyun.asmodeus.xyxy.model.biz.IMyselfFavoriteZhiBoService;
 import com.jiyun.asmodeus.xyxy.model.biz.IPhoneLoginService;
 import com.jiyun.asmodeus.xyxy.model.biz.IResetPassService;
 import com.jiyun.asmodeus.xyxy.model.biz.MessageListService;
@@ -126,6 +127,10 @@ public class RetrofitUtils {
     }
     public CancleFavoriteService getcancleFavoriteService(){
         return retrofit.create(CancleFavoriteService.class);
+    }
+
+    public IMyselfFavoriteZhiBoService getIMyselfFavoriteZhiBoService(){
+            return retrofit.create(IMyselfFavoriteZhiBoService.class);
     }
 }
 
