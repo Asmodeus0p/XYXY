@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.model.entity.MasterListAtyBean;
+import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.view.adapter.MasterListAtyAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
@@ -160,7 +161,7 @@ public class MasterFindActivity extends BaseActivity implements View.OnClickList
                                     return;
                                 }
                                 Intent intent = new Intent(MasterFindActivity.this, MasterDetailActivity.class);
-                                intent.putExtra("id",masterwoksBeen.get(position).getId()) ;
+                                intent.putExtra(Constant.Teacher_id,masterwoksBeen.get(position).getId()) ;
                                 startActivity(intent);
                             }
                         });

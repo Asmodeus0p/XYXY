@@ -43,6 +43,19 @@
             android:layout_height="@dimen/ts_1" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/wok_detail_aty_loadView"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="35dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_height="35dp" />
+
+    </RelativeLayout>
 
     <com.jiyun.asmodeus.xyxy.view.ui.MyScrollView
         android:id="@+id/wok_detail_aty_scrollview"
@@ -575,7 +588,6 @@
 
                 </LinearLayout>
 
-                <!--评论列表-->
 
                 <LinearLayout
                     android:id="@+id/wok_detail_aty_pinglun_list_group"
@@ -631,7 +643,7 @@
 
                 </LinearLayout>
 
-                <com.xyxy.artlive_android.customview.MyListView
+                <com.jiyun.asmodeus.xyxy.view.ui.MyListView
                     android:id="@+id/wok_detail_aty_listview"
                     android:layout_width="match_parent"
                     android:scrollbars="none"
@@ -641,7 +653,7 @@
                     android:fadingEdge="none"
                     android:visibility="gone"
                     android:layout_height="wrap_content">
-                </com.xyxy.artlive_android.customview.MyListView>
+                </com.jiyun.asmodeus.xyxy.view.ui.MyListView>
 
                 <RelativeLayout
                     android:id="@+id/wok_detail_aty_listview_empty_group"
@@ -817,4 +829,5 @@
                 android:layout_height="36dp" />
         </RelativeLayout>
     </RelativeLayout>
+
 </LinearLayout>

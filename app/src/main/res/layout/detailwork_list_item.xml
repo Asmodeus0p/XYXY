@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="106dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/ts_12"
+        android:layout_marginRight="@dimen/ts_12"
+        android:layout_height="@dimen/ts_72">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/detailwork_list_item_content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textSize="@dimen/ts_16"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/ts_5"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detailwork_list_item_name_tv"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/ts_14"
+                    android:textColor="#F35633"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/detailwork_list_item_usertype"
+                    android:layout_width="@dimen/ts_22"
+                    android:layout_height="@dimen/ts_22" />
+
+                <TextView
+                    android:id="@+id/detailwork_list_item_title_tv"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/ts_12"
+                    android:textColor="@color/gray"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/ts_12"
+        android:layout_marginRight="@dimen/ts_12"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/ts_16"
+                android:src="@mipmap/label_flag"
+                android:layout_height="@dimen/ts_16" />
+
+            <TextView
+                android:id="@+id/detailwork_list_item_major_tv"
+                android:textSize="@dimen/ts_13"
+                android:layout_marginLeft="@dimen/ts_8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/ts_12"
+                android:textColor="@color/black"
+                android:text="来自"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/detailwork_list_item_from_tv"
+                android:textSize="@dimen/ts_12"
+                android:textColor="#999999"
+                android:layout_marginLeft="@dimen/ts_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

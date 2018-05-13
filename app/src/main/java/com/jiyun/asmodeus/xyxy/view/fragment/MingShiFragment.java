@@ -17,6 +17,7 @@ import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
 import com.jiyun.asmodeus.xyxy.contract.Teachercontract;
 import com.jiyun.asmodeus.xyxy.model.entity.HomeBean;
+import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.presenter.TeacherPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.MainActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.LivingListActivity;
@@ -142,7 +143,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
                 }
                 int id = usersbean.get(position).getId();
                 Intent intent = new Intent(getContext(), MasterDetailActivity.class);
-                intent.putExtra("id", id);
+                intent.putExtra(Constant.Teacher_id, id);
                 startActivity(intent);
 
             }
@@ -158,7 +159,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), MasterLiveDetailActivity.class);
                 int id1 = liveCoursesBeen.get(position).getId();
-                intent.putExtra("ids", id1);
+                intent.putExtra(Constant.Teacher_id, id1);
                 startActivity(intent);
             }
         });
@@ -174,9 +175,7 @@ public class MingShiFragment extends BaseFragment implements Teachercontract.Tea
                 if (homewoksBeen.isEmpty()) {
                     return;
                 }
-                Intent intent = new Intent(getActivity(), WorkDataActivity.class);
-                intent.putExtra("id", homewoksBeen.get(position).getId());
-                startActivity(intent);
+                WorkDataActivity.start((Activity) getActivity(),homewoksBeen.get(position).getId());
 
             }
         });

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/ts_12"
+        android:layout_marginRight="@dimen/ts_12"
+        android:layout_height="@dimen/ts_80">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/masterguanzhu_listitem_img"
+            android:layout_width="@dimen/ts_56"
+            app:riv_oval="true"
+            android:scaleType="centerCrop"
+            android:layout_height="@dimen/ts_56" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/ts_14"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/masterguanzhu_listitem_name"
+                android:textSize="@dimen/ts_16"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/masterguanzhu_listitem_userType"
+                android:layout_width="@dimen/ts_22"
+                android:layout_marginLeft="@dimen/ts_4"
+                android:layout_height="@dimen/ts_22" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/masterguanzhu_listitem_guanzhu_tv"
+                android:layout_width="@dimen/ts_60"
+                android:background="@drawable/detail_guanzhu_bg"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:textColor="@drawable/detail_guanzhu_tv_bg"
+                android:layout_height="@dimen/ts_28" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -54,7 +54,12 @@
         <activity android:name=".view.fragment.homeactivity.MasterTieziListActivity" />
         <activity android:name=".view.fragment.homeactivity.MasterGuanzhuListActivity" />
         <activity android:name=".view.fragment.homeactivity.MasterFansListActivity" />
-        <activity android:name=".view.fragment.homeactivity.WorkDataActivity"></activity>
+        <activity android:name=".view.fragment.homeactivity.WorkDataActivity" />
+        <activity android:name=".view.fragment.homeactivity.WokDetailCommentActivity" />
+        <activity android:name=".view.fragment.homeactivity.PersonInfoActivity" />
+        <activity android:name=".view.fragment.homeactivity.ValuableDetailActivity" />
+        <activity android:name=".view.fragment.homeactivity.ValuableDetailCommentActivity" />
+        <activity android:name=".view.fragment.homeactivity.ImageDetailActivity"></activity>
     </application>
 
 </manifest>

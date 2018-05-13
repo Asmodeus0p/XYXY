@@ -5,14 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
-import com.jiyun.asmodeus.xyxy.view.fragment.WorkFragment;
-
 
 public abstract class BaseActivity extends AppCompatActivity {
     private BaseFragment lastFragment;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +22,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
     }
 
+
+
     protected abstract int getLayoutId();
 
     protected abstract void initData();
 
     protected abstract void initView();
+
     public BaseFragment setContentView(Class<? extends BaseFragment> fragmentClass) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -34,11 +37,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         BaseFragment fragment = (BaseFragment) fragmentManager.findFragmentByTag(fragmentName);
         try {
-            if(fragment == null) {
+            if (fragment == null) {
                 fragment = fragmentClass.newInstance(); // new Fragment()
-              transaction.add(R.id.fragmentcontainer, fragment, fragmentName);
+                transaction.add(R.id.fragmentcontainer, fragment, fragmentName);
             }
-            if(lastFragment != null)
+            if (lastFragment != null)
                 transaction.hide(lastFragment);
             transaction.show(fragment);
         } catch (InstantiationException e) {
@@ -55,7 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        App.context =this;
+        App.context = this;
     }
 
     @Override

@@ -121,7 +121,7 @@ public class MasterLiveDetailActivity extends BaseActivity implements View.OnCli
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true); //支持通过JS打开新窗口
         webSettings.setLoadsImagesAutomatically(true); //支持自动加载图片
         webSettings.setDefaultTextEncodingName("utf-8");//设置编码格式
-        int ids = getIntent().getIntExtra("ids", 0);
+        int ids = getIntent().getIntExtra(Constant.Teacher_id, 0);
         masterlivedetail_aty_webview.loadUrl(String.format(Constant.Live_WebView_Url,ids));
         GetData(ids);
 
