@@ -69,6 +69,8 @@
         <activity android:name=".view.fragment.homeactivity.ValuableDetailActivity" />
         <activity android:name=".view.fragment.homeactivity.ValuableDetailCommentActivity" />
 
+
+        <activity android:name=".view.fragment.homeactivity.VideoDetailActivity"></activity>
     </application>
 
 </manifest>

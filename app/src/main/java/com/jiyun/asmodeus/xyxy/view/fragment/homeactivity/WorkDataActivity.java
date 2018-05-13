@@ -1050,7 +1050,7 @@ public class WorkDataActivity extends BaselivstActivity  {
         }
 
         //学生作业内容
-Glide.with(context).load(homewokBean.getPhoto()).into(wok_detail_aty_studentimg);
+         Glide.with(context).load(homewokBean.getPhoto()).into(wok_detail_aty_studentimg);
         wok_detail_aty_studentname.setText(homewokBean.getNickname());
 
         wok_detail_aty_time.setText(TimeShift.getChatTime(homewokBean.getCreateDate()));
@@ -1079,9 +1079,6 @@ Glide.with(context).load(homewokBean.getPhoto()).into(wok_detail_aty_studentimg)
             wok_detail_aty_video_time.setText(homewokBean.getDuration());
         }
 
-        if(!TextUtils.isEmpty(homewokBean.getMajorIds())){
-//            SplitStringColorUtils.addForeColorSpan(context,homewokBean.getMajorIds().split(","),wok_detail_aty_worktype);
-        }
 
         wok_detail_aty_praise_num.setText(homewokBean.getPraiseNum()+"");
         wok_detail_aty_comment_num.setText(homewokBean.getCommentNum()+"");
