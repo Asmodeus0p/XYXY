@@ -5,6 +5,8 @@ import android.content.Context;
 import android.util.Config;
 
 import com.jiyun.asmodeus.xyxy.model.entity.PreferenceListBean;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.socialize.PlatformConfig;
 
 import java.util.List;
 
@@ -44,7 +46,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        UMConfigure.init(this,"5ab0bf46f43e483f930001aa"
+                ,"umeng",UMConfigure.DEVICE_TYPE_PHONE,"");
+        PlatformConfig.setQQZone("1106725573", "y0E1ICunHKwxfjFM");
+        //58edcfeb310c93091c000be2 5965ee00734be40b580001a0
 
 
     }

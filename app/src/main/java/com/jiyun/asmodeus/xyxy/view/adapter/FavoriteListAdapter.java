@@ -28,7 +28,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context=parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.yugao_item, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.yugao_item, parent,false);
         return new Holder(view);
     }
 
