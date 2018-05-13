@@ -6,20 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.fragment.homeactivity.MasterGuanzhuListActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/ts_26"
         android:layout_height="@dimen/ts_44">
 
         <TextView
-            android:id="@+id/masterworklist_title_cancle"
+            android:id="@+id/masterguanzhulist_aty_title_cancle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             style="@style/cancle_bg_style" />
 
 
         <TextView
-            android:id="@+id/masterworklist_title_tv"
+            android:id="@+id/masterguanzhulist_aty_title_tv"
             android:layout_width="wrap_content"
             android:textColor="@color/blue_arlt"
             android:textSize="@dimen/ts_18"
@@ -35,7 +36,7 @@
         android:layout_height="@dimen/ts_1" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/masterworklist_recyclerview"
+        android:id="@+id/masterguanzhulist_recyclerview"
         android:layout_width="match_parent"
         android:scrollbars="none"
         android:cacheColorHint="@color/transparent"
@@ -45,17 +46,19 @@
     </android.support.v7.widget.RecyclerView>
 
 
+
     <RelativeLayout
-        android:id="@+id/masterworklist_recyclerview_empty"
+        android:id="@+id/masterguanzhulist_recyclerview_empty"
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_marginTop="@dimen/ts_145"
+            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -75,16 +78,17 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/masterworklist_recyclerview_fault"
+        android:id="@+id/masterguanzhulist_recyclerview_fault"
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_marginTop="@dimen/ts_145"
+            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -110,7 +114,7 @@
 
 
             <Button
-                android:id="@+id/masterworklist_recyclerview_fault_btn"
+                android:id="@+id/masterguanzhulist_recyclerview_fault_btn"
                 android:layout_width="@dimen/ts_82"
                 android:background="@drawable/button_blue_bg_active"
                 android:layout_marginTop="@dimen/ts_8"

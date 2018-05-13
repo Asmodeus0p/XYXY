@@ -12,14 +12,14 @@
         android:layout_height="@dimen/ts_44">
 
         <TextView
-            android:id="@+id/masterworklist_title_cancle"
+            android:id="@+id/masterlive_list_aty_cancle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             style="@style/cancle_bg_style" />
 
 
         <TextView
-            android:id="@+id/masterworklist_title_tv"
+            android:id="@+id/masterlivelist_teachername_title"
             android:layout_width="wrap_content"
             android:textColor="@color/blue_arlt"
             android:textSize="@dimen/ts_18"
@@ -35,7 +35,7 @@
         android:layout_height="@dimen/ts_1" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/masterworklist_recyclerview"
+        android:id="@+id/masterlivelist_recyclerview"
         android:layout_width="match_parent"
         android:scrollbars="none"
         android:cacheColorHint="@color/transparent"
@@ -46,7 +46,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/masterworklist_recyclerview_empty"
+        android:id="@+id/masterlivelist_recyclerview_empty"
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="match_parent">
@@ -75,7 +75,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/masterworklist_recyclerview_fault"
+        android:id="@+id/masterlivelist_recyclerview_fault"
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="match_parent">
@@ -110,10 +110,10 @@
 
 
             <Button
-                android:id="@+id/masterworklist_recyclerview_fault_btn"
+                android:id="@+id/masterlivelist_recyclerview_fault_btn"
                 android:layout_width="@dimen/ts_82"
                 android:background="@drawable/button_blue_bg_active"
-                android:layout_marginTop="@dimen/ts_8"
+                android:layout_marginTop="@dimen/ts_12"
                 android:text="重试"
                 android:textColor="@color/white"
                 android:textSize="@dimen/ts_14"

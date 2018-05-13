@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.fragment.homeactivity.PersonInfoActivity">
+
+    <RelativeLayout
+        android:id="@+id/person_info_aty_title_group"
+        android:layout_width="match_parent"
+        android:background="@mipmap/person_info_bg"
+        android:layout_height="184dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/ts_12"
+            android:layout_marginBottom="@dimen/ts_30"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/persion_info_aty_userimg"
+                android:layout_width="@dimen/ts_70"
+                android:scaleType="centerCrop"
+                app:riv_oval="true"
+                android:layout_height="@dimen/ts_70" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/ts_10"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/persion_info_aty_username"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ts_18"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/ts_12"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/persion_info_aty_guanzhunum"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/ts_14"
+                            android:layout_height="wrap_content" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/ts_14"
+                            android:text="关注"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="@dimen/ts_1dp"
+                        android:background="@color/white"
+                        android:layout_marginLeft="@dimen/ts_24"
+                        android:layout_marginRight="@dimen/ts_24"
+                        android:layout_height="@dimen/ts_20" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/persion_info_aty_fensinum"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/ts_14"
+                            android:layout_height="wrap_content" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/ts_14"
+                            android:text="粉丝"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/person_info_aty_attention"
+            android:layout_width="@dimen/ts_60"
+            android:background="@drawable/detail_guanzhu_bg"
+            android:text="关注"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/ts_50"
+            android:layout_marginRight="@dimen/ts_12"
+            android:layout_alignParentRight="true"
+            android:textColor="@drawable/detail_guanzhu_tv_bg"
+            android:layout_height="@dimen/ts_28" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/ts_26"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/ts_44">
+
+        <ImageView
+            android:id="@+id/person_info_aty_cancle"
+            android:layout_width="@dimen/ts_32"
+            android:src="@mipmap/detail_back"
+            android:layout_marginLeft="@dimen/ts_12"
+            android:layout_height="@dimen/ts_32" />
+
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/person_info_aty_title_group"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="#f8f8f8"
+            android:layout_height="@dimen/ts_36">
+
+            <RelativeLayout
+                android:id="@+id/persion_info_aty_sort_zuopin_group"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/persion_info_aty_sort_zuopin_tv"
+                    android:layout_width="wrap_content"
+                    android:text="作品"
+                    android:layout_centerInParent="true"
+                    style="@style/home_work_sorbar_enabled_true_style"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/persion_info_aty_sort_zuopin_line"
+                    android:layout_width="@dimen/ts_20"
+                    android:background="#FFD235"
+                    android:visibility="visible"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="@dimen/ts_3" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/persion_info_aty_sort_tiezi_group"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/persion_info_aty_sort_tiezi_tv"
+                    android:layout_width="wrap_content"
+                    android:text="帖子"
+                    android:layout_centerInParent="true"
+                    style="@style/home_work_sorbar_enabled_true_style"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/persion_info_aty_sort_tiezi_line"
+                    android:layout_width="@dimen/ts_20"
+                    android:background="#FFD235"
+                    android:visibility="invisible"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="@dimen/ts_3" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <com.jiyun.asmodeus.xyxy.view.ui.CustomViewPager
+            android:id="@+id/persion_info_aty_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+</RelativeLayout>

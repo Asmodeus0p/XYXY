@@ -63,6 +63,12 @@
         <activity android:name=".view.fragment.myselfactivity.SingleLineAty" />
         <activity android:name=".view.fragment.myselfactivity.MultiLineAty" />
         <activity android:name=".view.fragment.myselfactivity.FavoritesAty"></activity>
+
+        <activity android:name=".view.fragment.homeactivity.WokDetailCommentActivity" />
+        <activity android:name=".view.fragment.homeactivity.PersonInfoActivity" />
+        <activity android:name=".view.fragment.homeactivity.ValuableDetailActivity" />
+        <activity android:name=".view.fragment.homeactivity.ValuableDetailCommentActivity" />
+
     </application>
 
 </manifest>

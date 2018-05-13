@@ -47,6 +47,7 @@ import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
 import com.jiyun.asmodeus.xyxy.view.adapter.DetailDaShangAdapter;
 import com.jiyun.asmodeus.xyxy.view.adapter.WorkDetailCommentAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseActivity;
+import com.jiyun.asmodeus.xyxy.view.base.BaselivstActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.LoginActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.MyListView;
 import com.jiyun.asmodeus.xyxy.view.ui.MyScrollView;
@@ -66,8 +67,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class WorkDataActivity extends BaseActivity implements View.OnClickListener {
-
+public class WorkDataActivity extends BaselivstActivity  {
     public static final String PayBroadCast_Key = "com.xyxy.artlive_android.detail.WokDetailAty";
 
     private final int STUDENT = 1;
@@ -210,6 +210,8 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
     @ViewInject(R.id.wok_detail_aty_permission)
     private TextView wok_detail_aty_permission;
 
+    @ViewInject(R.id.wok_detail_aty_loadView)
+    private RelativeLayout wok_detail_aty_loadView;
 
     @ViewInject(R.id.wok_detail_aty_contentView)
     private LinearLayout wok_detail_aty_contentView;
@@ -220,7 +222,11 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
     @ViewInject(R.id.wok_detail_aty_dashang)
     private TextView wok_detail_aty_dashang;
 
-
+    public static void start(Activity activity, int workId) {
+        Intent intent = new Intent(activity, WorkDataActivity.class);
+        intent.putExtra(Constant.Work_Id, workId);
+        activity.startActivity(intent);
+    }
 
     private Context context;
 
@@ -258,16 +264,18 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
     private WorkPaySucessRecceiver workPaySucessRecceiver;
 
-
-
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_work_data;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_work_data);
+        ViewUtils.inject(this);
+        setTitleTheme(this,true);
 
-    @Override
-    protected void initData() {
+
         init();
+
+        initView();
+
     }
 
 
@@ -328,7 +336,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
         dashangLists = new ArrayList<>();
 
-        dashangAdapter = new DetailDaShangAdapter(context,R.layout.detail_dashang_listitem,dashangLists);
+//        dashangAdapter = new DetailDaShangAdapter(context,R.layout.detail_dashang_listitem,dashangLists);
 
         adapter = new WorkDetailCommentAdapter(context,commentList);
 
@@ -343,13 +351,13 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
         registerReceiver(workPaySucessRecceiver,filter);
     }
 
-    protected void initView(){
+    private void initView(){
 
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         wok_detail_aty_dashangRecyclerView.setLayoutManager(linearLayoutManager);
-        wok_detail_aty_dashangRecyclerView.setAdapter(dashangAdapter);
+//        wok_detail_aty_dashangRecyclerView.setAdapter(dashangAdapter);
         wok_detail_aty_dashangRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
@@ -368,7 +376,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
             public void onPraiseClick(int position) {
 
                 if(!HttpHelp.isLogin(context)){
-                    context.startActivity(new Intent(context,LoginActivity.class));
+                    startActivity(new Intent(context, LoginActivity.class));
                     return ;
                 }
 
@@ -394,7 +402,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                 if(commentList.isEmpty()){
                     return;
                 }
-//                WokDetailCommentAty.start((Activity) context,commentList.get(position).getId(),commentList.get(position).getUserId(),workId,commentList.get(position).getContent(),commentList.get(position).getReplyNum());
+                WokDetailCommentActivity.start((Activity) context,commentList.get(position).getId(),commentList.get(position).getUserId(),workId,commentList.get(position).getContent(),commentList.get(position).getReplyNum());
             }
 
             @Override
@@ -442,7 +450,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
 
                 if(!HttpHelp.isLogin(context)){
-                    context.startActivity(new Intent(context,LoginActivity.class));
+                    startActivity(new Intent(context, LoginActivity.class));
                     return ;
                 }
 
@@ -465,7 +473,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
 
                 if(!HttpHelp.isLogin(context)){
-                    context.startActivity(new Intent(context,LoginActivity.class));
+                    startActivity(new Intent(context, LoginActivity.class));
                     return ;
                 }
 
@@ -608,7 +616,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
                 }
                 if(TextUtils.equals(homewokBean.getWorksType(),Constant.PUSH_VIDEO)){
-//
+
 //                    VideoDetailActivity.start((Activity)context,homewokBean.getPath());
 //                    AtyAnim.centUp(WokDetailAty.this);
                 }
@@ -735,7 +743,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
 
 
                 if(!HttpHelp.isLogin(context)){
-                    context.startActivity(new Intent(context,LoginActivity.class));
+                    startActivity(new Intent(context, LoginActivity.class));
                     return ;
                 }
 
@@ -749,7 +757,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
             case R.id.wok_detail_aty_dashang:
 
                 if(!HttpHelp.isLogin(context)){
-                    context.startActivity(new Intent(context,LoginActivity.class));
+                    startActivity(new Intent(context, LoginActivity.class));
                     return ;
                 }
 
@@ -939,7 +947,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                         if(value==null){
                             return ;
                         }
-
+                        wok_detail_aty_loadView.setVisibility(View.GONE);
                         wok_detail_aty_contentView.setVisibility(View.VISIBLE);
                         fillData(value.getData());
                     }
@@ -969,10 +977,10 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
         if(dataBean.getRewardUserList()!=null){
             dashangLists.clear();
             dashangLists.addAll(dataBean.getRewardUserList());
-            dashangAdapter.notifyDataSetChanged();
+//            dashangAdapter.notifyDataSetChanged();
         }else{
             dashangLists.clear();
-            dashangAdapter.notifyDataSetChanged();
+//            dashangAdapter.notifyDataSetChanged();
         }
 
         dataBeans = dataBean;
@@ -993,7 +1001,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                     //未偷听
                     wok_detail_aty_priced_group.setVisibility(View.VISIBLE);
                     wok_detail_aty_pay_teacher_group.setVisibility(View.GONE);
-                    Glide.with(context).load( homewokBean.getTPhoto()).into( wok_detail_aty_teacherimg);
+                    Glide.with(context).load(homewokBean.getTPhoto()).into(wok_detail_aty_teacherimg);
                     wok_detail_aty_teachername.setText(homewokBean.getTRealname());
                     SplitStringColorUtils.setImgLevel(wok_detail_aty_teacherlevel, homewokBean.getTUserType());
                     wok_detail_aty_teacherintro.setText(homewokBean.getTIntro());
@@ -1004,7 +1012,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                     wok_detail_aty_priced_group.setVisibility(View.GONE);
                     wok_detail_aty_pay_teacher_group.setVisibility(View.VISIBLE);
 
-                    Glide.with(context).load( homewokBean.getTPhoto()).into(wok_detail_aty_pay_teachertimg);
+                    Glide.with(context).load(homewokBean.getTPhoto()).into(wok_detail_aty_pay_teachertimg);
                     wok_detail_aty_pay_teachername.setText(homewokBean.getTRealname());
                     wok_detail_aty_pay_teacher_intro.setText(homewokBean.getTIntro());
                     wok_detail_aty_pay_teacher_content.setText(homewokBean.getAnswerContent());
@@ -1020,12 +1028,12 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                         wok_detail_aty_pay_teacher_audio_time.setText(homewokBean.getAnswerDuration());
                     } else if (TextUtils.equals(Constant.PUSH_IMAGE, homewokBean.getAnswerWorksType())) {
                         BitmapHelp.setImageView(context,homewokBean.getAnswerPicProperty(),wok_detail_aty_pay_teacher_introimg);
-
-                        Glide.with(context).load(  homewokBean.getAnswerCoverImg()).into(wok_detail_aty_pay_teacher_introimg);
+                        Glide.with(context).load( homewokBean.getAnswerCoverImg()).into(wok_detail_aty_pay_teacher_introimg);
                         wok_detail_aty_pay_teacher_audio_gorpu.setVisibility(View.GONE);
                         wok_detail_aty_pay_teacher_video_gorpu.setVisibility(View.GONE);
                     } else if (TextUtils.equals(Constant.PUSH_VIDEO, homewokBean.getAnswerWorksType())) {
                         BitmapHelp.setImageView(context,homewokBean.getAnswerPicProperty(),wok_detail_aty_pay_teacher_introimg);
+
                         Glide.with(context).load(homewokBean.getAnswerCoverImg()).into(wok_detail_aty_pay_teacher_introimg);
                         wok_detail_aty_pay_teacher_audio_gorpu.setVisibility(View.GONE);
                         wok_detail_aty_pay_teacher_video_gorpu.setVisibility(View.VISIBLE);
@@ -1042,7 +1050,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
         }
 
         //学生作业内容
-        Glide.with(context).load(homewokBean.getPhoto()).into(wok_detail_aty_studentimg);
+Glide.with(context).load(homewokBean.getPhoto()).into(wok_detail_aty_studentimg);
         wok_detail_aty_studentname.setText(homewokBean.getNickname());
 
         wok_detail_aty_time.setText(TimeShift.getChatTime(homewokBean.getCreateDate()));
@@ -1072,7 +1080,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
         }
 
         if(!TextUtils.isEmpty(homewokBean.getMajorIds())){
-            SplitStringColorUtils.addForeColorSpan(context,homewokBean.getMajorIds().split(","),wok_detail_aty_worktype);
+//            SplitStringColorUtils.addForeColorSpan(context,homewokBean.getMajorIds().split(","),wok_detail_aty_worktype);
         }
 
         wok_detail_aty_praise_num.setText(homewokBean.getPraiseNum()+"");
@@ -1189,7 +1197,7 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
      * 创建旋转动画
      */
     private void createRotateAnimation() {
-        dieAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF ,0.5f, Animation.RELATIVE_TO_SELF,0.5f);
+        dieAnimation = new RotateAnimation(0, 360,Animation.RELATIVE_TO_SELF ,0.5f, Animation.RELATIVE_TO_SELF,0.5f);
         dieAnimation.setFillAfter(true);
         dieAnimation.setDuration(5000);
         dieAnimation.setRepeatCount(-1);
@@ -1220,12 +1228,11 @@ public class WorkDataActivity extends BaseActivity implements View.OnClickListen
                     dashangLists.remove(0);
                 }
                 dashangLists.add(rewardUserListBean);
-                dashangAdapter.notifyDataSetChanged();
+//                dashangAdapter.notifyDataSetChanged();
             }
 
         }
     }
-
 
 
 }

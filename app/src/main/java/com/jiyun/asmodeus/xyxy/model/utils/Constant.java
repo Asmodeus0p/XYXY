@@ -2,17 +2,52 @@ package com.jiyun.asmodeus.xyxy.model.utils;
 
 import android.os.Environment;
 
+/**
+ * 常量设置
+ * <p>
+ * Created by vicoltree on 17/10/24.
+ */
 
 public class Constant {
 
     public static final int SuccessCode = 0;
     public static final int MinpassLength = 6;
+
+    /**
+     * successCode
+     */
+
+
     public static final int RECODE_AUTH_SUCCESS = 11;
+
+
+    /**
+     * connectTimeout
+     */
     public static final int ConnectTimeout = 15;
+
+    /**
+     * readTimeout
+     */
     public static final int ReadTimeout = 20;
+
+    /**
+     * WriteTimeout
+     */
     public static final int WriteTimeout = 20;
+
+    /**
+     * 列表显示条目数
+     */
     public static final int List_rows = 10;
+    /**
+     * 应用版本号
+     */
     public static final String APP_VERSION = "1.0.0";
+
+    /**
+     * Cookie本地保存文件名字
+     */
     public static final String CookieSP = "xyxy_cookiesp";
     public static final String CookieName = "xyxy_cookiename";
     public static final String AppToken = "xyxy_apptoken";

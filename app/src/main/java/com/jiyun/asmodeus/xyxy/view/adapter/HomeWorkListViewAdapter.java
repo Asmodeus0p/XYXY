@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.jiyun.asmodeus.xyxy.App;
 import com.jiyun.asmodeus.xyxy.R;
+import com.jiyun.asmodeus.xyxy.model.entity.HomeWokListBean;
 import com.jiyun.asmodeus.xyxy.model.entity.WorkBean;
 import com.jiyun.asmodeus.xyxy.model.utils.BitmapHelp;
 import com.jiyun.asmodeus.xyxy.model.utils.Constant;
@@ -40,6 +41,7 @@ public class HomeWorkListViewAdapter extends BaseAdapter {
     private OnItemShareClick onItemShareClick;
 
     private List<WorkBean.DataBean.ListBean> homewoksBeen;
+
 
     public interface OnItemShareClick {
 
