@@ -32,12 +32,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-</android.support.design.widget.TabLayout>
-    <com.jiyun.asmodeus.xyxy.model.utils.ControlScrollViewPager
+    </android.support.design.widget.TabLayout>
+    <com.jiyun.asmodeus.xyxy.view.ui.CustomViewPager
         android:id="@+id/dingdanViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    </com.jiyun.asmodeus.xyxy.view.ui.CustomViewPager>
 
-    </com.jiyun.asmodeus.xyxy.model.utils.ControlScrollViewPager>
+
 
 </LinearLayout>

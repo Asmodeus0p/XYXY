@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.jiyun.asmodeus.xyxy.R;
-import com.jiyun.asmodeus.xyxy.model.utils.ControlScrollViewPager;
+
 import com.jiyun.asmodeus.xyxy.view.adapter.FavoritesAdapter;
 import com.jiyun.asmodeus.xyxy.view.fragment.FavoritesFragment;
-import com.jiyun.asmodeus.xyxy.view.fragment.FavotiteTiyaFragment;
+import com.jiyun.asmodeus.xyxy.view.ui.CustomViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,8 @@ public class FavoritesAty extends AppCompatActivity {
     @BindView(R.id.favorites_tab)
     TabLayout favoritesTab;
     @BindView(R.id.favorites_ViewPager)
-    ControlScrollViewPager favoritesViewPager;
+    CustomViewPager favoritesViewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class FavoritesAty extends AppCompatActivity {
         mTitle.add("偷听作业");
         mTitle.add("帖子");
         for (int i = 0; i < mTitle.size(); i++) {
-           // favotiteTiyaFragment=new FavotiteTiyaFragment();
+            // favotiteTiyaFragment=new FavotiteTiyaFragment();
             favoritesFragment = new FavoritesFragment();
             mList.add(favoritesFragment);
         }
@@ -64,6 +65,6 @@ public class FavoritesAty extends AppCompatActivity {
 
     @OnClick(R.id.my_collect_aty_title_cancle)
     public void onViewClicked() {
-       finish();
+        finish();
     }
 }
