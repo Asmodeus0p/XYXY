@@ -40,9 +40,14 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support:cardview-v7:27.1.0'
     implementation 'com.makeramen:roundedimageview:2.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.3.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation files('libs/umeng-share-QQ-simplify-6.9.1.jar')
     implementation files('libs/pldroid-player-2.0.2.jar')
+    implementation files('libs/pldroid-shortvideo-1.6.0.jar')
+    implementation 'com.bm.photoview:library:1.4.1'
+    implementation  'com.qiniu:qiniu-android-sdk:7.3.10'
+
 }

@@ -1,6 +1,7 @@
 package com.jiyun.asmodeus.xyxy.view.fragment;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -27,6 +28,7 @@ import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.presenter.WorkPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
+import com.jiyun.asmodeus.xyxy.view.fragment.workactivity.PublishRedactWokDetailActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.workactivity.PublishSelectWokListActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.LoadMoreListView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -64,9 +66,13 @@ public class WorkFragment extends BaseFragment implements WorkContract.WorkView,
     private RelativeLayout home_work_fragment_listview_fault;
     private NestedScrollView home_work_fragment_nestscroll;
     private SmartRefreshLayout home_work_fragment_swipe;
-    private List<WorkBean.DataBean.ListBean> homewoksBeen= new ArrayList<>();;
-    private List<WorkBean.DataBean.ListBean> homewoksBeen1= new ArrayList<>();;
-    private List<WorkBean.DataBean.ListBean> homewoksBeen2= new ArrayList<>();;
+    private List<WorkBean.DataBean.ListBean> homewoksBeen = new ArrayList<>();
+    ;
+    private List<WorkBean.DataBean.ListBean> homewoksBeen1 = new ArrayList<>();
+    ;
+    private List<WorkBean.DataBean.ListBean> homewoksBeen2 = new ArrayList<>();
+    ;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_work;
@@ -105,6 +111,7 @@ public class WorkFragment extends BaseFragment implements WorkContract.WorkView,
         home_work_fragment_listen_group.setOnClickListener(this);
         home_work_fragment_comment_group.setOnClickListener(this);
         home_work_fragment_publishwok_group.setOnClickListener(this);
+        home_work_fragment_publishaskwok_group.setOnClickListener(this);
 
     }
 
@@ -116,7 +123,7 @@ public class WorkFragment extends BaseFragment implements WorkContract.WorkView,
     @Override
     public void laodWorkZhiNeng(WorkBean workBean) {
         homewoksBeen.addAll(workBean.getData().getList());
-        adapter = new HomeWorkListViewAdapter(App.context,homewoksBeen);
+        adapter = new HomeWorkListViewAdapter(App.context, homewoksBeen);
         home_work_fragment_listview.setAdapter(adapter);
     }
 
@@ -138,28 +145,36 @@ public class WorkFragment extends BaseFragment implements WorkContract.WorkView,
                 home_work_fragment_capacity_line.setVisibility(View.VISIBLE);
                 home_work_fragment_listen_line.setVisibility(View.INVISIBLE);
                 home_work_fragment_comment_line.setVisibility(View.INVISIBLE);
-                adapter = new HomeWorkListViewAdapter(App.context,homewoksBeen);
+                adapter = new HomeWorkListViewAdapter(App.context, homewoksBeen);
                 home_work_fragment_listview.setAdapter(adapter);
                 break;
             case R.id.home_work_fragment_listen_group:
                 home_work_fragment_capacity_line.setVisibility(View.INVISIBLE);
                 home_work_fragment_listen_line.setVisibility(View.VISIBLE);
                 home_work_fragment_comment_line.setVisibility(View.INVISIBLE);
-                adapter = new HomeWorkListViewAdapter(App.context,homewoksBeen1);
+                adapter = new HomeWorkListViewAdapter(App.context, homewoksBeen1);
                 home_work_fragment_listview.setAdapter(adapter);
                 break;
             case R.id.home_work_fragment_comment_group:
                 home_work_fragment_capacity_line.setVisibility(View.INVISIBLE);
                 home_work_fragment_listen_line.setVisibility(View.INVISIBLE);
                 home_work_fragment_comment_line.setVisibility(View.VISIBLE);
-                adapter = new HomeWorkListViewAdapter(App.context,homewoksBeen2);
+                adapter = new HomeWorkListViewAdapter(App.context, homewoksBeen2);
                 home_work_fragment_listview.setAdapter(adapter);
                 break;
             case R.id.home_work_fragment_publishwok_group:
                 if (SharedPreferencesUtils.isLogin(getActivity())) {
                     startActivity(new Intent(getActivity(), PublishSelectWokListActivity.class));
-                }else{
-                    startActivity(new Intent(getActivity(),LoginActivity.class));
+                } else {
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
+
+                break;
+            case R.id.home_work_fragment_publishaskwok_group:
+                if (SharedPreferencesUtils.isLogin(getActivity())) {
+                    PublishRedactWokDetailActivity.start((Activity) getActivity(),0,PublishRedactWokDetailActivity.QIUJIAOZUOYE);
+                } else {
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
 
                 break;

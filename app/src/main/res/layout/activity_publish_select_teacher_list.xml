@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/ts_26"
+        android:layout_height="@dimen/ts_44">
+
+        <TextView
+            android:id="@+id/publish_select_teacher_listayt_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/cancle_bg_style" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="指定名师"
+            android:textSize="@dimen/ts_18"
+            android:textColor="@color/blue_arlt"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            style="@style/login_line_style"
+            android:layout_alignParentBottom="true"
+            android:layout_height="@dimen/ts_1" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/publish_select_teacher_recyclerview"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:cacheColorHint="@color/transparent"
+        android:fadingEdge="none"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
