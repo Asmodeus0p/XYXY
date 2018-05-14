@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -28,6 +29,7 @@ import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.presenter.WorkPresenterImp;
 import com.jiyun.asmodeus.xyxy.view.adapter.HomeWorkListViewAdapter;
 import com.jiyun.asmodeus.xyxy.view.base.BaseFragment;
+import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.WorkDataActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.workactivity.PublishRedactWokDetailActivity;
 import com.jiyun.asmodeus.xyxy.view.fragment.workactivity.PublishSelectWokListActivity;
 import com.jiyun.asmodeus.xyxy.view.ui.LoadMoreListView;
@@ -125,6 +127,17 @@ public class WorkFragment extends BaseFragment implements WorkContract.WorkView,
         homewoksBeen.addAll(workBean.getData().getList());
         adapter = new HomeWorkListViewAdapter(App.context, homewoksBeen);
         home_work_fragment_listview.setAdapter(adapter);
+        home_work_fragment_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if(homewoksBeen.isEmpty()){
+                    return;
+                }
+
+                WorkDataActivity.start((Activity) getActivity(),homewoksBeen.get(position).getId());
+            }
+        });
     }
 
     @Override

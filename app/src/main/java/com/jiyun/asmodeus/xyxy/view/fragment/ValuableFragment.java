@@ -7,6 +7,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -85,6 +86,10 @@ public class ValuableFragment extends BaseFragment implements ValiableContract.V
         zuixinpinglun.setId(COMMENT);
         zuixinpinglun.setName(COMMENT_STR);
         contentSortlis.add(0, zuixinpinglun);
+        HomeValuanleBean.DataBean.ArtcircleCategoriesBean zuixinfenxiang = new HomeValuanleBean.DataBean.ArtcircleCategoriesBean();
+        zuixinfenxiang.setId(COMMENT);
+        zuixinfenxiang.setName("经验分享");
+        contentSortlis.add(0, zuixinfenxiang);
         HomeValuanleBean.DataBean.ArtcircleCategoriesBean zanshuzuiduo = new HomeValuanleBean.DataBean.ArtcircleCategoriesBean();
         zanshuzuiduo.setId(LISTEN);
         zanshuzuiduo.setName(LISTEN_STR);
@@ -103,8 +108,8 @@ public class ValuableFragment extends BaseFragment implements ValiableContract.V
             @Override
             public void onItemClickListener(int position) {
                 if (position==0) {
-                    home_valuable_fragment_listview.setVisibility(View.VISIBLE);
-                    listview_empty.setVisibility(View.GONE);
+                    home_valuable_fragment_listview.setVisibility(View.GONE);
+                    listview_empty.setVisibility(View.VISIBLE);
                     adapter = new HomeValuableListViewAdapter(getContext(), homevaluableBeen);
                     home_valuable_fragment_listview.setAdapter(adapter);
                 }if (position==1) {
@@ -113,8 +118,8 @@ public class ValuableFragment extends BaseFragment implements ValiableContract.V
                     adapter = new HomeValuableListViewAdapter(getContext(), homevaluableBeen1);
                     home_valuable_fragment_listview.setAdapter(adapter);
                 }if (position==2) {
-                    home_valuable_fragment_listview.setVisibility(View.VISIBLE);
-                    listview_empty.setVisibility(View.GONE);
+                    home_valuable_fragment_listview.setVisibility(View.GONE);
+                    listview_empty.setVisibility(View.VISIBLE);
                     adapter = new HomeValuableListViewAdapter(getContext(), homevaluableBeen2);
                     home_valuable_fragment_listview.setAdapter(adapter);
                 }if (position>2) {
@@ -135,11 +140,15 @@ public class ValuableFragment extends BaseFragment implements ValiableContract.V
 
     @Override
     public void laodWorkZhiNeng(final HomeValuanleBean workBean) {
+        if (workBean.getData().getSystemAds().get(0).equals("")) {
+            listview_empty.setVisibility(View.VISIBLE);
+        }
         contentSortlis.addAll(workBean.getData().getArtcircleCategories());
         sortAdapter.notifyDataSetChanged();
         ArrayList<String> urls = new ArrayList<>();
         for (HomeValuanleBean.DataBean.SystemAdsBean systemAdsBean : workBean.getData().getSystemAds()) {
            urls.add(systemAdsBean.getMobileImgUrl()) ;
+            Log.e("urls",systemAdsBean.getMobileImgUrl());
         }
         advViewpager.setImagesUrl(urls);
         homevaluableBeen.addAll(workBean.getData().getArtcircleList().getList());
@@ -147,14 +156,18 @@ public class ValuableFragment extends BaseFragment implements ValiableContract.V
 
     @Override
     public void laodWorkZanShu(final HomeValuanleBean workBean) {
-
+        if (workBean.getData().getArtcircleList().getList()==null) {
+            listview_empty.setVisibility(View.VISIBLE);
+        }
         homevaluableBeen1.addAll(workBean.getData().getArtcircleList().getList());
 
     }
 
     @Override
     public void laodWorkZuiXin(final HomeValuanleBean workBean) {
-
+        if (workBean.getData().getArtcircleList().getList()==null) {
+            listview_empty.setVisibility(View.VISIBLE);
+        }
         homevaluableBeen2.addAll(workBean.getData().getArtcircleList().getList());
     }
 

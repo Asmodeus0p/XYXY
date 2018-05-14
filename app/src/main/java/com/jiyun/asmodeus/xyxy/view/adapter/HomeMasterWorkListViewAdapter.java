@@ -24,6 +24,7 @@ import com.jiyun.asmodeus.xyxy.model.utils.Constant;
 import com.jiyun.asmodeus.xyxy.model.utils.SharedPreferencesUtils;
 import com.jiyun.asmodeus.xyxy.model.utils.SplitStringColorUtils;
 import com.jiyun.asmodeus.xyxy.model.utils.TimeShift;
+import com.jiyun.asmodeus.xyxy.view.fragment.homeactivity.WorkDataActivity;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -176,7 +177,7 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
 
         }
 
-        //是否有老师点评
+
         if (homewoksBeen.get(position).getAnswerDate() != 0) {
 
             if (homewoksBeen.get(position).getAnswerPermission() == Constant.NOTFAVORITE) {
@@ -249,6 +250,7 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 viewHolder.reply_cb.setChecked(false);
+                WorkDataActivity.start((Activity) context,homewoksBeen.get(position).getId());
 
             }
         });
@@ -256,7 +258,7 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 viewHolder.reply_cb.setChecked(false);
-
+                WorkDataActivity.start((Activity) context,homewoksBeen.get(position).getId());
             }
         });
 
@@ -312,14 +314,14 @@ public class HomeMasterWorkListViewAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 viewHolder.reward_cb.setChecked(true);
-
+                WorkDataActivity.start((Activity) context,homewoksBeen.get(position).getId());
             }
         });
         viewHolder.reward_cb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewHolder.reward_cb.setChecked(true);
-
+                WorkDataActivity.start((Activity) context,homewoksBeen.get(position).getId());
             }
         });
 

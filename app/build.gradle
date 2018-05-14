@@ -48,6 +48,13 @@ dependencies {
     implementation files('libs/pldroid-player-2.0.2.jar')
     implementation files('libs/pldroid-shortvideo-1.6.0.jar')
     implementation 'com.bm.photoview:library:1.4.1'
-    implementation  'com.qiniu:qiniu-android-sdk:7.3.10'
-
+    implementation 'com.qiniu:qiniu-android-sdk:7.3.10'
+    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    implementation files('libs/umeng-common-1.5.1.jar')
+    implementation files('libs/umeng-debug-1.0.0.jar')
+    implementation files('libs/umeng-shareboard-widget-6.9.1.jar')
+    implementation files('libs/umeng-share-core-6.9.1.jar')
+    implementation files('libs/umeng-sharetool-6.9.1.jar')
+    implementation files('libs/utdid4all-1.1.5.3_proguard.jar')
+    implementation files('libs/alipaySdk-20170922.jar')
 }
