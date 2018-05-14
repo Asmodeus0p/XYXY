@@ -3,6 +3,7 @@ package com.jiyun.asmodeus.xyxy.model.utils;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.jiyun.asmodeus.xyxy.App;
+import com.jiyun.asmodeus.xyxy.model.biz.AliPayService;
 import com.jiyun.asmodeus.xyxy.model.biz.AppTokenService;
 import com.jiyun.asmodeus.xyxy.model.biz.CancleFavoriteService;
 import com.jiyun.asmodeus.xyxy.model.biz.CenterService;
@@ -131,6 +132,9 @@ public class RetrofitUtils {
 
     public IMyselfFavoriteZhiBoService getIMyselfFavoriteZhiBoService(){
             return retrofit.create(IMyselfFavoriteZhiBoService.class);
+    }
+    public AliPayService getAiliPayOrderNo(){
+        return retrofit.create(AliPayService.class);
     }
 }
 
