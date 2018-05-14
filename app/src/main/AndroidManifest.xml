@@ -97,7 +97,6 @@
         <activity android:name=".view.fragment.homeactivity.ValuableDetailCommentActivity" />
         <activity android:name=".view.fragment.homeactivity.VideoDetailActivity" />
 
-        <!-- 第三方 -->
 
         <activity
             android:name="com.tencent.tauth.AuthActivity"
