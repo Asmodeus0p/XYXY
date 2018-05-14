@@ -13,7 +13,7 @@ import com.jiyun.asmodeus.xyxy.model.entity.CenterBean;
 
 import java.util.List;
 
-public class VoucherCenterAdapter extends RecyclerView.Adapter<VoucherCenterAdapter.Holder> {
+public class VoucherCenterAdapter extends RecyclerView.Adapter<VoucherCenterAdapter.Holder> implements View.OnClickListener{
 
     private List<CenterBean.DataBean> data;
     private Context context;
@@ -26,6 +26,7 @@ public class VoucherCenterAdapter extends RecyclerView.Adapter<VoucherCenterAdap
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.center_item, null);
+        view.setOnClickListener(this);
         return new Holder(view);
     }
 
@@ -34,12 +35,15 @@ public class VoucherCenterAdapter extends RecyclerView.Adapter<VoucherCenterAdap
         CenterBean.DataBean dataBean = data.get(position);
         holder.recharge_center_listitem_amount.setText(dataBean.getAmountAndroid()+"");
         holder.recharge_center_listitem_price.setText(dataBean.getPriceAndroid()+"");
+        holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
         return data.size();
     }
+
+
 
     public class Holder extends RecyclerView.ViewHolder {
         public TextView recharge_center_listitem_amount;
@@ -51,4 +55,18 @@ public class VoucherCenterAdapter extends RecyclerView.Adapter<VoucherCenterAdap
             recharge_center_listitem_price = itemView.findViewById(R.id.recharge_center_listitem_price);
         }
     }
+    public interface OnClick {
+        void setOnClickListener(View v,int postion);
+    }
+    public OnClick onClick;
+
+    @Override
+    public void onClick(View v) {
+        if (onClick!=null){
+            onClick.setOnClickListener(v,(int)v.getTag());
+        }
+    }
+        public void setClick(OnClick onClick){
+                this.onClick=onClick;
+        }
 }

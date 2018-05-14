@@ -72,6 +72,16 @@ public class VoucherCenterActivity extends AppCompatActivity implements View.OnC
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recharge_center_aty_recyclerview.setLayoutManager(manager);
 
+
+        //item监听 在里面调用AiPay代码
+
+        adapter.setClick(new VoucherCenterAdapter.OnClick() {
+            @Override
+            public void setOnClickListener(View v, int postion) {
+
+            }
+        });
+
     }
 
 
